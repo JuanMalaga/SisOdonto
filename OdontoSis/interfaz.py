@@ -1,4 +1,5 @@
 from tkinter import PhotoImage
+from tkinter import ttk
 import tkinter as tk
 
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
@@ -8,7 +9,7 @@ root.title("SIDECO")
 root.config(bg="#88BFF3")
 root.resizable(0,0)
 root.iconbitmap('./odonto.ico')
-root.geometry("1485x800+500+100")
+root.geometry("1480x800+500+100")
 
 
 # BOTON ESTADO DEL NAVBAR
@@ -65,8 +66,28 @@ capas = tk.Label(root, bg="white", width=30, height=39)
 capas.place(x=90, y=140)
 
 # CAPAS
-capas = tk.Label(root, bg="white", width=30, height=12)
-capas.place(x=1200, y=140)
+capas = tk.Label(root, bg="#F2F788", height=12, bd=0)
+capas.place(x=1194, y=140)
+
+for i in range(7):
+    estilo = ttk.Style()
+    estilo.configure("Line.TSeparator", background="#000000")
+    line = ttk.Separator(capas, orient=tk.VERTICAL, style="Line.TSeparator").grid(row=i, column=1, sticky="ns")
+
+for i in range(6):
+    if(i%2!=0):
+        estilo = ttk.Style()
+        estilo.configure("Line.TSeparator", background="#000000")
+        ttk.Separator(capas, orient=tk.HORIZONTAL, style="Line.TSeparator").grid(row=i, column=0, columnspan=3, sticky="EW")
+
+tk.Label(capas, background="#F2F788", text="CAPAS", font="Barlow 11").grid(padx=20, pady=5,row=0, column=0, sticky="nsw")
+tk.Label(capas, background="#F2F788", text="VISIBILIDAD",font="Barlow 11").grid(padx=20, pady=5,row=0, column=2, sticky="w")
+tk.Label(capas, background="#F2F788", text="Dientes", font="Barlow 10").grid(padx=20, pady=5, row=2, column=0, sticky="nsw")
+tk.Checkbutton(capas, background="#F2F788", activebackground="#F2F788", command="mostrar_dientes").grid(padx=20, pady=5,row=2, column=2)
+tk.Label(capas, background="#F2F788", text="Bosquejo", font="Barlow 10").grid(padx=20, pady=5, row=4, column=0, sticky="nsw")
+tk.Checkbutton(capas, background="#F2F788", activebackground="#F2F788",command="mostrar_boquejo").grid(padx=20, pady=5,row=4, column=2)
+tk.Label(capas, background="#F2F788", text="Fondo", font="Barlow 10").grid(padx=20, pady=5,row=6, column=0, sticky="nsw")
+tk.Checkbutton(capas, background="#F2F788", activebackground="#F2F788",command="mostrar_fondo").grid(padx=20, pady=5,row=6, column=2)
 
 # MARCA DE AGUA FO
 homeLabel = tk.Label(topFrame, text="FO - UNMSM", font="Bahnschrift 15", bg=color["celeste"], fg="gray17", height=2, padx=20)
@@ -78,7 +99,7 @@ brandLabel.place(x=360, y=22)
 
 # IMAGEN GENERAL
 muestra = tk.PhotoImage(file="./src/img02.png")
-w1 = tk.Label(root, image=muestra)
+w1 = tk.Label(root, image=muestra, cursor="dot")
 w1.place(x=380,y=140)
 
 #IMAGEN PREVISUALIZACION
