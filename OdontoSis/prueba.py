@@ -28,7 +28,7 @@ class Aplicacion:
         diente9=tk.PhotoImage(file="./src/IncisivoCentral_D_I.png")
         self.canvas.create_image(335, 485, image=diente9, anchor="nw")
         diente10=tk.PhotoImage(file="./src/IncisivoLateral_D_I.png")
-        self.canvas.create_image(405, 460, image=diente10, anchor="nw")
+        self.canvas.create_image(405, 460, image=diente10, anchor="nw", tag="diente10")
         diente11=tk.PhotoImage(file="./src/Canino_D_I.png")
         self.canvas.create_image(450, 450, image=diente11, anchor="nw")
         diente12=tk.PhotoImage(file="./src/PrimerPreMolar_D_I.png")
@@ -47,9 +47,14 @@ class Aplicacion:
         self.labelframe=ttk.LabelFrame(self.ventana,text="Opciones")
         self.labelframe.grid(column=1, row=0, sticky="w", padx=5, pady=5)
         self.boton1=ttk.Button(self.labelframe, text="Borrar", command=self.borrar_linea)
-        self.boton1.grid(column=0, row=0, padx=5) 
+        self.boton1.grid(column=0, row=0, padx=5, pady=50) 
+        self.boton2=ttk.Button(self.labelframe, text="Borrar 2", command=self.borrar_diente)
+        self.boton2.grid(column=1, row=0, padx=5, pady=100) 
 
     def borrar_linea(self):
         self.canvas.delete("diente16")
+
+    def borrar_diente(self):
+        self.canvas.delete("diente10")
 
 aplicacion=Aplicacion()
