@@ -1,7 +1,5 @@
 from tkinter import PhotoImage
-import tkinter as tk
 from tkinter import ttk
-
 import tkinter as tk
 
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
@@ -57,7 +55,7 @@ topFrame = tk.Frame(root, bg=color["celeste"])
 topFrame.pack(side="top", fill=tk.X)
 
 # BOTONES
-botonbo= tk.Button(root, command="Borrar", text="Borrar", width=14)
+botonbo= tk.Button(root, text="Borrar", width=14)
 botonbo.place(x=1200,y=600)
 
 botonre= tk.Button(root, text="Restablecer", width=14)
@@ -121,14 +119,12 @@ tk.Label(navRoot, font="Bahnschrift 15", bg=color["gris"], fg="white", height=2,
 # INICIALIZAR Y PARA OPCIONES
 y = 80
 # OPCIONES
-options = ["Guardar Como", "Vista Interna", "Vista Frontal", "Herramientas", "Salir"]
+options = ["Guardar Como", "Vista Interna", "Vista Frontal", "Herramientas", "Acerca De"]
 
 # BOTONES DE OPCIONES
 for i in range(5):
     tk.Button(navRoot, text=options[i], font="BahnschriftLight 12", bg="gray17", fg=color["gris"], activebackground="grey17", activeforeground="white", bd=0).place(x=20, y=y)
     y += 40
-
-
 
 # BOTON PARA CERRAR MENU VERTICAL
 closeBtn = tk.Button(navRoot, image=closeIcon, bg=color["gris"], activebackground=color["gris"], bd=0, command=switch)
