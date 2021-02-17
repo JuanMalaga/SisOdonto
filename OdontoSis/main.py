@@ -12,30 +12,24 @@ import creador_dientes
 Dientes = [1,4,5,2,3,10,6,7,8,9,11,12,13,14,15,16]
 Dientes.sort()
 
-#arreglos
-lista = [1, 2.5, 'DevCode', [5,6] ,4]
-
 
 #configurar la ventana
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
-
 Ventana_Principal = tk.Tk()
-
 Ventana_Principal.columnconfigure(0, weight=1)
 Ventana_Principal.rowconfigure(0,weight=1)
 Ventana_Principal.title("SIDECO")
 Ventana_Principal.config(bg="#88BFF3")
-#Ventana_Principal.resizable(0,0)
 Ventana_Principal.iconbitmap('./odonto.ico')
 Ventana_Principal.geometry("1480x900+550+250")
-Ventana_Principal.overrideredirect(True)
+
+#Ventana_Principal.overrideredirect(True)
 #botonre= tk.Button(Ventana_Principal, text="Restablecer", width=14)
 #botonre.place(x=1305,y=600)
 
 # IMAGEN GENERAL
 
 graficador = prueba.Graficador(Ventana_Principal, Dientes)
-
 canvas = graficador.canvas
 canvas.place(x=520, y=160)
 
