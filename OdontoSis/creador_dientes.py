@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image
 from tkinter import ttk
-
+import variables
 
 class Graficador:
     
@@ -15,8 +15,8 @@ class Graficador:
     dientes: tk.PhotoImage = []
     
 
-    def __init__(self, ventana, canvas, Dientes):
-        self.Dientes = Dientes
+    def __init__(self, ventana, canvas, variables):
+        self.Dientes = variables.Dientes
         self.pos_x_ini = 78
         self.pos_y_ini = 43
         self.ventana = ventana

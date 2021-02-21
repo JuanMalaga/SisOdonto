@@ -9,11 +9,9 @@ import prueba
 import clases
 import creador_dientes
 import creador_retenedores
+import variables  
 
-
-#Arreglos
-Dientes = [1, 4, 5, 2, 3, 10, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16]
-Dientes.sort()
+var = variables.VarGlo()
 
 #actual
 actual = ""
@@ -32,7 +30,7 @@ Ventana_Principal.geometry("1480x900+550+250")
 # Declaracion Elementos de la GUI
 
 canvas = tk.Canvas(Ventana_Principal, width=800, height=700)
-graficador = creador_dientes.Graficador(Ventana_Principal, canvas, Dientes)
+graficador = creador_dientes.Graficador(Ventana_Principal, canvas, var)
 canvas.place(x=520, y=160)
 frame = Frame(Ventana_Principal)
 frame.place(x=150, y=160)
@@ -168,15 +166,14 @@ diente16 = tk.IntVar(value=1)
 
 def Listener(variable, n):
     if variable.get():
-        Dientes.append(n)
-        Dientes.sort()
+        var.agregarDiente(n)
        
     else:
-        if(Dientes.count(n) > 0):
-            Dientes.remove(n)
-            Dientes.sort()
+        if(var.Dientes.count(n) > 0):
+            var.Dientes.remove(n)
+            var.Dientes.sort()
             
-    graficador.actualizar(Dientes)
+    graficador.actualizar(var.Dientes)
     canvas = graficador.canvas
 
 
