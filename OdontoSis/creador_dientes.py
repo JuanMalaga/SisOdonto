@@ -15,26 +15,16 @@ class Graficador:
     dientes: tk.PhotoImage = []
     
 
-    def __init__(self, ventana, canvas, variables):
-        self.Dientes = variables.Dientes
+    def __init__(self):
+        global var 
+        var = variables.VarGlo()
+        self.Dientes = var.Dientes 
         self.pos_x_ini = 78
         self.pos_y_ini = 43
-        self.ventana = ventana
-        self.canvas =  canvas
-        self.Iniciar_Dentadura()
-
-    def actualizar(self, Dientes):
-        self.Dientes = Dientes
-        self.Iniciar_Dentadura()
-
-    
-
-    def Iniciar_Dentadura(self):
-        self.canvas.delete("all")
-
+        self.ventana = var.ventana
+        self.canvas =  var.canvas
         self.fondo = tk.PhotoImage(file="./src/Base_I_res.png")
         self.canvas.create_image(0, 0, image=self.fondo, anchor="nw")
-
         diente1 = tk.PhotoImage(file="./src/TercerMolar_I_I.png")
         self.dientes.append(diente1)
         diente2 = tk.PhotoImage(file="./src/SegundoMolar_I_I.png")
@@ -67,6 +57,19 @@ class Graficador:
         self.dientes.append(diente15)
         diente16 = tk.PhotoImage(file="./src/TercerMolar_D_I.png")
         self.dientes.append(diente16)
+
+        self.Iniciar_Dentadura()
+
+    def actualizar(self, Dientes):
+        self.Dientes = Dientes
+        self.Iniciar_Dentadura()
+
+    
+
+    def Iniciar_Dentadura(self):
+        self.canvas.delete("all")
+        
+        
 
 
 

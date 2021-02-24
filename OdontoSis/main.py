@@ -11,7 +11,7 @@ import creador_dientes
 import creador_retenedores
 import variables  
 
-var = variables.VarGlo()
+
 
 #actual
 actual = ""
@@ -27,17 +27,25 @@ Ventana_Principal.config(bg="#88BFF3")
 Ventana_Principal.iconbitmap('./odonto.ico')
 Ventana_Principal.geometry("1480x900+550+250")
 
+
 # Declaracion Elementos de la GUI
 
 canvas = tk.Canvas(Ventana_Principal, width=800, height=700)
-graficador = creador_dientes.Graficador(Ventana_Principal, canvas, var)
 canvas.place(x=520, y=160)
+print(canvas)
 frame = Frame(Ventana_Principal)
 frame.place(x=150, y=160)
+frame2 = Frame(Ventana_Principal, width=352, height=240)
+frame2.place(x=150, y=619)
+
+#globalizando para todos los archivos
+
+var = variables.VarGlo()
+var.agregar_Interfaz(Ventana_Principal,canvas)
 
 # Inicializacion de las fases
 
-GUI_fase_3 = creador_retenedores.Graficador_retenedores(Ventana_Principal, canvas, frame, actual)
+
 
 # FASES
 btn_font = Font(family="Roboto Mono", size=12)
@@ -61,10 +69,6 @@ botonre1.bind("<Leave>", on_leave_fase_1)
 
 def on_enter_fase_2(e_fase_2):
     botonre2["background"] = "#4dffc3"
-    w2.destroy()
-    for widget in frame.winfo_children():
-            widget.destroy()
-
     
 def on_leave_fase_2(e_fase_2):
     botonre2["background"] = "SystemButtonFace"
@@ -80,9 +84,7 @@ botonre2.bind("<Leave>", on_leave_fase_2)
 
 def on_enter_fase_3(e):
     botonre3["background"] = "#4dffc3"
-    GUI_fase_3.cambio_fase()
-    w2.destroy()
-
+    
 def on_leave_fase_3(e):
     botonre3["background"] = "SystemButtonFace"
 
@@ -141,88 +143,6 @@ botonre6.place(x=1122, y=80)
 
 botonre6.bind("<Enter>", on_enter)
 botonre6.bind("<Leave>", on_leave)
-
-# VARIABLES
-
-diente1 = tk.IntVar(value=1)
-diente2 = tk.IntVar(value=1)
-diente3 = tk.IntVar(value=1)
-diente4 = tk.IntVar(value=1)
-diente5 = tk.IntVar(value=1)
-diente6 = tk.IntVar(value=1)
-diente7 = tk.IntVar(value=1)
-diente8 = tk.IntVar(value=1)
-diente9 = tk.IntVar(value=1)
-diente10 = tk.IntVar(value=1)
-diente11 = tk.IntVar(value=1)
-diente12 = tk.IntVar(value=1)
-diente13 = tk.IntVar(value=1)
-diente14 = tk.IntVar(value=1)
-diente15 = tk.IntVar(value=1)
-diente16 = tk.IntVar(value=1)
-
-# OPCIONES DE BORRADO
-
-
-def Listener(variable, n):
-    if variable.get():
-        var.agregarDiente(n)
-       
-    else:
-        if(var.Dientes.count(n) > 0):
-            var.Dientes.remove(n)
-            var.Dientes.sort()
-            
-    graficador.actualizar(var.Dientes)
-    canvas = graficador.canvas
-
-
-
-
-tk.Label(frame, text="¿Qué dientes desea eliminar?",
-         font="Bahnschrift 10", width=50).pack(anchor="w")
-tk.Checkbutton(frame, text="Tercer Molar Izquierdo (48)", variable=diente1,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente1, 1)).pack(anchor="w")
-tk.Checkbutton(frame, text="Segundo Molar Izquierdo (47)", variable=diente2,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente2, 2)).pack(anchor="w")
-tk.Checkbutton(frame, text="Primer Molar Izquierdo (46)", variable=diente3,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente3, 3)).pack(anchor="w")
-tk.Checkbutton(frame, text="Segundo Premolar Izquierdo (45)", variable=diente4,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente4, 4)).pack(anchor="w")
-tk.Checkbutton(frame, text="Primer Premolar Izquierdo (44)", variable=diente5,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente5, 5)).pack(anchor="w")
-tk.Checkbutton(frame, text="Canino (Cúspide) Izquierdo (43)", variable=diente6,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente6, 6)).pack(anchor="w")
-tk.Checkbutton(frame, text="Incisivo Lateral Izquierdo (42)", variable=diente7,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente7, 7)).pack(anchor="w")
-tk.Checkbutton(frame, text="Incisivo Central Izquierdo (41)", variable=diente8,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente8, 8)).pack(anchor="w")
-tk.Checkbutton(frame, text="Incisivo Central Derecho (31)", variable=diente9,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente9, 9)).pack(anchor="w")
-tk.Checkbutton(frame, text="Incisivo Lateral Derecho (32)", variable=diente10,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente10, 10)).pack(anchor="w")
-tk.Checkbutton(frame, text="Canino (Cúspide) Derecho (33)", variable=diente11,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente11, 11)).pack(anchor="w")
-tk.Checkbutton(frame, text="Primer Premolar Derecho (34)", variable=diente12,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente12, 12)).pack(anchor="w")
-tk.Checkbutton(frame, text="Segundo Premolar Derecho (35)", variable=diente13,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente13, 13)).pack(anchor="w")
-tk.Checkbutton(frame, text="Primer Molar Derecho (36)", variable=diente14,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente14, 14)).pack(anchor="w")
-tk.Checkbutton(frame, text="Segundo Molar Derecho (37)", variable=diente15,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente15, 15)).pack(anchor="w")
-tk.Checkbutton(frame, text="Tercer Molar Derecho (38)", variable=diente16,
-               onvalue=1, offvalue=0, command=lambda: Listener(diente16, 16)).pack(anchor="w")
-
-monitor = Label(frame)
-monitor.pack()
-
-# IMAGEN DE TIPO DE DIENTES
-tipos = tk.PhotoImage(file="./src/tipos.png")
-w2 = tk.Label(Ventana_Principal, image=tipos,
-              bg="white", width=352, height=240)
-w2.place(x=150, y=619)
-
 
 # BOTON ESTADO DEL NAVBAR
 btnState = False
@@ -302,8 +222,6 @@ closeBtn = tk.Button(navRoot, image=closeIcon,
 closeBtn.place(x=110, y=10)
 
 # CERRAR VENTANA
-
-
 def salir():
     respuesta = mb.askyesno(
         "Alerta de Salida", "¿Está seguro que salir del programa? Los cambios no guardados serán descartados")
@@ -317,5 +235,7 @@ tk.Button(navRoot, text=options[4], font="BahnschriftLight 12", bg="gray17", fg=
 brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA",
                       font="Bahnschrift 30", bg=color["celeste"], fg="black")
 brandLabel.place(x=340, y=8)
-
+graficador = creador_dientes.Graficador()
 Ventana_Principal.mainloop()
+
+
