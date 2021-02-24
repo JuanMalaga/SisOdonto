@@ -10,7 +10,7 @@ import clases
 import creador_dientes
 import creador_retenedores
 import variables  
-
+from interfaz_fase_1 import inter_1
 
 
 #actual
@@ -32,7 +32,6 @@ Ventana_Principal.geometry("1480x900+550+250")
 
 canvas = tk.Canvas(Ventana_Principal, width=800, height=700)
 canvas.place(x=520, y=160)
-print(canvas)
 frame = Frame(Ventana_Principal)
 frame.place(x=150, y=160)
 frame2 = Frame(Ventana_Principal, width=352, height=240)
@@ -41,11 +40,12 @@ frame2.place(x=150, y=619)
 #globalizando para todos los archivos
 
 var = variables.VarGlo()
-var.agregar_Interfaz(Ventana_Principal,canvas)
+var.agregar_Interfaz(Ventana_Principal,canvas,frame,frame2)
+var.Iniciar_Dentadura()
 
 # Inicializacion de las fases
-
-
+interfaz1 = inter_1()
+interfaz1.cambiar_interfaz()
 
 # FASES
 btn_font = Font(family="Roboto Mono", size=12)
