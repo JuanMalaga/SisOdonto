@@ -23,6 +23,10 @@ class VarGlo(metaclass=SingletonMeta):
     frame : tk.Frame
     frame2 : tk.Frame
     ventana : tk.Tk
+    
+    #actual
+    actual = ""
+    fase_actual = 0
 
     def Iniciar_Dentadura(self):
         self.Dientes = [1, 4, 5, 2, 3, 10, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16]

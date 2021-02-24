@@ -1,9 +1,11 @@
 import variables
 import tkinter as tk
 import creador_dientes as crea
+from interfaz import interfaz
+
 var = variables.VarGlo()
 
-class inter_1:
+class inter_1(interfaz):
 
     # VARIABLES
     
@@ -26,13 +28,17 @@ class inter_1:
         self.diente14 = tk.IntVar(value=1)
         self.diente15 = tk.IntVar(value=1)
         self.diente16 = tk.IntVar(value=1)
-        tipos = tk.PhotoImage(file="./src/tipos.png")
         
-    def cambiar_interfaz (self):
-
-        for widget in var.frame.winfo_children():
-            widget.destroy()
+        
+    def iniciar_interfaz(self):
+        self.cambiar_interfaz()
         self.etiquetas()
+        self.tiposD()
+        graficador  =  crea.Graficador()
+        var.Iniciar_Dentadura()
+        graficador.actualizar()
+        var.canvas = graficador.canvas   
+        
 
     def etiquetas(self):
         tk.Label(frame, text="¿Qué dientes desea eliminar?",
@@ -70,6 +76,11 @@ class inter_1:
         tk.Checkbutton(frame, text="Tercer Molar Derecho (38)", variable=self.diente16,
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente16, 16)).pack(anchor="w")
 
+    def tiposD(self):
+        self.tipos = tk.PhotoImage(file="./src/tipos.png")
+        imagen = tk.Label(var.frame2, image = self.tipos)
+        imagen.pack()
+        
     
     # OPCIONES DE BORRADO
     def Listener(self,variable, n):

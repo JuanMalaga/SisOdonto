@@ -1,9 +1,10 @@
 import tkinter as tk
 from PIL import Image
 from tkinter import ttk
-
-
-class interfaz_fase_3:
+from creador_retenedores import Graficador_retenedores
+from interfaz import interfaz
+from variables import VarGlo
+class interfaz_fase_3(interfaz):
 
     x = 0
     y = 0
@@ -15,10 +16,17 @@ class interfaz_fase_3:
     Retenedores : tk.PhotoImage = []
 
 
-    def __init__ (self, ventana, canvas, frame, actual):
-        self.ventana = ventana
-        self.canvas = canvas
+    def __init__ (self):
+        global graficador 
+        global var
+        var = VarGlo()
+        graficador = Graficador_retenedores()
 
 
-    
+
+    def iniciar_interfaz(self):
+        self.cambiar_interfaz()
+        graficador.crear_botones()
+        
+
         

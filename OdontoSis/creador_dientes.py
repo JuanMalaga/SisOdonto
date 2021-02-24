@@ -24,6 +24,7 @@ class Graficador:
         self.ventana = var.ventana
         self.canvas = var.canvas
         global fondo
+        #declarar todas las imagenes
         fondo = tk.PhotoImage(file="./src/Base_I_res.png")
         diente1 = tk.PhotoImage(file="./src/TercerMolar_I_I.png")
         self.dientes.append(diente1)

@@ -11,11 +11,7 @@ import creador_dientes
 import creador_retenedores
 import variables  
 from interfaz_fase_1 import inter_1
-
-
-#actual
-actual = ""
-fase_actual = 1
+import orquestador_fases
 
 # configurar la ventana
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
@@ -43,106 +39,13 @@ var = variables.VarGlo()
 var.agregar_Interfaz(Ventana_Principal,canvas,frame,frame2)
 var.Iniciar_Dentadura()
 
-# Inicializacion de las fases
+# Inicializacion de la primera fase
 interfaz1 = inter_1()
-interfaz1.cambiar_interfaz()
+interfaz1.iniciar_interfaz()
 
 # FASES
-btn_font = Font(family="Roboto Mono", size=12)
-
-
-def on_enter_fase_1(e):
-    botonre1["background"] = "#4dffc3"
-
-
-def on_leave_fase_1(e):
-    botonre1["background"] = "#4dffc3"
-
-
-botonre1 = tk.Button(Ventana_Principal, text="FASE I\nDIENTES", font=btn_font, bd=0, width=20,
-                     overrelief="flat", cursor="hand1", background="#4dffc3", activebackground="#80ffcc")
-botonre1.place(x=150, y=80)
-
-botonre1.bind("<Enter>", on_enter_fase_1)
-botonre1.bind("<Leave>", on_leave_fase_1)
-
-
-def on_enter_fase_2(e_fase_2):
-    botonre2["background"] = "#4dffc3"
-    
-def on_leave_fase_2(e_fase_2):
-    botonre2["background"] = "SystemButtonFace"
-
-
-botonre2 = tk.Button(Ventana_Principal, text="FASE II\nAPOYOS", font=btn_font,
-                     bd=0, width=20, overrelief="flat", cursor="hand1", activebackground="#80ffcc")
-botonre2.place(x=330, y=80)
-
-botonre2.bind("<Enter>", on_enter_fase_2)
-botonre2.bind("<Leave>", on_leave_fase_2)
-
-
-def on_enter_fase_3(e):
-    botonre3["background"] = "#4dffc3"
-    
-def on_leave_fase_3(e):
-    botonre3["background"] = "SystemButtonFace"
-
-
-botonre3 = tk.Button(Ventana_Principal, text="FASE III\nRETENEDORES", font=btn_font,
-                     bd=0, width=20, overrelief="flat", cursor="hand1", activebackground="#80ffcc")
-botonre3.place(x=510, y=80)
-
-botonre3.bind("<Enter>", on_enter_fase_3)
-botonre3.bind("<Leave>", on_leave_fase_3)
-
-
-def on_enter(e):
-    botonre4["background"] = "#4dffc3"
-
-
-def on_leave(e):
-    botonre4["background"] = "SystemButtonFace"
-
-
-botonre4 = tk.Button(Ventana_Principal, text="FASE IV\nCONECTORES MENORES", font=btn_font,
-                     bd=0, width=25, overrelief="flat", cursor="hand1", activebackground="#80ffcc")
-botonre4.place(x=690, y=80)
-
-botonre4.bind("<Enter>", on_enter)
-botonre4.bind("<Leave>", on_leave)
-
-
-def on_enter(e):
-    botonre5["background"] = "#4dffc3"
-
-
-def on_leave(e):
-    botonre5["background"] = "SystemButtonFace"
-
-
-botonre5 = tk.Button(Ventana_Principal, text="FASE V\nCONECTOR MAYOR", font=btn_font,
-                     bd=0, width=22, overrelief="flat", cursor="hand1", activebackground="#80ffcc")
-botonre5.place(x=920, y=80)
-
-botonre5.bind("<Enter>", on_enter)
-botonre5.bind("<Leave>", on_leave)
-
-
-def on_enter(e):
-    botonre6["background"] = "#4dffc3"
-
-
-def on_leave(e):
-    botonre6["background"] = "SystemButtonFace"
-
-
-botonre6 = tk.Button(Ventana_Principal, text="FASE VI\nBASES (REJILLAS)", font=btn_font,
-                     bd=0, width=22, overrelief="flat", cursor="hand1", activebackground="#80ffcc")
-botonre6.place(x=1122, y=80)
-
-botonre6.bind("<Enter>", on_enter)
-botonre6.bind("<Leave>", on_leave)
+fases = orquestador_fases.orquestador()
+fases.cambiar()
 
 # BOTON ESTADO DEL NAVBAR
 btnState = False

@@ -2,6 +2,7 @@ import tkinter as tk
 from PIL import Image
 from tkinter import ttk
 from tkinter import Frame, Button, Label
+from variables import VarGlo
 
 class Graficador_retenedores:
     x = 0
@@ -11,10 +12,12 @@ class Graficador_retenedores:
     Retenedores: tk.PhotoImage = []
     frame : Frame
 
-    def __init__(self, ventana, canvas, frame, actual):
-        self.canvas = canvas
-        self.frame = frame
-        self.actual = actual
+    def __init__(self):
+        global var
+        var = VarGlo()
+        self.canvas = var.canvas
+        self.frame = var.frame
+        self.actual = "retenedor_circular"
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
 
