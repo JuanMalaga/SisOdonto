@@ -1,96 +1,55 @@
-from PyQt5.QtGui import QIcon, QFont
-from PyQt5.QtCore import Qt, QPropertyAnimation, QRect, QAbstractAnimation
-from PyQt5.QtWidgets import QApplication, QDialog, QPushButton, QMessageBox
 from tkinter import PhotoImage
+from tkinter import messagebox as mb
 import tkinter as tk
 from tkinter import ttk
+import sys
 
 import tkinter as tk
 
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
-
 root = tk.Tk()
 root.title("SIDECO")
-root.config(bg="#88BFF3")
+root.config(bg="white")
 root.resizable(0,0)
 root.iconbitmap('./odonto.ico')
-root.geometry("1480x800+500+100")
-
-
-# BOTON ESTADO DEL NAVBAR
-btnState = False
+root.geometry("679x500+920+380")
+#root.overrideredirect(True)
 
 # IMAGENES
-navIcon = PhotoImage(file="./src/menu.png")
-closeIcon = PhotoImage(file="./src/close.png")
-
-def switch():
-    global btnState
-    if btnState is True:
-        # ANIMACION DE CERRADO
-        for x in range(301):
-            navRoot.place(x=-x, y=0)
-            topFrame.update()
-
-        # COLORES AL MOMENTO DEL CERRADO
-        brandLabel.config(bg=color["celeste"], fg="black")
-        homeLabel.config(bg=color["celeste"])
-        topFrame.config(bg=color["celeste"])
-        root.config(bg=color["celeste"])
-
-        # BOTON APAGADO
-        btnState = False
-    else:
-        # COLORES DE LA VENTANA DESPUES DE ACCIONAR
-        brandLabel.config(bg=color["celeste"], fg="black")
-        homeLabel.config(bg=color["celeste"])
-        topFrame.config(bg=color["celeste"])
-        root.config(bg=color["celeste"])
-
-        # ANIMACION DEL NAVBAR
-        for x in range(-300, 0):
-            navRoot.place(x=x, y=0)
-            topFrame.update()
-
-        # BOTON ENCENDIDO
-        btnState = True
-
-# BARRA DE NAVEGACION SUPERIOR
-topFrame = tk.Frame(root, bg=color["celeste"])
-topFrame.pack(side="top", fill=tk.X)
-
-# MARCA DE AGUA FO
-homeLabel = tk.Label(topFrame, text="FO - UNMSM", font="Bahnschrift 15", bg=color["celeste"], fg="gray17", height=2, padx=20)
-homeLabel.pack(side="right")
+imagen=tk.PhotoImage(file="./src/caratula.png")
+fondo=tk.Label(root, image=imagen).place(x=0,y=0)
 
 # TEXTO CENTRAL
-brandLabel = tk.Label(root, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA", font="Bahnschrift 30", bg=color["celeste"], fg="black")
-brandLabel.place(x=360, y=22)
+brandLabel = tk.Label(root, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA", font="Bahnschrift 18", bg="white", fg="black")
+brandLabel.place(x=115, y=180)
+brandLabel = tk.Label(root, text="V. 1.0", font="Roboto 10", bg="white", fg="black")
+brandLabel.place(x=320, y=210)
 
-# CAMBIAR FASES
+# COMBO
+combo=ttk.Combobox(root, width=30)
+combo["values"]=("Maxilar Superior", "Maxilar Inferior", "Vista Frontal")
+combo.place(x=260, y=250)
+
+label=tk.Label(root, text = "Seleccione la vista para al simulación  ", bg="white", fg="black")
+label.place(x=50, y=250)
+
+# BOTONES
+def ingreso():
+
+    
+def salir():
+    respuesta = mb.askyesno(
+        "Alerta de Salida", "¿Está seguro que salir del programa?")
+    if respuesta == True:
+        sys.exit()
 
 
-# BOTON DE MENU VERTICAL
-navbarBtn = tk.Button(topFrame, image=navIcon, bg=color["celeste"], activebackground=color["celeste"], bd=0, padx=20, command=switch)
-navbarBtn.place(x=10, y=10)
+boton=tk.Button(root, text="Ingresar al Sistema", font="BahnschriftLight 12", bg="gray17", fg="white",
+          activebackground="grey17", activeforeground="white", bd=0, command=ingreso)
+boton.place(x=250,y=300)
 
-# NAVBAR VERTICAL
-navRoot = tk.Frame(root, bg="gray17", height=1000, width=180)
-navRoot.place(x=-300, y=0)
-tk.Label(navRoot, font="Bahnschrift 15", bg=color["gris"], fg="white", height=2, width=300, padx=20).place(x=0, y=0)
-
-# INICIALIZAR Y PARA OPCIONES
-y = 80
-# OPCIONES
-options = ["Guardar Como", "Vista Interna", "Vista Frontal", "Herramientas", "Salir"]
-
-# BOTONES DE OPCIONES
-for i in range(5):
-    tk.Button(navRoot, text=options[i], font="BahnschriftLight 12", bg="gray17", fg=color["gris"], activebackground="grey17", activeforeground="white", bd=0).place(x=20, y=y)
-    y += 40
-
-# BOTON PARA CERRAR MENU VERTICAL
-closeBtn = tk.Button(navRoot, image=closeIcon, bg=color["gris"], activebackground=color["gris"], bd=0, command=switch)
-closeBtn.place(x=140, y=10)
+boton=tk.Button(root, text="Salir", font="BahnschriftLight 12", bg="gray17", fg="white",
+          activebackground="grey17", activeforeground="white", bd=0, command=salir)
+boton.place(x=315,y=400)
 
 root.mainloop()
