@@ -71,9 +71,10 @@ Ventana_Principal.state(newstate = "withdraw")
 Ventana_Principal.columnconfigure(0, weight=1)
 Ventana_Principal.rowconfigure(0, weight=1)
 Ventana_Principal.title("SIDECO")
+Ventana_Principal.resizable(0,0)
 Ventana_Principal.config(bg="#88BFF3")
 Ventana_Principal.iconbitmap('./odonto.ico')
-Ventana_Principal.geometry("1480x900+550+250")
+Ventana_Principal.geometry("1470x900+550+250")
 
 
 # Declaracion Elementos de la GUI

@@ -11,21 +11,19 @@ class orquestador (metaclass=SingletonMeta):
         global var
         var = VarGlo()
         global pos_inicial
-        pos_inicial = 180
+        pos_inicial = 150
         boton1 = botonFase(pos_inicial, 80, "FASE I\nDIENTES", 0)
         self.arreglo.append(boton1)
 
-        boton2 = botonFase(pos_inicial+180*1, 80, "FASE II\nAPOYOS", 1)
+        boton2 = botonFase(pos_inicial+196*1, 80, "FASE II\nAPOYOS", 1)
         self.arreglo.append(boton2)
-        boton3 = botonFase(pos_inicial+180*2, 80, "FASE III\nRETENEDORES", 2)
+        boton3 = botonFase(pos_inicial+196*2, 80, "FASE III\nRETENEDORES", 2)
         self.arreglo.append(boton3)
-        boton4 = botonFase(pos_inicial+180*3, 80,
-                           "FASE IV\nCONECTORES MENORES", 3)
+        boton4 = botonFase(pos_inicial+196*3, 80, "FASE IV\nCONECTOR MENOR", 3)
         self.arreglo.append(boton4)
-        boton5 = botonFase(pos_inicial+180*4, 80, "FASE V\nCONECTOR MAYOR", 4)
+        boton5 = botonFase(pos_inicial+196*4, 80, "FASE V\nCONECTOR MAYOR", 4)
         self.arreglo.append(boton5)
-        boton6 = botonFase(pos_inicial+180*5, 80,
-                           "FASE VI\nBASES (REJILLAS)", 5)
+        boton6 = botonFase(pos_inicial+196*5, 80, "FASE VI\nBASES (REJILLAS)", 5)
         self.arreglo.append(boton6)
 
     def cambiar(self):
@@ -55,7 +53,7 @@ class botonFase ():
         self.x = x
         self.y = y
         self.nombre = nombre
-        self.boton = tk.Button(var.ventana, text=self.nombre, font=btn_font, bd=0, width=20,
+        self.boton = tk.Button(var.ventana, text=self.nombre, font=btn_font, bd=0, width=21,
                                overrelief="flat", cursor="hand1", command=self.seleccionar)
 
         self.boton.place(x=self.x, y=self.y)

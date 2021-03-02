@@ -42,7 +42,7 @@ class inter_1(interfaz):
 
     def etiquetas(self):
         tk.Label(frame, text="¿Qué dientes desea eliminar?",
-         font="Bahnschrift 10", width=50).pack(anchor="w")
+         font="Bahnschrift 11", width=44, height=2).pack(anchor="w")
         tk.Checkbutton(frame, text="Tercer Molar Izquierdo (48)", variable=self.diente1,
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente1, 1)).pack(anchor="w")
         tk.Checkbutton(frame, text="Segundo Molar Izquierdo (47)", variable=self.diente2,
@@ -78,7 +78,7 @@ class inter_1(interfaz):
 
     def tiposD(self):
         self.tipos = tk.PhotoImage(file="./src/tipos.png")
-        imagen = tk.Label(var.frame2, image = self.tipos)
+        imagen = tk.Label(var.frame2, image = self.tipos, width=353, height=240, background="white")
         imagen.pack()
         
     
