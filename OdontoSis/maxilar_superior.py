@@ -38,13 +38,13 @@ frame2.place(x=150, y=619)
 
 #globalizando para todos los archivos
 
-var = variables.VarGlo()
-var.agregar_Interfaz(Ventana_Principal,canvas,frame,frame2)
-var.Iniciar_Dentadura_Sup()
+vars = variables.VarGlo()
+vars.agregar_Interfaz(Ventana_Principal,canvas,frame,frame2)
+vars.Iniciar_Dentadura_Sup()
 
 # Inicializacion de la primera fase
 interfaz1 = inter_1()
-interfaz1.iniciar_interfaz()
+interfaz1.iniciar_interfaz_sup()
 
 # FASES
 fases = orquestador_fases.orquestador()

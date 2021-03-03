@@ -163,53 +163,53 @@ class Graficador_Superior:
     dientes: tk.PhotoImage = []
 
     def __init__(self):
-        global var
-        var = variables.VarGlo()
-        self.Dientes = var.Dientes
+        global vars
+        vars = variables.VarGlo()
+        self.Dientes = vars.Dientes
         self.pos_x_ini = 45
         self.pos_y_ini = 530
-        self.ventana = var.ventana
-        self.canvas = var.canvas
+        self.ventana = vars.ventana
+        self.canvas = vars.canvas
         global fondo
         #declarar todas las imagenes
         fondo = tk.PhotoImage(file="./src_s/Base_S.png")
-        diente1 = tk.PhotoImage(file="./src_S/TercerMolar_I_S.png")
-        self.dientes.append(diente1)
-        diente2 = tk.PhotoImage(file="./src_s/SegundoMolar_I_S.png")
-        self.dientes.append(diente2)
-        diente3 = tk.PhotoImage(file="./src_s/PrimerMolar_I_S.png")
-        self.dientes.append(diente3)
-        diente4 = tk.PhotoImage(file="./src_s/SegundoPreMolar_I_S.png")
-        self.dientes.append(diente4)
-        diente5 = tk.PhotoImage(file="./src_s/PrimerPreMolar_I_S.png")
-        self.dientes.append(diente5)
-        diente6 = tk.PhotoImage(file="./src_s/Canino_I_S.png")
-        self.dientes.append(diente6)
-        diente7 = tk.PhotoImage(file="./src_s/IncisivoLateral_I_S.png")
-        self.dientes.append(diente7)
-        diente8 = tk.PhotoImage(file="./src_s/IncisivoCentral_I_S.png")
-        self.dientes.append(diente8)
-        diente9 = tk.PhotoImage(file="./src_s/IncisivoCentral_D_S.png")
-        self.dientes.append(diente9)
-        diente10 = tk.PhotoImage(file="./src_s/IncisivoLateral_D_S.png")
-        self.dientes.append(diente10)
-        diente11 = tk.PhotoImage(file="./src_s/Canino_D_S.png")
-        self.dientes.append(diente11)
-        diente12 = tk.PhotoImage(file="./src_s/PrimerPreMolar_D_S.png")
-        self.dientes.append(diente12)
-        diente13 = tk.PhotoImage(file="./src_s/SegundoPreMolar_D_S.png")
-        self.dientes.append(diente13)
-        diente14 = tk.PhotoImage(file="./src_s/PrimerMolar_D_S.png")
-        self.dientes.append(diente14)
-        diente15 = tk.PhotoImage(file="./src_s/SegundoMolar_D_S.png")
-        self.dientes.append(diente15)
-        diente16 = tk.PhotoImage(file="./src_s/TercerMolar_D_S.png")
-        self.dientes.append(diente16)
+        diente17 = tk.PhotoImage(file="./src_S/TercerMolar_I_S.png")
+        self.dientes.append(diente17)
+        diente18 = tk.PhotoImage(file="./src_s/SegundoMolar_I_S.png")
+        self.dientes.append(diente18)
+        diente19 = tk.PhotoImage(file="./src_s/PrimerMolar_I_S.png")
+        self.dientes.append(diente19)
+        diente20 = tk.PhotoImage(file="./src_s/SegundoPreMolar_I_S.png")
+        self.dientes.append(diente20)
+        diente21 = tk.PhotoImage(file="./src_s/PrimerPreMolar_I_S.png")
+        self.dientes.append(diente21)
+        diente22 = tk.PhotoImage(file="./src_s/Canino_I_S.png")
+        self.dientes.append(diente22)
+        diente23 = tk.PhotoImage(file="./src_s/IncisivoLateral_I_S.png")
+        self.dientes.append(diente23)
+        diente24 = tk.PhotoImage(file="./src_s/IncisivoCentral_I_S.png")
+        self.dientes.append(diente24)
+        diente25 = tk.PhotoImage(file="./src_s/IncisivoCentral_D_S.png")
+        self.dientes.append(diente25)
+        diente26 = tk.PhotoImage(file="./src_s/IncisivoLateral_D_S.png")
+        self.dientes.append(diente26)
+        diente27 = tk.PhotoImage(file="./src_s/Canino_D_S.png")
+        self.dientes.append(diente27)
+        diente28 = tk.PhotoImage(file="./src_s/PrimerPreMolar_D_S.png")
+        self.dientes.append(diente28)
+        diente29 = tk.PhotoImage(file="./src_s/SegundoPreMolar_D_S.png")
+        self.dientes.append(diente29)
+        diente30 = tk.PhotoImage(file="./src_s/PrimerMolar_D_S.png")
+        self.dientes.append(diente30)
+        diente31 = tk.PhotoImage(file="./src_s/SegundoMolar_D_S.png")
+        self.dientes.append(diente31)
+        diente32 = tk.PhotoImage(file="./src_s/TercerMolar_D_S.png")
+        self.dientes.append(diente32)
         self.Iniciar_Dentadura_Sup()
 
     def actualizar(self):
         self.canvas.delete("all")
-        self.Dientes = var.Dientes
+        self.Dientes = vars.Dientes
         self.Iniciar_Dentadura_Sup()
 
     def Iniciar_Dentadura_Sup(self):

@@ -35,13 +35,19 @@ class inter_1(interfaz):
         self.etiquetas()
         self.tiposD()
         graficador  =  crea.Graficador()
-        graficador_sup = crea.Graficador_Superior()
         var.Iniciar_Dentadura()
-        var.Iniciar_Dentadura_Sup()
         graficador.actualizar()
-        graficador_sup.actualizar()
         var.canvas = graficador.canvas
-        var.canvas = graficador_sup.canvas      
+
+    def iniciar_interfaz_sup(self):
+        self.cambiar_interfaz()
+        self.etiquetas()
+        self.tiposD()
+        graficador_sup = crea.Graficador_Superior()
+        var.Iniciar_Dentadura_Sup()
+        graficador_sup.actualizar()
+        var.canvas = graficador_sup.canvas   
+
 
     def etiquetas(self):
         tk.Label(frame, text="¿Qué dientes desea eliminar?",
