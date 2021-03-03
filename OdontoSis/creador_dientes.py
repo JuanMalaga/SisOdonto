@@ -166,14 +166,14 @@ class Graficador_Superior:
         global var
         var = variables.VarGlo()
         self.Dientes = var.Dientes
-        self.pos_x_ini = 78
-        self.pos_y_ini = 43
+        self.pos_x_ini = 45
+        self.pos_y_ini = 530
         self.ventana = var.ventana
         self.canvas = var.canvas
         global fondo
         #declarar todas las imagenes
         fondo = tk.PhotoImage(file="./src_s/Base_S.png")
-        diente1 = tk.PhotoImage(file="./src_s/TercerMolar_I_S.png")
+        diente1 = tk.PhotoImage(file="./src_S/TercerMolar_I_S.png")
         self.dientes.append(diente1)
         diente2 = tk.PhotoImage(file="./src_s/SegundoMolar_I_S.png")
         self.dientes.append(diente2)
@@ -205,95 +205,95 @@ class Graficador_Superior:
         self.dientes.append(diente15)
         diente16 = tk.PhotoImage(file="./src_s/TercerMolar_D_S.png")
         self.dientes.append(diente16)
-        self.Iniciar_Dentadura()
+        self.Iniciar_Dentadura_Sup()
 
     def actualizar(self):
         self.canvas.delete("all")
         self.Dientes = var.Dientes
-        self.Iniciar_Dentadura()
+        self.Iniciar_Dentadura_Sup()
 
-    def Iniciar_Dentadura(self):
+    def Iniciar_Dentadura_Sup(self):
 
         self.canvas.create_image(0, 0, image=fondo, anchor="nw")
         
         for element in self.Dientes:
 
-            if(element == 1):
+            if(element == 17):
 
                 self.canvas.create_image(
                     self.pos_x_ini, self.pos_y_ini, image=self.dientes[0], anchor="nw")
 
-            elif(element == 2):
+            elif(element == 18):
 
                 self.canvas.create_image(
-                    self.pos_x_ini, self.pos_y_ini+100, image=self.dientes[1], anchor="nw")
+                    self.pos_x_ini, self.pos_y_ini-100, image=self.dientes[1], anchor="nw")
 
-            elif(element == 3):
-
-                self.canvas.create_image(
-                    self.pos_x_ini, self.pos_y_ini+200, image=self.dientes[2], anchor="nw")
-
-            elif(element == 4):
+            elif(element == 19):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+25, self.pos_y_ini+300, image=self.dientes[3], anchor="nw")
+                    self.pos_x_ini+15, self.pos_y_ini-188, image=self.dientes[2], anchor="nw")
 
-            elif(element == 5):
-
-                self.canvas.create_image(
-                    self.pos_x_ini+72, self.pos_y_ini+377, image=self.dientes[4], anchor="nw")
-
-            elif(element == 6):
+            elif(element == 20):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+127, self.pos_y_ini+437, image=self.dientes[5], anchor="nw")
+                    self.pos_x_ini+40, self.pos_y_ini-275, image=self.dientes[3], anchor="nw")
 
-            elif(element == 7):
-
-                self.canvas.create_image(
-                    self.pos_x_ini+192, self.pos_y_ini+454, image=self.dientes[6], anchor="nw")
-
-            elif(element == 8):
+            elif(element == 21):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+237, self.pos_y_ini+454, image=self.dientes[7], anchor="nw")
+                    self.pos_x_ini+65, self.pos_y_ini-340, image=self.dientes[4], anchor="nw")
 
-            elif(element == 9):
-
-                self.canvas.create_image(
-                    self.pos_x_ini+287, self.pos_y_ini+462, image=self.dientes[8], anchor="nw")
-
-            elif(element == 10):
+            elif(element == 22):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+357, self.pos_y_ini+437, image=self.dientes[9], anchor="nw")
+                    self.pos_x_ini+115, self.pos_y_ini-402, image=self.dientes[5], anchor="nw")
 
-            elif(element == 11):
-
-                self.canvas.create_image(
-                    self.pos_x_ini+402, self.pos_y_ini+427, image=self.dientes[10], anchor="nw")
-
-            elif(element == 12):
+            elif(element == 23):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+462, self.pos_y_ini+377, image=self.dientes[11], anchor="nw")
+                    self.pos_x_ini+166, self.pos_y_ini-455, image=self.dientes[6], anchor="nw")
 
-            elif(element == 13):
-
-                self.canvas.create_image(
-                    self.pos_x_ini+473, self.pos_y_ini+299, image=self.dientes[12], anchor="nw")
-
-            elif(element == 14):
+            elif(element == 24):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+498, self.pos_y_ini+200, image=self.dientes[13], anchor="nw")
+                    self.pos_x_ini+250, self.pos_y_ini-494, image=self.dientes[7], anchor="nw")
 
-            elif(element == 15):
-
-                self.canvas.create_image(
-                    self.pos_x_ini+508, self.pos_y_ini+92, image=self.dientes[14], anchor="nw")
-
-            elif(element == 16):
+            elif(element == 25):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+504, self.pos_y_ini-5, image=self.dientes[15], anchor="nw")
+                    self.pos_x_ini+355, self.pos_y_ini-480, image=self.dientes[8], anchor="nw")
+
+            elif(element == 26):
+
+                self.canvas.create_image(
+                    self.pos_x_ini+440, self.pos_y_ini-465, image=self.dientes[9], anchor="nw")
+
+            elif(element == 27):
+
+                self.canvas.create_image(
+                    self.pos_x_ini+495, self.pos_y_ini-425, image=self.dientes[10], anchor="nw")
+
+            elif(element == 28):
+
+                self.canvas.create_image(
+                    self.pos_x_ini+520, self.pos_y_ini-346, image=self.dientes[11], anchor="nw")
+
+            elif(element == 29):
+
+                self.canvas.create_image(
+                    self.pos_x_ini+545, self.pos_y_ini-280, image=self.dientes[12], anchor="nw")
+
+            elif(element == 30):
+
+                self.canvas.create_image(
+                    self.pos_x_ini+552, self.pos_y_ini-200, image=self.dientes[13], anchor="nw")
+
+            elif(element == 31):
+
+                self.canvas.create_image(
+                    self.pos_x_ini+548, self.pos_y_ini-102, image=self.dientes[14], anchor="nw")
+
+            elif(element == 32):
+
+                self.canvas.create_image(
+                    self.pos_x_ini+542, self.pos_y_ini-5, image=self.dientes[15], anchor="nw")
