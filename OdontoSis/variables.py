@@ -33,7 +33,7 @@ class VarGlo(metaclass=SingletonMeta):
         self.Dientes.sort()
 
     def Iniciar_Dentadura_Sup(self):
-        self.Dientes = [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+        self.Dientes = [17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32]
         self.Dientes.sort()
 
     def agregar_Interfaz(self,ventana, canvas,frame, frame2):

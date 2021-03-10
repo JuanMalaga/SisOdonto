@@ -54,6 +54,7 @@ def salir():
     if respuesta == True:
         sys.exit()
 
+
 boton=tk.Button(root, text="Ingresar al Sistema", font="BahnschriftLight 12", bg="gray17", fg="white",
           activebackground="grey17", activeforeground="white", bd=0, command=ingreso)
 boton.place(x=250,y=300)
@@ -162,8 +163,8 @@ tk.Label(navRoot, font="Bahnschrift 15",
 # INICIALIZAR Y PARA OPCIONES
 y = 80
 # OPCIONES
-options = ["Guardar Como", "Maxilar Superior",
-           "Maxilar Inferior", "Herramientas", "Salir"]
+options = ["Guardar Como", "Vista Interna",
+           "Vista Frontal", "Herramientas", "Salir"]
 
 # BOTONES DE OPCIONES
 for i in range(4):

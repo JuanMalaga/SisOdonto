@@ -4,7 +4,7 @@ from tkinter.font import Font
 import tkinter as tk
 from interfaz_fase_1 import inter_1
 from interfaz_fase_3 import interfaz_fase_3
-
+from interfaz_fase_2 import interfaz_fase_2
 class orquestador (metaclass=SingletonMeta):
     def __init__(self):
         self.arreglo = []
@@ -46,6 +46,9 @@ class botonFase ():
     estado: int
 
     def __init__(self, x, y, nombre, fase):
+        self.interfaz1 = inter_1()
+        self.interfaz2 = interfaz_fase_2()
+        self.interfaz3 = interfaz_fase_3()
         self.fase = fase
         global orq
         btn_font = Font(family="Roboto Mono", size=12)
@@ -81,19 +84,21 @@ class botonFase ():
         var.fase_actual = self.fase
         orq.cambiar()
         if(self.fase == 0):
-            interfaz1 = inter_1()
-            interfaz1.iniciar_interfaz()
+            
+            self.interfaz1.iniciar_interfaz()
         elif(self.fase == 1):
-            pass
+            self.interfaz2.iniciar_interfaz()
+            self.interfaz3.limpiar()
         elif(self.fase == 2):
-            interfaz3 = interfaz_fase_3()
-            interfaz3.iniciar_interfaz()
+            self.interfaz3.iniciar_interfaz()
         elif(self.fase == 3):
             pass
         elif(self.fase == 4):
             pass
         elif(self.fase == 5):
             pass
+
+        
     def cambiar_estado(self, n):
         if(n == 0):
             self.encender()

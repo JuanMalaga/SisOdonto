@@ -17,9 +17,8 @@ class Graficador_retenedores:
         var = VarGlo()
         self.canvas = var.canvas
         self.frame = var.frame
-        self.actual = "retenedor_circular"
-        self.canvas.bind("<ButtonPress-1>", self.left_but_down)
-        self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
+        self.actual = "ninguno"
+
 
     def cambio_fase(self):
         for widget in self.frame.winfo_children():
@@ -42,6 +41,8 @@ class Graficador_retenedores:
         self.boton6 = ttk.Button(
             self.frame, text="5", command=self.Escoger_retenedor_vertical_inf_der)
         self.boton6.grid(column=0, row=5, padx=5)
+        self.canvas.bind("<ButtonPress-1>", self.left_but_down)
+        self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
 
     def borrar_linea(self):
         self.canvas.delete("diente1")
@@ -65,7 +66,7 @@ class Graficador_retenedores:
         if(self.actual!=""):    
             self.x = evento.x
             self.y = evento.y
-
+            Retenedor = tk.PhotoImage()
             if(self.actual == "retenedor_circular"):
                 Retenedor = tk.PhotoImage(file="./src/retenedores.png")
                 
@@ -82,8 +83,11 @@ class Graficador_retenedores:
                 Retenedor = tk.PhotoImage(file="./src/Retenedor_Vertica_inf_der.png")
                         
             self.Retenedores.append(Retenedor) 
-            self.canvas.create_image(evento.x-40, evento.y-35, image=self.Retenedores[len(self.Retenedores)-1], anchor="nw", tag="baston")
+            self.canvas.create_image(evento.x-40, evento.y-35, image=self.Retenedores[len(self.Retenedores)-1], anchor="nw", tag="retenedor")
 
 
     def left_but_up(self, evento):
         return     
+
+    def limpiar(self):
+        self.canvas.delete("retenedor")

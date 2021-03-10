@@ -28,5 +28,6 @@ class interfaz_fase_3(interfaz):
         self.cambiar_interfaz()
         graficador.crear_botones()
         
-
+    def limpiar(self):
+        graficador.limpiar()
         
