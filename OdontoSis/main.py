@@ -12,6 +12,7 @@ import creador_retenedores
 import variables  
 from interfaz_fase_1 import inter_1
 import orquestador_fases
+import os
 
 # BIENVENIDA
 
@@ -163,8 +164,8 @@ tk.Label(navRoot, font="Bahnschrift 15",
 # INICIALIZAR Y PARA OPCIONES
 y = 80
 # OPCIONES
-options = ["Guardar Como", "Vista Interna",
-           "Vista Frontal", "Herramientas", "Salir"]
+options = ["Guardar Como", "Maxilar Superior",
+           "Maxilar Inferior", "Herramientas", "Salir"]
 
 # BOTONES DE OPCIONES
 for i in range(4):
@@ -176,6 +177,13 @@ for i in range(4):
 closeBtn = tk.Button(navRoot, image=closeIcon,
                      bg=color["gris"], activebackground=color["gris"], bd=0, command=switch)
 closeBtn.place(x=110, y=10)
+
+# CAMBIAR VISTA
+def vista_sup():
+    os.system('python maxilar_superior.py')
+
+tk.Button(navRoot, text=options[1], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
+          activebackground="grey17", activeforeground="white", bd=0, command=vista_sup).place(x=15, y=120)
 
 # CERRAR VENTANA
 def salir():
