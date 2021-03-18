@@ -5,6 +5,10 @@ import tkinter as tk
 from interfaz_fase_1 import inter_1
 from interfaz_fase_3 import interfaz_fase_3
 from interfaz_fase_2 import interfaz_fase_2
+from interfaz_fase_4 import interfaz_fase_4
+from interfaz_fase_5 import interfaz_fase_5
+from interfaz_fase_6 import interfaz_fase_6
+
 class orquestador (metaclass=SingletonMeta):
     def __init__(self):
         self.arreglo = []
@@ -23,7 +27,8 @@ class orquestador (metaclass=SingletonMeta):
         self.arreglo.append(boton4)
         boton5 = botonFase(pos_inicial+196*4, 80, "FASE V\nCONECTOR MAYOR", 4)
         self.arreglo.append(boton5)
-        boton6 = botonFase(pos_inicial+196*5, 80, "FASE VI\nBASES (REJILLAS)", 5)
+        boton6 = botonFase(pos_inicial+196*5, 80,
+                           "FASE VI\nBASES (REJILLAS)", 5)
         self.arreglo.append(boton6)
 
     def cambiar(self):
@@ -49,6 +54,10 @@ class botonFase ():
         self.interfaz1 = inter_1()
         self.interfaz2 = interfaz_fase_2()
         self.interfaz3 = interfaz_fase_3()
+        self.interfaz4 = interfaz_fase_4()
+        self.interfaz5 = interfaz_fase_5()
+        self.interfaz6 = interfaz_fase_6()
+
         self.fase = fase
         global orq
         btn_font = Font(family="Roboto Mono", size=12)
@@ -84,21 +93,32 @@ class botonFase ():
         var.fase_actual = self.fase
         orq.cambiar()
         if(self.fase == 0):
-            
             self.interfaz1.iniciar_interfaz()
         elif(self.fase == 1):
             self.interfaz2.iniciar_interfaz()
             self.interfaz3.limpiar()
+            self.interfaz4.limpiar()
+            self.interfaz5.limpiar()
+            self.interfaz6.limpiar()
+
         elif(self.fase == 2):
             self.interfaz3.iniciar_interfaz()
-        elif(self.fase == 3):
-            pass
-        elif(self.fase == 4):
-            pass
-        elif(self.fase == 5):
-            pass
+            self.interfaz4.limpiar()
+            self.interfaz5.limpiar()
+            self.interfaz6.limpiar()
 
-        
+        elif(self.fase == 3):
+            self.interfaz4.iniciar_interfaz()
+            self.interfaz5.limpiar()
+            self.interfaz6.limpiar()
+
+        elif(self.fase == 4):
+            self.interfaz5.iniciar_interfaz()
+            self.interfaz6.limpiar()
+
+        elif(self.fase == 5):
+            self.interfaz6.iniciar_interfaz()
+
     def cambiar_estado(self, n):
         if(n == 0):
             self.encender()

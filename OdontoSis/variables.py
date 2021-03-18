@@ -23,6 +23,7 @@ class VarGlo(metaclass=SingletonMeta):
     frame : tk.Frame
     frame2 : tk.Frame
     ventana : tk.Tk
+    size = 30
     
     #actual
     actual = ""
