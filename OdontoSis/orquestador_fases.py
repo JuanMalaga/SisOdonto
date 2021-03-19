@@ -94,6 +94,11 @@ class botonFase ():
         orq.cambiar()
         if(self.fase == 0):
             self.interfaz1.iniciar_interfaz()
+            var.Iniciar_Dentadura()
+            self.interfaz3.limpiar()
+            self.interfaz4.limpiar()
+            self.interfaz5.limpiar()
+            self.interfaz6.limpiar()
         elif(self.fase == 1):
             self.interfaz2.iniciar_interfaz()
             self.interfaz3.limpiar()

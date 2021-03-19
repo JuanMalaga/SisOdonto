@@ -9,3 +9,6 @@ class interfaz():
             
         for widget in var.frame2.winfo_children():
             widget.destroy()
+
+    def elementos_Creados(self):
+                 
