@@ -150,7 +150,7 @@ def guardar():
 
 
 tk.Button(navRoot, text=options[0], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
-          activebackground="grey17", activeforeground="white", bd=0, command= guardar).place(x=15, y=120)
+          activebackground="grey17", activeforeground="white", bd=0, command= guardar).place(x=15, y=80)
 
 # TEXTO CENTRAL
 brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA",
