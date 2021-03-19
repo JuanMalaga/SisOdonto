@@ -5,14 +5,10 @@ from tkinter import Frame, Button, Label
 from tkinter import messagebox as mb
 from tkinter.font import Font
 import sys
-import prueba
-import clases
-import creador_dientes
-import creador_retenedores
 import variables  
 from interfaz_fase_1 import inter_1
 import orquestador_fases
-
+import interfaz_fase_1
 
 # configurar la ventana
 
@@ -117,11 +113,14 @@ options = ["Guardar Como", "Maxilar Superior",
            "Maxilar Inferior", "Herramientas", "Salir"]
 
 # BOTONES DE OPCIONES
+
 for i in range(4):
-    tk.Button(navRoot, text=options[i], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
+    tk.Button(navRoot, text=options[i], font="BahnschriftLight 12" , bg="gray17", fg=color["gris"],
               activebackground="grey17", activeforeground="white", bd=0).place(x=15, y=y)
     y += 40
 
+
+    
 # BOTON PARA CERRAR MENU VERTICAL
 closeBtn = tk.Button(navRoot, image=closeIcon,
                      bg=color["gris"], activebackground=color["gris"], bd=0, command=switch)
@@ -144,11 +143,20 @@ def salir():
 
 tk.Button(navRoot, text=options[4], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
           activebackground="grey17", activeforeground="white", bd=0, command=salir).place(x=15, y=y)
+
+# guardar
+def guardar():
+    var.Guardar_archivo()
+
+
+tk.Button(navRoot, text=options[0], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
+          activebackground="grey17", activeforeground="white", bd=0, command= guardar).place(x=15, y=120)
+
 # TEXTO CENTRAL
 brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA",
                       font="Bahnschrift 30", bg=color["celeste"], fg="black")
 brandLabel.place(x=340, y=8)
-graficador = creador_dientes.Graficador()
+graficador = interfaz_fase_1.Graficador()
 
 Ventana_Principal.mainloop()
 

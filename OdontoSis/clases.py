@@ -1,9 +1,4 @@
-class componente_odontologico:
+from variables import VarGlo
 
-    def __init__(self,x,y,image, num):
-        self.pos_x = x
-        self.pos_y = y
-    
-       
 
 
