@@ -9,7 +9,10 @@ import os
 def vista():
     if combo.get() == 'Maxilar Inferior':
         os.system('python main.py')
-        exit(0)
+        
+    elif combo.get() == 'Maxilar Superior':
+        os.system('python maxilar_superior.py')
+    exit(0)
 
 def ingreso():
       Ventana_Principal.state(newstate = "normal")
@@ -23,7 +26,7 @@ root.config(bg="white")
 root.resizable(0,0)
 root.iconbitmap('./odonto.ico')
 root.geometry("679x500+920+380")
-root.overrideredirect(True)
+#root.overrideredirect(True)
 
 # IMAGENES
 imagen=tk.PhotoImage(file="./src/caratula.png")
