@@ -46,7 +46,7 @@ class inter_1(interfaz):
         self.cambiar_interfaz()
         self.etiquetas()
         self.tiposD()
-        graficador_sup = crea.Graficador_Superior()
+        graficador_sup = Graficador()
         var.Iniciar_Dentadura_Sup()
         graficador_sup.actualizar()
         var.canvas = graficador_sup.canvas    

@@ -7,8 +7,6 @@ from tkinter.font import Font
 import sys
 import prueba
 import clases
-import creador_dientes
-import creador_retenedores
 import variables  
 from interfaz_fase_1 import inter_1
 import orquestador_fases
