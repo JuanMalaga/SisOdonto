@@ -8,9 +8,8 @@ import sys
 import prueba
 import clases
 import variables  
-from interfaz_fase_1 import inter_1
+from interfaz_fase_1 import inter_1 , Graficador_Superior
 import orquestador_fases
-
 
 # configurar la ventana
 
@@ -139,7 +138,6 @@ tk.Button(navRoot, text=options[4], font="BahnschriftLight 12", bg="gray17", fg=
 brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA",
                       font="Bahnschrift 30", bg=color["celeste"], fg="black")
 brandLabel.place(x=340, y=8)
-graficador = creador_dientes.Graficador_Superior()
+graficador = Graficador_Superior()
 
 Ventana_Principal.mainloop()
-root.mainloop()

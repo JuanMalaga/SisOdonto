@@ -46,10 +46,9 @@ class inter_1(interfaz):
         self.cambiar_interfaz()
         self.etiquetas()
         self.tiposD()
-        graficador_sup = Graficador()
+        graficador_sup = Graficador_Superior()
         var.Iniciar_Dentadura_Sup()
-        graficador_sup.actualizar()
-        var.canvas = graficador_sup.canvas    
+        graficador_sup.actualizar() 
         
 
     def etiquetas(self):
@@ -274,7 +273,7 @@ class Graficador_Superior:
         global fondo
         #declarar todas las imagenes
         fondo = tk.PhotoImage(file="./src_s/Base_S.png")
-        diente17 = tk.PhotoImage(file="./src_S/TercerMolar_I_S.png")
+        diente17 = tk.PhotoImage(file="./src_s/TercerMolar_I_S.png")
         self.dientes.append(diente17)
         diente18 = tk.PhotoImage(file="./src_s/SegundoMolar_I_S.png")
         self.dientes.append(diente18)
