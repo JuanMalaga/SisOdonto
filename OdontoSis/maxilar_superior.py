@@ -7,12 +7,10 @@ from tkinter.font import Font
 import sys
 import prueba
 import clases
-import creador_dientes
-import creador_retenedores
+import interfaz_fase_1
 import variables  
 from interfaz_fase_1 import inter_1
 import orquestador_fases
-
 
 # configurar la ventana
 
@@ -144,4 +142,3 @@ brandLabel.place(x=340, y=8)
 graficador = creador_dientes.Graficador_Superior()
 
 Ventana_Principal.mainloop()
-root.mainloop()

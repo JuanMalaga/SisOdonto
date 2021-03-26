@@ -4,9 +4,9 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\USUARIO\\Desktop\\sisOdo\\v1.3\\SisOdonto-main\\OdontoSis'],
+             pathex=['C:\\Users\\User\\OneDrive\\Escritorio\\Odontogit\\SisOdonto\\OdontoSis'],
              binaries=[],
-             datas = [('./*.png','resources'),('./odonto.ico','resources')],
+             datas=[],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
@@ -30,4 +30,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=True )
+          console=False , icon='odonto.ico')
