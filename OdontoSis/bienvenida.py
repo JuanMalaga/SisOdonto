@@ -4,11 +4,12 @@ import tkinter as tk
 from tkinter import messagebox as mb
 import sys
 import os
+import main
 
 # BIENVENIDA
 def vista():
     if combo.get() == 'Maxilar Inferior':
-        os.system('python main.py')
+        main.iniciar()
         
     elif combo.get() == 'Maxilar Superior':
         os.system('python maxilar_superior.py')
@@ -26,7 +27,6 @@ root.config(bg="white")
 root.resizable(0,0)
 root.iconbitmap('./odonto.ico')
 root.geometry("679x500+920+380")
-#root.overrideredirect(True)
 
 # IMAGENES
 imagen=tk.PhotoImage(file="./src/caratula.png")
