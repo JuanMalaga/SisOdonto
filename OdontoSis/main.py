@@ -11,6 +11,32 @@ import orquestador_fases
 import interfaz_fase_1
 
 # configurar la ventana
+color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
+Ventana_Principal = tk.Tk()
+Ventana_Principal.title("SIDECO")
+Ventana_Principal.resizable(0,0)
+Ventana_Principal.config(bg="#88BFF3")
+Ventana_Principal.iconbitmap('./odonto.ico')
+Ventana_Principal.geometry("1470x900+550+250")
+
+
+#imagenes 
+navIcon = PhotoImage(file="./src/menu.png")
+closeIcon = PhotoImage(file="./src/close.png")
+banners=tk.PhotoImage(file="./src/caratula.png")
+
+# BIENVENIDA
+def vista():
+    if combo.get() == 'Maxilar Inferior':
+        main.iniciar()
+        
+    elif combo.get() == 'Maxilar Superior':
+       pass
+    
+
+def ingreso():
+      Ventana_Principal.state(newstate = "normal")
+      root.state(newstate = "withdraw")
 
 def switch():
     global btnState
@@ -59,25 +85,75 @@ def salir():
         sys.exit()
 
 
+    # BOTONES
+def salirP():
+    respuesta = mb.askyesno(
+        "Alerta de Salida", "¿Está seguro que salir del programa?")
+    if respuesta == True:
+        sys.exit()
+
 # guardar
 def guardar():
     var.Guardar_archivo()
 
+def precarga():
+    # IMAGENES
+    Ventana_Principal.geometry("679x500+920+380")
+    
+    fondo=tk.Label(Ventana_Principal, image=banners).place(x=0,y=0)
+
+    # TEXTO CENTRAL
+    brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA", font="Bahnschrift 18", bg="white", fg="black")
+    brandLabel.place(x=115, y=180)
+    brandLabel = tk.Label(Ventana_Principal, text="V. 1.0", font="Roboto 10", bg="white", fg="black")
+    brandLabel.place(x=320, y=210)
+
+    # USUARIO
+
+    usuario=ttk.Entry(Ventana_Principal, width=25)
+    usuario.place(x=170,y=250)
+
+    contraseña=ttk.Entry(Ventana_Principal, show="*", width=25)
+    contraseña.place(x=430,y=250)
+
+    invitado=ttk.Entry(Ventana_Principal, width=32)
+    invitado.place(x=230,y=300)
+
+    label=tk.Label(Ventana_Principal, text = "Usuario: ", bg="white", fg="black")
+    label.place(x=100, y=250)
+    label=tk.Label(Ventana_Principal, text = "Contraseña: ", bg="white", fg="black")
+    label.place(x=350, y=250)
+    label=tk.Label(Ventana_Principal, text = "Código de Invitado: ", bg="white", fg="black")
+    label.place(x=100, y=300)
+    label=tk.Label(Ventana_Principal, text = "Solicitar al Administrador", bg="yellow", fg="black")
+    label.place(x=450, y=300)
+
+    # COMBO
+    combo=ttk.Combobox(Ventana_Principal, width=35)
+    combo["values"]=("Maxilar Superior", "Maxilar Inferior", "Vista Frontal")
+    combo.place(x=350, y=350)
+    #combo.current(1)
+
+    label=tk.Label(Ventana_Principal, text = "Seleccione la vista para iniciar la simulación ", bg="white", fg="black")
+    label.place(x=100, y=350)
+
+    boton=tk.Button(Ventana_Principal, text="Ingresar al Administrador", font="BahnschriftLight 12", bg="gray17", fg="white",
+            activebackground="grey17", activeforeground="white", bd=0, command=ingreso)
+    boton.place(x=350,y=400)
+
+    boton=tk.Button(Ventana_Principal, text="Ingresar al Sistema", font="BahnschriftLight 12", bg="gray17", fg="white",
+            activebackground="grey17", activeforeground="white", bd=0, command=iniciar)
+    boton.place(x=190,y=400)
+
+    boton=tk.Button(Ventana_Principal, text="Salir", font="BahnschriftLight 12", bg="gray17", fg="white",
+            activebackground="grey17", activeforeground="white", bd=0, command=salirP)
+    boton.place(x=315,y=450)
+
 def iniciar():
-
-    color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
-    Ventana_Principal = tk.Tk()
-    Ventana_Principal.columnconfigure(0, weight=1)
-    Ventana_Principal.rowconfigure(0, weight=1)
-    Ventana_Principal.title("SIDECO")
-    Ventana_Principal.resizable(0,0)
-    Ventana_Principal.config(bg="#88BFF3")
-    Ventana_Principal.iconbitmap('./odonto.ico')
+    for widget in Ventana_Principal.winfo_children():
+        widget.destroy()
     Ventana_Principal.geometry("1470x900+550+250")
-
-
     # Declaracion Elementos de la GUI
-
     canvas = tk.Canvas(Ventana_Principal, width=800, height=700)
     canvas.place(x=520, y=160)
     frame = Frame(Ventana_Principal)
@@ -101,10 +177,6 @@ def iniciar():
 
     # BOTON ESTADO DEL NAVBAR
     btnState = False
-
-    # IMAGENES
-    navIcon = PhotoImage(file="./src/menu.png")
-    closeIcon = PhotoImage(file="./src/close.png")
 
     # BARRA DE NAVEGACION SUPERIOR
     topFrame = tk.Frame(Ventana_Principal, bg=color["celeste"])
@@ -161,10 +233,10 @@ def iniciar():
 
     tk.Button(navRoot, text=options[1], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
           activebackground="grey17", activeforeground="white", bd=0, command=vista_sup).place(x=15, y=120)
-    Ventana_Principal.mainloop()
+    
 
-
-
+precarga()
+Ventana_Principal.mainloop()
 
 
 

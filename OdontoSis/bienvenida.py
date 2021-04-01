@@ -6,19 +6,6 @@ import sys
 import os
 import main
 
-# BIENVENIDA
-def vista():
-    if combo.get() == 'Maxilar Inferior':
-        main.iniciar()
-        
-    elif combo.get() == 'Maxilar Superior':
-        os.system('python maxilar_superior.py')
-    exit(0)
-
-def ingreso():
-      Ventana_Principal.state(newstate = "normal")
-      root.state(newstate = "withdraw")
-
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
 root = tk.Tk()
 root.title("SIDECO")
