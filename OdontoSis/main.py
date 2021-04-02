@@ -9,6 +9,9 @@ import variables
 from interfaz_fase_1 import inter_1
 import orquestador_fases
 import interfaz_fase_1
+import ctypes
+
+resolucion = ctypes.windll.user32 
 
 # configurar la ventana
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
@@ -17,13 +20,19 @@ Ventana_Principal.title("SIDECO")
 Ventana_Principal.resizable(0,0)
 Ventana_Principal.config(bg="#88BFF3")
 Ventana_Principal.iconbitmap('./odonto.ico')
-Ventana_Principal.geometry("1470x900+550+250")
-
+# CENTRALIZANDO VENTANA
+width = resolucion.GetSystemMetrics(0)
+height = resolucion.GetSystemMetrics(1)
+#Ventana_Principal.geometry("600x900+550+150")
+Ventana_Principal.geometry(f"{int(width/2)}x{int(height/2)}+{int(width/4)}+{int(height/4)}")
 
 #imagenes 
 navIcon = PhotoImage(file="./src/menu.png")
 closeIcon = PhotoImage(file="./src/close.png")
 banners=tk.PhotoImage(file="./src/caratula.png")
+
+# BOTON ESTADO DEL NAVBAR
+btnState = False
 
 # BIENVENIDA
 def vista():
@@ -33,49 +42,13 @@ def vista():
     elif combo.get() == 'Maxilar Superior':
        pass
     
-
 def ingreso():
       Ventana_Principal.state(newstate = "normal")
       root.state(newstate = "withdraw")
 
-def switch():
-    global btnState
-    if btnState is True:
-        # ANIMACION DE CERRADO
-        for x in range(301):
-            navRoot.place(x=-x, y=0)
-            topFrame.update()
-
-        # COLORES AL MOMENTO DEL CERRADO
-        brandLabel.config(bg=color["celeste"], fg="black")
-        homeLabel.config(bg=color["celeste"])
-        topFrame.config(bg=color["celeste"])
-        Ventana_Principal.config(bg=color["celeste"])
-
-        # BOTON APAGADO
-        btnState = False
-    else:
-        # COLORES DE LA VENTANA DESPUES DE ACCIONAR
-        brandLabel.config(bg=color["celeste"], fg="black")
-        homeLabel.config(bg=color["celeste"])
-        topFrame.config(bg=color["celeste"])
-        Ventana_Principal.config(bg=color["celeste"])
-
-        # ANIMACION DEL NAVBAR
-        for x in range(-300, 0):
-            navRoot.place(x=x, y=0)
-            topFrame.update()
-
-        # BOTON ENCENDIDO
-        btnState = True
-
-
-
 # CAMBIAR VISTA
 def vista_sup():
     os.system('python maxilar_superior.py')
-
-
 
 # CERRAR VENTANA
 def salir():
@@ -98,14 +71,14 @@ def guardar():
 
 def precarga():
     # IMAGENES
-    Ventana_Principal.geometry("679x500+920+380")
+    #Ventana_Principal.geometry("679x500+920+380")
     
-    fondo=tk.Label(Ventana_Principal, image=banners).place(x=0,y=0)
+    fondo=tk.Label(Ventana_Principal, image=banners, bg="#88BFF3").place(x=0,y=0)
 
     # TEXTO CENTRAL
-    brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA", font="Bahnschrift 18", bg="white", fg="black")
+    brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA", font="Bahnschrift 18", bg="#88BFF3", fg="black")
     brandLabel.place(x=115, y=180)
-    brandLabel = tk.Label(Ventana_Principal, text="V. 1.0", font="Roboto 10", bg="white", fg="black")
+    brandLabel = tk.Label(Ventana_Principal, text="V. 1.0", font="Roboto 10", bg="#88BFF3", fg="black")
     brandLabel.place(x=320, y=210)
 
     # USUARIO
@@ -113,29 +86,29 @@ def precarga():
     usuario=ttk.Entry(Ventana_Principal, width=25)
     usuario.place(x=170,y=250)
 
-    contraseña=ttk.Entry(Ventana_Principal, show="*", width=25)
-    contraseña.place(x=430,y=250)
+    contraseña=ttk.Entry(Ventana_Principal, show="*", width=24)
+    contraseña.place(x=438,y=250)
 
-    invitado=ttk.Entry(Ventana_Principal, width=32)
-    invitado.place(x=230,y=300)
+    invitado=ttk.Entry(Ventana_Principal, width=30)
+    invitado.place(x=250,y=300)
 
-    label=tk.Label(Ventana_Principal, text = "Usuario: ", bg="white", fg="black")
-    label.place(x=100, y=250)
-    label=tk.Label(Ventana_Principal, text = "Contraseña: ", bg="white", fg="black")
-    label.place(x=350, y=250)
-    label=tk.Label(Ventana_Principal, text = "Código de Invitado: ", bg="white", fg="black")
-    label.place(x=100, y=300)
+    label=tk.Label(Ventana_Principal, text = "Usuario: ", bg="#88BFF3", fg="black", font="Bahnschrift 12")
+    label.place(x=100, y=247)
+    label=tk.Label(Ventana_Principal, text = "Contraseña: ", bg="#88BFF3", fg="black", font="Bahnschrift 12")
+    label.place(x=340, y=247)
+    label=tk.Label(Ventana_Principal, text = "Código de Invitado: ", bg="#88BFF3", fg="black", font="Bahnschrift 12")
+    label.place(x=100, y=297)
     label=tk.Label(Ventana_Principal, text = "Solicitar al Administrador", bg="yellow", fg="black")
     label.place(x=450, y=300)
 
     # COMBO
-    combo=ttk.Combobox(Ventana_Principal, width=35)
+    combo=ttk.Combobox(Ventana_Principal, width=28)
     combo["values"]=("Maxilar Superior", "Maxilar Inferior", "Vista Frontal")
-    combo.place(x=350, y=350)
+    combo.place(x=398, y=350)
     #combo.current(1)
 
-    label=tk.Label(Ventana_Principal, text = "Seleccione la vista para iniciar la simulación ", bg="white", fg="black")
-    label.place(x=100, y=350)
+    label=tk.Label(Ventana_Principal, text = "Seleccione la vista inicial para simular: ", bg="#88BFF3", fg="black", font="Bahnschrift 12")
+    label.place(x=100, y=347)
 
     boton=tk.Button(Ventana_Principal, text="Ingresar al Administrador", font="BahnschriftLight 12", bg="gray17", fg="white",
             activebackground="grey17", activeforeground="white", bd=0, command=ingreso)
@@ -175,8 +148,34 @@ def iniciar():
     fases = orquestador_fases.orquestador()
     fases.cambiar()
 
-    # BOTON ESTADO DEL NAVBAR
-    btnState = False
+    def switch():
+        global btnState
+        if btnState is True:
+            # ANIMACION DE CERRADO
+            for x in range(301):
+                navRoot.place(x=-x, y=0)
+                topFrame.update()
+
+            # COLORES AL MOMENTO DEL CERRADO
+            brandLabel.config(bg=color["celeste"], fg="black")
+            homeLabel.config(bg=color["celeste"])
+            topFrame.config(bg=color["celeste"])
+            Ventana_Principal.config(bg=color["celeste"])
+
+            # BOTON APAGADO
+            btnState = False
+        else:
+            # COLORES DE LA VENTANA DESPUES DE ACCIONAR
+            brandLabel.config(bg=color["celeste"], fg="black")
+            homeLabel.config(bg=color["celeste"])
+            topFrame.config(bg=color["celeste"])
+            Ventana_Principal.config(bg=color["celeste"])
+            for x in range(-300, 0):
+                navRoot.place(x=x, y=0)
+                topFrame.update()
+
+            # BOTON ENCENDIDO
+            btnState = True
 
     # BARRA DE NAVEGACION SUPERIOR
     topFrame = tk.Frame(Ventana_Principal, bg=color["celeste"])

@@ -6,7 +6,6 @@ from tkinter import messagebox as mb
 from tkinter.font import Font
 import sys
 import prueba
-import clases
 import variables  
 from interfaz_fase_1 import inter_1 , Graficador_Superior
 import orquestador_fases

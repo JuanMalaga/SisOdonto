@@ -34,8 +34,6 @@ label=tk.Label(root, text = "Seleccione la vista para al simulación  ", bg="whi
 label.place(x=50, y=250)
 
 # BOTONES
-def ingreso():
-
     
 def salir():
     respuesta = mb.askyesno(
@@ -45,7 +43,7 @@ def salir():
 
 
 boton=tk.Button(root, text="Ingresar al Sistema", font="BahnschriftLight 12", bg="gray17", fg="white",
-          activebackground="grey17", activeforeground="white", bd=0, command=ingreso)
+          activebackground="grey17", activeforeground="white", bd=0)
 boton.place(x=250,y=300)
 
 boton=tk.Button(root, text="Salir", font="BahnschriftLight 12", bg="gray17", fg="white",
