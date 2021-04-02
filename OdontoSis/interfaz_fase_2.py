@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image
 from tkinter import ttk
-from variables import interfaz
+from interfaz import interfaz 
 from variables import VarGlo
 from tkinter import Frame, Button, Label
 from PIL import ImageTk as itk
@@ -9,18 +9,6 @@ from PIL import ImageTk as itk
 
 class interfaz_fase_2(interfaz):
 
-    def __init__ (self):
-        global graficador 
-        global var
-        var = VarGlo()
-        graficador = Graficador_apoyos()
-        
-    
-    def iniciar_interfaz(self):
-        self.cambiar_interfaz()
-        graficador.crear_botones()
-        
-class Graficador_apoyos:
     x = 0
     y = 0
     ventana: tk.Tk
@@ -28,19 +16,20 @@ class Graficador_apoyos:
     frame : Frame
     direccionBase = "./src/apoyos/"
 
-    def __init__(self):
+    def __init__ (self):
+        global graficador 
         global var
         var = VarGlo()
         self.canvas = var.canvas
         self.frame = var.frame
         self.actual = "ninguno"
         self.Apoyos = var.Apoyos
-
-    def cambio_fase(self):
-        for widget in self.frame.winfo_children():
-            widget.destroy()
+           
+    
+    def iniciar_interfaz(self):
+        self.cambiar_interfaz()
         self.crear_botones()
-
+        
     def crear_botones(self):
         self.im1 = Image.open(self.direccionBase+'apoyo_oclusal_superior.png')
         self.im1 = self.im1.resize((var.size, var.size), Image.ANTIALIAS)
@@ -115,10 +104,9 @@ class Graficador_apoyos:
                 opcion = 4
             
             var.agregarApoyo(apoyoa)
-            
             var.grabar(2,self.x,self.y,opcion)
             self.canvas.create_image(self.x, self.y, image=self.Apoyos[len(self.Apoyos)-1], anchor="nw", tag="apoyo")
 
-
+    
     def left_but_up(self, evento):
-        return     
+        self.obtener_diente()

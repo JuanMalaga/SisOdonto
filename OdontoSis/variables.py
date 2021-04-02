@@ -99,20 +99,10 @@ class VarGlo(metaclass=SingletonMeta):
 
     def grabar(self, fase, X, Y, unidad):
         aux = componente_odontologico(fase, X, Y, unidad)
-        var.cambios.append(aux)
+        self.cambios.append(aux)
         
 
-class interfaz():
 
-    def cambiar_interfaz(self):
-        global var
-        var = VarGlo()
-
-        for widget in var.frame.winfo_children():
-            widget.destroy()
-
-        for widget in var.frame2.winfo_children():
-            widget.destroy()
 
     
 

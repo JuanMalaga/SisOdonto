@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image
 from tkinter import ttk
-from variables import interfaz
+from interfaz import interfaz
 from variables import VarGlo
 from tkinter import Frame, Button, Label
 from PIL import ImageTk as itk

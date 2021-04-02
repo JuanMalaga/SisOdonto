@@ -12,6 +12,9 @@ import interfaz_fase_1
 import ctypes
 
 resolucion = ctypes.windll.user32 
+global var
+var = variables.VarGlo()
+
 
 # configurar la ventana
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
