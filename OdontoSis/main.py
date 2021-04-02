@@ -27,7 +27,7 @@ Ventana_Principal.iconbitmap('./odonto.ico')
 width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 #Ventana_Principal.geometry("600x900+550+150")
-Ventana_Principal.geometry(f"679x550+{int(width/4)}+{int(height/4)}")
+Ventana_Principal.geometry(f"679x495+{int(3*width/8)}+{int(height/4)}")
 
 #imagenes 
 navIcon = PhotoImage(file="./src/menu.png")
@@ -36,11 +36,11 @@ banners=tk.PhotoImage(file="./src/caratula.png")
 
 # BOTON ESTADO DEL NAVBAR
 btnState = False
-
+combo=ttk.Combobox(Ventana_Principal, width=28)
 # BIENVENIDA
 def vista():
     if combo.get() == 'Maxilar Inferior':
-        main.iniciar()
+        iniciar()
         
     elif combo.get() == 'Maxilar Superior':
        pass
@@ -48,10 +48,6 @@ def vista():
 def ingreso():
       Ventana_Principal.state(newstate = "normal")
       root.state(newstate = "withdraw")
-
-# CAMBIAR VISTA
-def vista_sup():
-    os.system('python maxilar_superior.py')
 
 # CERRAR VENTANA
 def salir():
@@ -73,9 +69,7 @@ def guardar():
     var.Guardar_archivo()
 
 def precarga():
-    # IMAGENES
-    #Ventana_Principal.geometry("679x500+920+380")
-    
+    # IMAGENES   
     fondo=tk.Label(Ventana_Principal, image=banners, bg="#88BFF3").place(x=0,y=0)
 
     # TEXTO CENTRAL
@@ -105,7 +99,6 @@ def precarga():
     label.place(x=450, y=300)
 
     # COMBO
-    combo=ttk.Combobox(Ventana_Principal, width=28)
     combo["values"]=("Maxilar Superior", "Maxilar Inferior", "Vista Frontal")
     combo.place(x=398, y=350)
     #combo.current(1)
@@ -118,7 +111,7 @@ def precarga():
     boton.place(x=350,y=400)
 
     boton=tk.Button(Ventana_Principal, text="Ingresar al Sistema", font="BahnschriftLight 12", bg="gray17", fg="white",
-            activebackground="grey17", activeforeground="white", bd=0, command=iniciar)
+            activebackground="grey17", activeforeground="white", bd=0, command=vista)
     boton.place(x=190,y=400)
 
     boton=tk.Button(Ventana_Principal, text="Salir", font="BahnschriftLight 12", bg="gray17", fg="white",
@@ -128,7 +121,7 @@ def precarga():
 def iniciar():
     for widget in Ventana_Principal.winfo_children():
         widget.destroy()
-    Ventana_Principal.geometry("1470x900+550+250")
+    Ventana_Principal.geometry(f"1365x900+{int(width/4)}+{int(height/8)}")
     # Declaracion Elementos de la GUI
     canvas = tk.Canvas(Ventana_Principal, width=800, height=700)
     canvas.place(x=520, y=160)
