@@ -37,6 +37,7 @@ banners=tk.PhotoImage(file="./src/caratula.png")
 # BOTON ESTADO DEL NAVBAR
 btnState = False
 combo=ttk.Combobox(Ventana_Principal, width=28)
+combo.set("Maxilar Inferior")
 # BIENVENIDA
 def vista():
     if combo.get() == 'Maxilar Inferior':
@@ -227,7 +228,7 @@ def iniciar():
     graficador = interfaz_fase_1.Graficador()
 
     tk.Button(navRoot, text=options[1], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
-          activebackground="grey17", activeforeground="white", bd=0, command=vista_sup).place(x=15, y=120)
+          activebackground="grey17", activeforeground="white", bd=0).place(x=15, y=120)
     
 
 precarga()
