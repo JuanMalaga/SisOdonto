@@ -95,6 +95,7 @@ class botonFase ():
         if(self.fase == 0):
             self.interfaz1.iniciar_interfaz()
             var.Iniciar_Dentadura()
+            self.interfaz2.limpiar()
             self.interfaz3.limpiar()
             self.interfaz4.limpiar()
             self.interfaz5.limpiar()
