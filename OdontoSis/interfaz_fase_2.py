@@ -6,7 +6,6 @@ from variables import VarGlo
 from tkinter import Frame, Button, Label
 from PIL import ImageTk as itk
 
-
 class interfaz_fase_2(interfaz):
 
     x = 0
@@ -47,26 +46,24 @@ class interfaz_fase_2(interfaz):
         self.im4 = self.im4.resize((var.size, var.size), Image.ANTIALIAS)
         self.im4 = itk.PhotoImage(self.im4)
 
-        self.boton1 = ttk.Button(
-            self.frame, image = self.im1, command=self.Escoger_apoyo_oclusal_superior)
+        self.boton1 = tk.Button(
+            self.frame, image = self.im1, command=self.Escoger_apoyo_oclusal_superior(), bg='#57D490', activebackground='#57D490')
         self.boton1.grid(column=0, row=1, padx=5)
 
-        self.boton2 = ttk.Button(
-            self.frame, image = self.im2, text="1", command=self.Escoger_apoyo_oclusal_inferior)
+        self.boton2 = tk.Button(
+            self.frame, image = self.im2, text="1", command=self.Escoger_apoyo_oclusal_inferior, bg='#57D490', activebackground='#57D490')
         self.boton2.grid(column=1, row=1, padx=5)
 
-        self.boton3 = ttk.Button(
-            self.frame, image = self.im3, text="2", command=self.Escoger_apoyo_incisal)
+        self.boton3 = tk.Button(
+            self.frame, image = self.im3, text="2", command=self.Escoger_apoyo_incisal, bg='#57D490', activebackground='#57D490')
         self.boton3.grid(column=0, row=2, padx=5)
 
-        self.boton4 = ttk.Button(
-            self.frame, image = self.im4, text="1", command=self.Escoger_apoyo_circular)
+        self.boton4 = tk.Button(
+            self.frame, image = self.im4, text="1", command=self.Escoger_apoyo_circular, bg='#57D490', activebackground='#57D490')
         self.boton4.grid(column=1, row=2, padx=5)
 
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
-        self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
-        
-            
+        self.canvas.bind("<ButtonRelease-1>", self.left_but_up)   
 
     def borrar_linea(self):
         self.canvas.delete("diente1")
