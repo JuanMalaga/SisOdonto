@@ -80,12 +80,27 @@ class VarGlo(metaclass=SingletonMeta):
             self.Dientes.remove(elemento)
             self.grabar(1,0,0,-1*elemento)
 
+    #Funciones de retenedores
     def agregarRetenedor(self, elemento):
         self.Retenedores.append(elemento)
         
+    def elininarRetenedor(self, elemento):
+        self.Retenedores.remove(elemento)
+
+    def borrarRetenedores(self):
+        self.Retenedores.clear()
+
+    #Funciones de apoyos
     def agregarApoyo(self, elemento):
         self.Apoyos.append(elemento)
 
+    def elininarApoyo(self, elemento):
+        self.Apoyos.remove(elemento)
+
+    def borrarApoyos(self):
+        self.Apoyos.clear()
+
+    #Funciones de conector_mayor
     def agregarConec_Menor(self,elemento):
         self.Conectores_menores.append(elemento)
 

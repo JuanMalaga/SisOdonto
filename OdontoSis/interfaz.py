@@ -34,8 +34,8 @@ class interfaz():
         diente = -1
         global pos_x
         global pos_y
-        pos_x = self.x
-        pos_y = self.y
+        pos_x = self.x - 10
+        pos_y = self.y - 20
 
         if(pos_x < 384):
             
@@ -92,7 +92,7 @@ class interfaz():
             elif(pos_y<0.6*pos_x+142.8): 
                 diente = 34 
                 centro_x = 573
-                centro_y = 440
+                centro_y = 462
             elif(7*pos_y<10*pos_x-1350): 
                 diente = 33 
                 centro_x = 525
@@ -106,8 +106,7 @@ class interfaz():
                 centro_x = 414
                 centro_y = 535
 
-        
-
-        print(self.x)
-        print(self.y)
+            centro_x = centro_x - 10    
+            centro_y = centro_y - 20     
         print(diente,self.obtener_posicion(centro_x,centro_y))
+        return diente,self.obtener_posicion(centro_x,centro_y)
