@@ -55,37 +55,37 @@ class inter_1(interfaz):
         tk.Label(frame, text="¿Qué dientes desea eliminar?",
          font="Bahnschrift 11", width=44, height=2).pack(anchor="w")
         tk.Checkbutton(frame, text="Tercer Molar Derecho (48)", variable=self.diente1,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente1, 1)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente1, 48)).pack(anchor="w")
         tk.Checkbutton(frame, text="Segundo Molar Derecho (47)", variable=self.diente2,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente2, 2)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente2, 47)).pack(anchor="w")
         tk.Checkbutton(frame, text="Primer Molar Derecho (46)", variable=self.diente3,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente3, 3)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente3, 46)).pack(anchor="w")
         tk.Checkbutton(frame, text="Segundo Premolar Derecho (45)", variable=self.diente4,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente4, 4)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente4, 45)).pack(anchor="w")
         tk.Checkbutton(frame, text="Primer Premolar Derecho (44)", variable=self.diente5,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente5, 5)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente5, 44)).pack(anchor="w")
         tk.Checkbutton(frame, text="Canino Derecho (43)", variable=self.diente6,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente6, 6)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente6, 43)).pack(anchor="w")
         tk.Checkbutton(frame, text="Incisivo Lateral Derecho (42)", variable=self.diente7,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente7, 7)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente7, 42)).pack(anchor="w")
         tk.Checkbutton(frame, text="Incisivo Central Derecho (41)", variable=self.diente8,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente8, 8)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente8, 41)).pack(anchor="w")
         tk.Checkbutton(frame, text="Incisivo Central Izquierdo (31)", variable=self.diente9,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente9, 9)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente9, 31)).pack(anchor="w")
         tk.Checkbutton(frame, text="Incisivo Lateral Izquierdo (32)", variable=self.diente10,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente10, 10)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente10, 32)).pack(anchor="w")
         tk.Checkbutton(frame, text="Canino Izquierdo (33)", variable=self.diente11,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente11, 11)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente11, 33)).pack(anchor="w")
         tk.Checkbutton(frame, text="Primer Premolar Izquierdo (34)", variable=self.diente12,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente12, 12)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente12, 34)).pack(anchor="w")
         tk.Checkbutton(frame, text="Segundo Premolar Izquierdo (35)", variable=self.diente13,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente13, 13)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente13, 35)).pack(anchor="w")
         tk.Checkbutton(frame, text="Primer Molar Izquierdo (36)", variable=self.diente14,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente14, 14)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente14, 36)).pack(anchor="w")
         tk.Checkbutton(frame, text="Segundo Molar Izquierdo (37)", variable=self.diente15,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente15, 15)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente15, 37)).pack(anchor="w")
         tk.Checkbutton(frame, text="Tercer Molar Izquierdo (38)", variable=self.diente16,
-                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente16, 16)).pack(anchor="w")
+                    onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente16, 38)).pack(anchor="w")
 
     def tiposD(self):
         self.tipos = tk.PhotoImage(file="./src/tipos.png")
@@ -171,82 +171,82 @@ class Graficador:
         
         for element in self.Dientes:
 
-            if(element == 1):
+            if(element == 48):
 
                 self.canvas.create_image(
                     self.pos_x_ini, self.pos_y_ini, image=self.dientes[0], anchor="nw")
 
-            elif(element == 2):
+            elif(element == 47):
 
                 self.canvas.create_image(
                     self.pos_x_ini, self.pos_y_ini+100, image=self.dientes[1], anchor="nw")
 
-            elif(element == 3):
+            elif(element == 46):
 
                 self.canvas.create_image(
                     self.pos_x_ini, self.pos_y_ini+200, image=self.dientes[2], anchor="nw")
 
-            elif(element == 4):
+            elif(element == 45):
 
                 self.canvas.create_image(
                     self.pos_x_ini+25, self.pos_y_ini+300, image=self.dientes[3], anchor="nw")
 
-            elif(element == 5):
+            elif(element == 44):
 
                 self.canvas.create_image(
                     self.pos_x_ini+72, self.pos_y_ini+377, image=self.dientes[4], anchor="nw")
 
-            elif(element == 6):
+            elif(element == 43):
 
                 self.canvas.create_image(
                     self.pos_x_ini+127, self.pos_y_ini+437, image=self.dientes[5], anchor="nw")
 
-            elif(element == 7):
+            elif(element == 42):
 
                 self.canvas.create_image(
                     self.pos_x_ini+192, self.pos_y_ini+454, image=self.dientes[6], anchor="nw")
 
-            elif(element == 8):
+            elif(element == 41):
 
                 self.canvas.create_image(
                     self.pos_x_ini+237, self.pos_y_ini+454, image=self.dientes[7], anchor="nw")
 
-            elif(element == 9):
+            elif(element == 31):
 
                 self.canvas.create_image(
                     self.pos_x_ini+287, self.pos_y_ini+462, image=self.dientes[8], anchor="nw")
 
-            elif(element == 10):
+            elif(element == 32):
 
                 self.canvas.create_image(
                     self.pos_x_ini+357, self.pos_y_ini+437, image=self.dientes[9], anchor="nw")
 
-            elif(element == 11):
+            elif(element == 33):
 
                 self.canvas.create_image(
                     self.pos_x_ini+402, self.pos_y_ini+427, image=self.dientes[10], anchor="nw")
 
-            elif(element == 12):
+            elif(element == 34):
 
                 self.canvas.create_image(
                     self.pos_x_ini+462, self.pos_y_ini+377, image=self.dientes[11], anchor="nw")
 
-            elif(element == 13):
+            elif(element == 35):
 
                 self.canvas.create_image(
                     self.pos_x_ini+473, self.pos_y_ini+299, image=self.dientes[12], anchor="nw")
 
-            elif(element == 14):
+            elif(element == 36):
 
                 self.canvas.create_image(
                     self.pos_x_ini+498, self.pos_y_ini+200, image=self.dientes[13], anchor="nw")
 
-            elif(element == 15):
+            elif(element == 37):
 
                 self.canvas.create_image(
                     self.pos_x_ini+508, self.pos_y_ini+92, image=self.dientes[14], anchor="nw")
 
-            elif(element == 16):
+            elif(element == 38):
 
                 self.canvas.create_image(
                     self.pos_x_ini+504, self.pos_y_ini-5, image=self.dientes[15], anchor="nw")

@@ -56,9 +56,8 @@ class VarGlo(metaclass=SingletonMeta):
         file.close()
 
     def Iniciar_Dentadura(self):
-        self.Dientes = [1, 4, 5, 2, 3, 10, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16]
-        self.Dientes.sort()
-
+        self.Dientes = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38]
+        
     def Iniciar_Dentadura_Sup(self):
         self.Dientes = [17, 18, 19, 20, 21, 22,
                         23, 24, 25, 26, 27, 28, 29, 30, 31, 32]

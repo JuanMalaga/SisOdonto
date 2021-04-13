@@ -30,6 +30,12 @@ class interfaz():
 
         return arriba,derecha
 
+    def existe_diente(self,numero):
+        var = VarGlo()
+        if(var.Dientes.count(numero)>0):
+            return True
+        return False
+
     def obtener_diente(self):
         diente = -1
         global pos_x
@@ -38,7 +44,6 @@ class interfaz():
         pos_y = self.y - 20
 
         if(pos_x < 384):
-            
             if(pos_y<131):
                 diente = 48
                 centro_x = 136
