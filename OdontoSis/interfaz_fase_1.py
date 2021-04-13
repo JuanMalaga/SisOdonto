@@ -1,7 +1,7 @@
 import variables
 import tkinter as tk
 from interfaz import interfaz
-from PIL import Image
+from PIL import Image, ImageTk
 from tkinter import ttk
 
 

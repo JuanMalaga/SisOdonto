@@ -10,29 +10,43 @@ from interfaz_fase_1 import inter_1
 import orquestador_fases
 import interfaz_fase_1
 import ctypes
+from PIL import ImageTk, Image
 
 resolucion = ctypes.windll.user32 
 global var
 var = variables.VarGlo()
 
-
 # configurar la ventana
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
 Ventana_Principal = tk.Tk()
 Ventana_Principal.title("SIDECO")
-Ventana_Principal.resizable(0,0)
+#Ventana_Principal.resizable(0,0)
 Ventana_Principal.config(bg="#88BFF3")
 Ventana_Principal.iconbitmap('./odonto.ico')
 # CENTRALIZANDO VENTANA
 width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 #Ventana_Principal.geometry("600x900+550+150")
-Ventana_Principal.geometry(f"679x495+{int(3*width/8)}+{int(height/4)}")
-
+Ventana_Principal.geometry(f"{int(9*width/32)}x{int(height/2.9)}+{int(3*width/8)}+{int(height/4)}")
+print(width,height)
 #imagenes 
 navIcon = PhotoImage(file="./src/menu.png")
 closeIcon = PhotoImage(file="./src/close.png")
-banners=tk.PhotoImage(file="./src/caratula.png")
+img = Image.open("./src/caratula.png")
+original=img.size
+nuevo=(width/3.79, height/9.06)
+
+factor = min(float(nuevo[1])/original[1], float(nuevo[0])/original[0])
+w = int(original[0] * factor)
+h = int(original[1] * factor)
+
+banners= img.resize((w, h), Image.ANTIALIAS)
+banners = ImageTk.PhotoImage(banners)
+
+canvas = tk.Canvas(Ventana_Principal, width=nuevo[0], height= nuevo[1])
+canvas.create_image(nuevo[0]/2, nuevo[1]/2, anchor=tk.CENTER, image=banners, tags="img")
+canvas.pack(fill=None, expand=False)
+#banners=tk.PhotoImage(file="./src/caratula.png")
 
 # BOTON ESTADO DEL NAVBAR
 btnState = False
@@ -70,54 +84,56 @@ def guardar():
     var.Guardar_archivo()
 
 def precarga():
-    # IMAGENES   
-    fondo=tk.Label(Ventana_Principal, image=banners, bg="#88BFF3").place(x=0,y=0)
-
     # TEXTO CENTRAL
-    brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA", font="Bahnschrift 18", bg="#88BFF3", fg="black")
-    brandLabel.place(x=115, y=180)
-    brandLabel = tk.Label(Ventana_Principal, text="V. 1.0", font="Roboto 10", bg="#88BFF3", fg="black")
-    brandLabel.place(x=320, y=210)
+    tamaño=Font(family="Bahnschrift", size = int(width/142.23))
+    version=Font(family="Roboto", size = int(width/220))
+    brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA", font=tamaño, bg="#88BFF3", fg="black")
+    brandLabel.place(x=int(width/22.26), y=int(height/8))
+    brandLabel = tk.Label(Ventana_Principal, text="V. 1.0", font=version, bg="#88BFF3", fg="black")
+    brandLabel.place(x=int(width/8), y=int(height/6.86))
 
     # USUARIO
+    letra=Font(family="Bahnschrift", size = int(width/213.3))
+    solicitud=Font(family="Bahnschrift", size = int(width/284.5))
 
-    usuario=ttk.Entry(Ventana_Principal, width=25)
-    usuario.place(x=170,y=250)
+    usuario=ttk.Entry(Ventana_Principal, width=int(width/140), font=letra)
+    usuario.place(x=int(width/15),y=int(height/5.76), height=int(height/65.46))
 
-    contraseña=ttk.Entry(Ventana_Principal, show="*", width=24)
-    contraseña.place(x=438,y=250)
+    contraseña=ttk.Entry(Ventana_Principal, show="*", width=int(width/161), font=letra)
+    contraseña.place(x=int(width/5.7),y=int(height/5.76), height=int(height/65.46))
 
-    invitado=ttk.Entry(Ventana_Principal, width=30)
-    invitado.place(x=250,y=300)
+    invitado=ttk.Entry(Ventana_Principal, width=int(width/120), font=letra)
+    invitado.place(x=int(width/10.24),y=int(height/4.8), height=int(height/65.46))
 
-    label=tk.Label(Ventana_Principal, text = "Usuario: ", bg="#88BFF3", fg="black", font="Bahnschrift 12")
-    label.place(x=100, y=247)
-    label=tk.Label(Ventana_Principal, text = "Contraseña: ", bg="#88BFF3", fg="black", font="Bahnschrift 12")
-    label.place(x=340, y=247)
-    label=tk.Label(Ventana_Principal, text = "Código de Invitado: ", bg="#88BFF3", fg="black", font="Bahnschrift 12")
-    label.place(x=100, y=297)
-    label=tk.Label(Ventana_Principal, text = "Solicitar al Administrador", bg="yellow", fg="black")
-    label.place(x=450, y=300)
+    label=tk.Label(Ventana_Principal, text = "Usuario: ", bg="#88BFF3", fg="black", font=letra)
+    label.place(x=int(width/25.6), y=int(height/5.83))
+    label=tk.Label(Ventana_Principal, text = "Contraseña: ", bg="#88BFF3", fg="black", font=letra)
+    label.place(x=int(width/7.53), y=int(height/5.83))
+    label=tk.Label(Ventana_Principal, text = "Código de Invitado: ", bg="#88BFF3", fg="black", font=letra)
+    label.place(x=int(width/25.6), y=int(height/4.85))
+    label=tk.Label(Ventana_Principal, text = "Solicitar al Administrador", bg="yellow", fg="black", font=solicitud)
+    label.place(x=int(width/5.6), y=int(height/4.8))
 
     # COMBO
     combo["values"]=("Maxilar Superior", "Maxilar Inferior", "Vista Frontal")
-    combo.place(x=398, y=350)
+    combo.place(x=int(width/6.43), y=int(height/4.11), height=int(height/65.46))
     #combo.current(1)
 
-    label=tk.Label(Ventana_Principal, text = "Seleccione la vista inicial para simular: ", bg="#88BFF3", fg="black", font="Bahnschrift 12")
-    label.place(x=100, y=347)
+    label=tk.Label(Ventana_Principal, text = "Seleccione la vista inicial para simular: ", bg="#88BFF3", fg="black"
+            , font=letra)
+    label.place(x=int(width/25.6), y=int(height/4.15))
 
-    boton=tk.Button(Ventana_Principal, text="Ingresar al Administrador", font="BahnschriftLight 12", bg="gray17", fg="white",
+    boton=tk.Button(Ventana_Principal, text="Ingresar al Administrador", font=letra, bg="gray17", fg="white",
             activebackground="grey17", activeforeground="white", bd=0, command=ingreso)
-    boton.place(x=350,y=400)
+    boton.place(x=int(width/7.32),y=int(height/3.6))
 
-    boton=tk.Button(Ventana_Principal, text="Ingresar al Sistema", font="BahnschriftLight 12", bg="gray17", fg="white",
+    boton=tk.Button(Ventana_Principal, text="Ingresar al Sistema", font=letra, bg="gray17", fg="white",
             activebackground="grey17", activeforeground="white", bd=0, command=vista)
-    boton.place(x=190,y=400)
+    boton.place(x=int(width/13.48),y=int(height/3.6))
 
-    boton=tk.Button(Ventana_Principal, text="Salir", font="BahnschriftLight 12", bg="gray17", fg="white",
+    boton=tk.Button(Ventana_Principal, text="Salir", font=letra, bg="gray17", fg="white",
             activebackground="grey17", activeforeground="white", bd=0, command=salirP)
-    boton.place(x=315,y=450)
+    boton.place(x=int(width/8.13),y=int(height/3.2))
 
 def iniciar():
     for widget in Ventana_Principal.winfo_children():
