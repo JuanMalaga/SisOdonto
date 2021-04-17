@@ -27,6 +27,10 @@ width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 #Ventana_Principal.geometry("600x900+550+150")
 Ventana_Principal.geometry(f"{int(width/2)}x{int(height/2)}+{int(width/4)}+{int(3*height/16)}")
+<<<<<<< HEAD
+=======
+print(int(width/2),int(height/2))
+>>>>>>> main
 #imagenes 
 navIcon = PhotoImage(file="./src/menu.png")
 closeIcon = PhotoImage(file="./src/close.png")
@@ -86,9 +90,15 @@ def precarga():
     tamaño=Font(family="Bahnschrift", size = int(width/80))
     version=Font(family="Roboto", size = int(width/150))
     brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA", font=tamaño, bg="#88BFF3", fg="black")
+<<<<<<< HEAD
     brandLabel.pack()
     brandLabel = tk.Label(Ventana_Principal, text="V. 1.0", font=version, bg="#88BFF3", fg="black")
     brandLabel.pack()
+=======
+    brandLabel.place(x=int(3*width/32), y=int(height/8))
+    brandLabel = tk.Label(Ventana_Principal, text="V. 1.0", font=version, bg="#88BFF3", fg="black")
+    brandLabel.place(x=int(width/4), y=int(height/6))
+>>>>>>> main
 
     # USUARIO
     if (width>1400):

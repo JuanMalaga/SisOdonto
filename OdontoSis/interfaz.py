@@ -81,8 +81,8 @@ class interfaz():
             
             if(pos_y<126):
                 diente = 38
-                centro_x = 632
-                centro_y = 75
+                centro_x = 650
+                centro_y = 100
             elif(pos_y < 228):
                 diente = 37  
                 centro_x = 641

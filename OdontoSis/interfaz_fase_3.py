@@ -105,6 +105,7 @@ class interfaz_fase_3(interfaz):
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
                     permitido = True
+<<<<<<< HEAD
                     if (tupla[1][0]):
                         print("esta rotando")
                         self.tkimage = itk.PhotoImage(Retenedor.rotate(180))
@@ -127,6 +128,20 @@ class interfaz_fase_3(interfaz):
                         print("no")
                         self.x = 125
                         self.y = 226
+=======
+                    Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
+                    self.tkimage = itk.PhotoImage(Retenedor)
+                    self.x = 65
+                    self.y = 37
+                    
+            elif (tupla[0] == 47 and self.existe_diente(47)):
+                if(opcion == 1):
+                    permitido = True
+                    Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
+                    self.tkimage = itk.PhotoImage(Retenedor)
+                    self.x = 60
+                    self.y = 140   
+>>>>>>> main
 
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):

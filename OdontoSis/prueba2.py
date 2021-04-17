@@ -5,6 +5,10 @@ from tkinter import messagebox as mb	#Nos permite abrir ventanas de mensajes
 import sqlite3							#Nos permite conectarnos a una base de datos (sqlite3)
 
 ventana=tk.Tk()
+<<<<<<< HEAD
+=======
+ventana.title("_Mi primer Login_")	#Titulo de la ventana principal
+>>>>>>> main
 ventana.geometry("280x450+300+250")	#Tamaño de nuestra ventana Principal
 	
 color='#c5e2f6'			#Codigo HEX del color de fondo usado
@@ -56,10 +60,36 @@ def nuevaVentana():							#Funcion nuevaVentana ... Nos permitira el registro de
 	Label(newVentana,text="Repita la Contraseña : ",bg=color,font=("Arial Black",10)).pack()	#Texto 'Repita la Contraseña'
 	caja7=Entry(newVentana,show="*")															#Creamos 'caja7' 
 	caja7.pack()
+<<<<<<< HEAD
+=======
+	def registro():				#Funcion registro ... Nos permitira escribir los datos a nuestra base de datos
+		Nombre=caja3.get()		#Obtenemos el valor de 'caja3'
+		Apellido=caja4.get()	#Obtenemos el valor de 'caja4'
+		Usr_reg=caja5.get()		#Obtenemos el valor de 'caja5'
+		Contra_reg=caja6.get()	#Obtenemos el valor de 'caja6'
+		Contra_reg_2=caja7.get() #Obtenemos el valor de 'caja7'
+		if(Contra_reg==Contra_reg_2):		#Esta condicion nos permite saber si las contraseñas coinciden
+			#El siguiente comando es el encargado de insertar los datos obtenidos en el registro
+			c.execute("INSERT INTO usuarios values(\'"+Nombre+"\',\'"+Apellido+"\',\'"+Usr_reg+"\',\'"+Contra_reg+"')")
+			db.commit()			#Confirmamos los datos
+			mb.showinfo(title="Registro Correcto",message="Hola "+Nombre+" "+Apellido+" ¡¡ \nSu registro fue exitoso.")
+			newVentana.destroy()		#Cerramos la ventana de registro
+		else:	#Se ejecutara si las contraseñas no coinciden
+			mb.showerror(title="Contraseña Incorrecta",message="Error¡¡¡ \nLas contraseñas no coinciden.")	#Mostramos un mensaje
+		#c.close()		#Nos permite cerrar el cursor ...
+		#db.close()
+	#El siguiente comando (boton) nos permite llamar ala funcion registro
+	buttons=tk.Button(newVentana,text="Registrar ¡",command=registro,bg=color,font=("Arial Rounded MT Bold",10)).pack(side="bottom")
+>>>>>>> main
 	
 Label(ventana,text=" ",bg=color,font=("Arial",10)).pack()		#Solo es una linea vacia ... (lo use para separar el boton) 
 Button(text=" ENTRAR ",command=login,bg='#a6d4f2',font=("Arial Rounded MT Bold",10)).pack()		#Boton ==> funcion 'login'
 Label(ventana,text=" ",bg=color,font=("Arial Black",10)).pack()
 Label(ventana,text="No tienes una cuenta ? : ",bg=color,font=("Arial Black",10)).pack()		#Simple texto
+<<<<<<< HEAD
+=======
+#La siguiente linea (boton) nos llama ala funcion 'nuevaVentana' ==> ( ventana de registro)
+boton1=Button(ventana,text="REGISTRO",bg='#a6d4f2',command=nuevaVentana,font=("Arial Rounded MT Bold",10)).pack()
+>>>>>>> main
 
 ventana.mainloop()
