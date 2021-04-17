@@ -12,6 +12,9 @@ class inter_1(interfaz):
     # VARIABLES
     
     def __init__(self): 
+        self.iniciar_dentadura()
+        
+    def iniciar_dentadura(self):
         global frame 
         frame = var.frame
         self.diente1 = tk.IntVar(value=1)
@@ -30,27 +33,26 @@ class inter_1(interfaz):
         self.diente14 = tk.IntVar(value=1)
         self.diente15 = tk.IntVar(value=1)
         self.diente16 = tk.IntVar(value=1)
-        
-        
+
     def iniciar_interfaz(self):
+        self.actual = "ninguno"
+        self.iniciar_dentadura()
         self.cambiar_interfaz()
         self.etiquetas()
-        self.tiposD()
+        #self.tiposD()
         global graficador
         graficador  =  Graficador()
         var.Iniciar_Dentadura()
         graficador.actualizar()
-        
 
     def iniciar_interfaz_sup(self):
         self.cambiar_interfaz()
         self.etiquetas()
-        self.tiposD()
+        #self.tiposD()
         graficador_sup = Graficador_Superior()
         var.Iniciar_Dentadura_Sup()
         graficador_sup.actualizar() 
         
-
     def etiquetas(self):
         tk.Label(frame, text="¿Qué dientes desea eliminar?",
          font="Bahnschrift 11", width=44, height=2).pack(anchor="w")
@@ -86,12 +88,12 @@ class inter_1(interfaz):
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente15, 37)).pack(anchor="w")
         tk.Checkbutton(frame, text="Tercer Molar Izquierdo (38)", variable=self.diente16,
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente16, 38)).pack(anchor="w")
-
+    '''
     def tiposD(self):
         self.tipos = tk.PhotoImage(file="./src/tipos.png")
         imagen = tk.Label(var.frame2, image = self.tipos, width=353, height=240, background="white")
         imagen.pack()
-        
+    '''     
     
     # OPCIONES DE BORRADO
     def Listener(self,variable, n):

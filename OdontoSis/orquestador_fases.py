@@ -8,6 +8,11 @@ from interfaz_fase_2 import interfaz_fase_2
 from interfaz_fase_4 import interfaz_fase_4
 from interfaz_fase_5 import interfaz_fase_5
 from interfaz_fase_6 import interfaz_fase_6
+import ctypes
+
+resolucion = ctypes.windll.user32 
+width = resolucion.GetSystemMetrics(0)
+height = resolucion.GetSystemMetrics(1)
 
 class orquestador (metaclass=SingletonMeta):
     def __init__(self):
@@ -16,19 +21,19 @@ class orquestador (metaclass=SingletonMeta):
         var = VarGlo()
         global pos_inicial
         pos_inicial = 150
-        boton1 = botonFase(pos_inicial, 80, "FASE I\nDIENTES", 0)
+        altura=int(height/12)
+        print(height)
+        boton1 = botonFase(pos_inicial, altura, "FASE I\nDIENTES", 0)
         self.arreglo.append(boton1)
-
-        boton2 = botonFase(pos_inicial+196*1, 80, "FASE II\nAPOYOS", 1)
+        boton2 = botonFase(pos_inicial+int(width/8.42)*1, altura, "FASE II\nAPOYOS", 1)
         self.arreglo.append(boton2)
-        boton3 = botonFase(pos_inicial+196*2, 80, "FASE III\nRETENEDORES", 2)
+        boton3 = botonFase(pos_inicial+int(width/8.42)*2, altura, "FASE III\nRETENEDORES", 2)
         self.arreglo.append(boton3)
-        boton4 = botonFase(pos_inicial+196*3, 80, "FASE IV\nCONECTOR MENOR", 3)
+        boton4 = botonFase(pos_inicial+int(width/8.42)*3, altura, "FASE IV\nCONECTOR MENOR", 3)
         self.arreglo.append(boton4)
-        boton5 = botonFase(pos_inicial+196*4, 80, "FASE V\nCONECTOR MAYOR", 4)
+        boton5 = botonFase(pos_inicial+int(width/8.42)*4, altura, "FASE V\nCONECTOR MAYOR", 4)
         self.arreglo.append(boton5)
-        boton6 = botonFase(pos_inicial+196*5, 80,
-                           "FASE VI\nBASES (REJILLAS)", 5)
+        boton6 = botonFase(pos_inicial+int(width/8.42)*5, altura, "FASE VI\nBASES (REJILLAS)", 5)
         self.arreglo.append(boton6)
 
     def cambiar(self):
@@ -60,12 +65,12 @@ class botonFase ():
 
         self.fase = fase
         global orq
-        btn_font = Font(family="Roboto Mono", size=12)
+        btn_font = Font(family="Roboto Mono", size=10)
         var = VarGlo()
         self.x = x
         self.y = y
         self.nombre = nombre
-        self.boton = tk.Button(var.ventana, text=self.nombre, font=btn_font, bd=0, width=21,
+        self.boton = tk.Button(var.ventana, text=self.nombre, font=btn_font, bd=0, width=18,
                                overrelief="flat", cursor="hand1", command=self.seleccionar)
 
         self.boton.place(x=self.x, y=self.y)

@@ -12,6 +12,7 @@ class interfaz():
 
         for widget in var.frame2.winfo_children():
             widget.destroy()
+        self.actual = "ninguno"
 
     def elementos_Creados(self, arreglo):
         var = VarGlo()
@@ -85,15 +86,15 @@ class interfaz():
             elif(pos_y < 228):
                 diente = 37  
                 centro_x = 641
-                centro_y = 174  
+                centro_y = 184 
             elif(23*pos_y<10*pos_x+1584): 
                 diente = 36 
                 centro_x = 632
                 centro_y = 286
             elif(11*pos_y<4*pos_x+2204): 
                 diente = 35 
-                centro_x = 602
-                centro_y = 375
+                centro_x = 592
+                centro_y = 385
             elif(pos_y<0.6*pos_x+142.8): 
                 diente = 34 
                 centro_x = 573
@@ -101,10 +102,10 @@ class interfaz():
             elif(7*pos_y<10*pos_x-1350): 
                 diente = 33 
                 centro_x = 525
-                centro_y = 492
+                centro_y = 515
             elif(pos_y<4.8*pos_x-1585.4): 
                 diente = 32 
-                centro_x = 467
+                centro_x = 475
                 centro_y = 517
             else: 
                 diente = 31 
