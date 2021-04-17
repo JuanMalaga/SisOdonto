@@ -255,9 +255,10 @@ class interfaz_fase_2(interfaz):
                         self.y = 430
                     else:
                         print("no")
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(340))
-                        self.x = 554
-                        self.y = 467
+                        apoyoa = apoyoa.resize((30, 20), Image.ANTIALIAS)
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(280))
+                        self.x = 545
+                        self.y = 465
 
             if (tupla[0] == 33 and self.existe_diente(33)):
                 if(opcion == 2):
