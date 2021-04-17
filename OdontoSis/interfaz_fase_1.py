@@ -12,6 +12,9 @@ class inter_1(interfaz):
     # VARIABLES
     
     def __init__(self): 
+        self.iniciar_dentadura()
+        
+    def iniciar_dentadura(self):
         global frame 
         frame = var.frame
         self.diente1 = tk.IntVar(value=1)
@@ -30,9 +33,10 @@ class inter_1(interfaz):
         self.diente14 = tk.IntVar(value=1)
         self.diente15 = tk.IntVar(value=1)
         self.diente16 = tk.IntVar(value=1)
-        
-        
+
     def iniciar_interfaz(self):
+        self.actual = "ninguno"
+        self.iniciar_dentadura()
         self.cambiar_interfaz()
         self.etiquetas()
         self.tiposD()
