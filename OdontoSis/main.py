@@ -27,7 +27,7 @@ width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 #Ventana_Principal.geometry("600x900+550+150")
 Ventana_Principal.geometry(f"{int(width/2)}x{int(height/2)}+{int(width/4)}+{int(3*height/16)}")
-print(int(width/2),int(height/2))
+#print(int(width/2),int(height/2))
 #imagenes 
 navIcon = PhotoImage(file="./src/menu.png")
 closeIcon = PhotoImage(file="./src/close.png")
@@ -146,12 +146,15 @@ def precarga():
 def iniciar():
     for widget in Ventana_Principal.winfo_children():
         widget.destroy()
-    Ventana_Principal.geometry(f"{int(15*width/16)}x{int(7*height/8)}+{int(width/36.6)}+{int(height/28.8)}")
+    ancho=int(15*width/16)
+    largo=int(7*height/8)
+    Ventana_Principal.geometry(f"{ancho}x{largo}+{int(width/36.6)}+{int(height/28.8)}")
+    print(ancho,largo)
     # Declaracion Elementos de la GUI
-    canvas = tk.Canvas(Ventana_Principal, width=655, height=500)
-    canvas.place(x=400, y=110)
+    canvas = tk.Canvas(Ventana_Principal, width=int(15*ancho/32), height=int(3*largo/4))
+    canvas.place(x=int(3*ancho/8), y=int(3*largo/16))
     frame = Frame(Ventana_Principal)
-    frame.place(x=150, y=110, width=240, height=500)
+    frame.place(x=150, y=int(3*largo/16), width=240, height=500)
     frame2 = Frame(Ventana_Principal, width=352, height=240)
     frame2.place(x=150, y=700)
 
