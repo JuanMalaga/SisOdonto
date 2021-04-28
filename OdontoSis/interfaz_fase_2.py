@@ -93,7 +93,7 @@ class interfaz_fase_2(interfaz):
                         self.x = 130
                         self.y = 50
                     else:
-                        print("no")
+                        print("inferior")
                         self.x = 127
                         self.y = 125
 
@@ -118,37 +118,37 @@ class interfaz_fase_2(interfaz):
                         self.x = 125
                         self.y = 260
                     else:
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(20))
-                        self.x = 130
-                        self.y = 341
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(40))
+                        self.x = 140
+                        self.y = 345
 
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
                     permitido = True
                     if (tupla[1][0]):
                         apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(195))
-                        self.x = 145
-                        self.y = 370
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(172))
+                        self.x = 160
+                        self.y = 368
                     else:
                         apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(35))
-                        self.x = 162
-                        self.y = 425
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(55))
+                        self.x = 175
+                        self.y = 415
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
                     permitido = True
                     if (tupla[1][0]):
-                        apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(200))
-                        self.x = 175
+                        apoyoa = apoyoa.resize((30, 20), Image.ANTIALIAS)
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
+                        self.x = 190
                         self.y = 445
                     else:
-                        apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(15))
-                        self.x = 195
-                        self.y = 487 
+                        apoyoa = apoyoa.resize((30, 20), Image.ANTIALIAS)
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(70))
+                        self.x = 215
+                        self.y = 480
 
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
@@ -196,15 +196,15 @@ class interfaz_fase_2(interfaz):
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
                     permitido = True
-                    if (not tupla[1][1]):
-                        print("esta rotando")
+                    if (tupla[1][0]):
+                        print("arriba")
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
                         self.x = 624
                         self.y = 44
                     else:
-                        print("no")
+                        print("abajo")
                         self.x = 629
-                        self.y = 124
+                        self.y = 120
 
             if (tupla[0] == 37 and self.existe_diente(37)):
                 if(opcion == 1):
@@ -227,7 +227,7 @@ class interfaz_fase_2(interfaz):
                         self.x = 629
                         self.y = 251
                     else:
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(340))
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(320))
                         print("no")
                         self.x = 612
                         self.y = 335
@@ -237,19 +237,22 @@ class interfaz_fase_2(interfaz):
                     permitido = True
                     if (tupla[1][0]):
                         print("esta rotando")
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(170))
-                        self.x = 605
-                        self.y = 360
+                        apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(181))
+                        self.x = 600
+                        self.y = 355
                     else:
                         print("no")
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(340))
-                        self.x = 584
-                        self.y = 410
+                        apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(310))
+                        self.x = 580
+                        self.y = 408
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(opcion == 1):
                     permitido = True
                     if (tupla[1][0]):
                         print("esta rotando")
+                        apoyoa = apoyoa.resize((30, 20), Image.ANTIALIAS)
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(147))
                         self.x = 572
                         self.y = 430
