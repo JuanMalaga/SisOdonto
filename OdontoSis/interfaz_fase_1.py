@@ -1,11 +1,16 @@
 import variables
 import tkinter as tk
 from interfaz import interfaz
-from PIL import Image, ImageTk
+from PIL import Image
+from PIL import ImageTk as itk
 from tkinter import ttk
+from tkinter.font import Font
+import ctypes
 
-
+resolucion = ctypes.windll.user32 
 var = variables.VarGlo()
+width = resolucion.GetSystemMetrics(0)
+height = resolucion.GetSystemMetrics(1)
 
 class inter_1(interfaz):
 
@@ -54,39 +59,43 @@ class inter_1(interfaz):
         graficador_sup.actualizar() 
         
     def etiquetas(self):
+        tamaño=Font(family="Bahnschrift", size = int(width/100))
+        opcion=Font(family="Roboto Mono", size = int(width/160))
+        anchura=int(width/4)
+        etiqueta=int(3*height/4)
         tk.Label(frame, text="¿Qué dientes desea eliminar?",
-         font="Bahnschrift 11", width=44, height=2).pack(anchor="w")
-        tk.Checkbutton(frame, text="Tercer Molar Derecho (48)", variable=self.diente1,
+         font=tamaño, width=44, height=2).pack(anchor="w")
+        tk.Checkbutton(frame, text="Tercer Molar Derecho (48)", variable=self.diente1, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente1, 48)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Segundo Molar Derecho (47)", variable=self.diente2,
+        tk.Checkbutton(frame, text="Segundo Molar Derecho (47)", variable=self.diente2, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente2, 47)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Primer Molar Derecho (46)", variable=self.diente3,
+        tk.Checkbutton(frame, text="Primer Molar Derecho (46)", variable=self.diente3, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente3, 46)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Segundo Premolar Derecho (45)", variable=self.diente4,
+        tk.Checkbutton(frame, text="Segundo Premolar Derecho (45)", variable=self.diente4, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente4, 45)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Primer Premolar Derecho (44)", variable=self.diente5,
+        tk.Checkbutton(frame, text="Primer Premolar Derecho (44)", variable=self.diente5, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente5, 44)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Canino Derecho (43)", variable=self.diente6,
+        tk.Checkbutton(frame, text="Canino Derecho (43)", variable=self.diente6, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente6, 43)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Incisivo Lateral Derecho (42)", variable=self.diente7,
+        tk.Checkbutton(frame, text="Incisivo Lateral Derecho (42)", variable=self.diente7, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente7, 42)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Incisivo Central Derecho (41)", variable=self.diente8,
+        tk.Checkbutton(frame, text="Incisivo Central Derecho (41)", variable=self.diente8, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente8, 41)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Incisivo Central Izquierdo (31)", variable=self.diente9,
+        tk.Checkbutton(frame, text="Incisivo Central Izquierdo (31)", variable=self.diente9, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente9, 31)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Incisivo Lateral Izquierdo (32)", variable=self.diente10,
+        tk.Checkbutton(frame, text="Incisivo Lateral Izquierdo (32)", variable=self.diente10, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente10, 32)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Canino Izquierdo (33)", variable=self.diente11,
+        tk.Checkbutton(frame, text="Canino Izquierdo (33)", variable=self.diente11, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente11, 33)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Primer Premolar Izquierdo (34)", variable=self.diente12,
+        tk.Checkbutton(frame, text="Primer Premolar Izquierdo (34)", variable=self.diente12, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente12, 34)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Segundo Premolar Izquierdo (35)", variable=self.diente13,
+        tk.Checkbutton(frame, text="Segundo Premolar Izquierdo (35)", variable=self.diente13, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente13, 35)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Primer Molar Izquierdo (36)", variable=self.diente14,
+        tk.Checkbutton(frame, text="Primer Molar Izquierdo (36)", variable=self.diente14, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente14, 36)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Segundo Molar Izquierdo (37)", variable=self.diente15,
+        tk.Checkbutton(frame, text="Segundo Molar Izquierdo (37)", variable=self.diente15, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente15, 37)).pack(anchor="w")
-        tk.Checkbutton(frame, text="Tercer Molar Izquierdo (38)", variable=self.diente16,
+        tk.Checkbutton(frame, text="Tercer Molar Izquierdo (38)", variable=self.diente16, font=opcion, padx=anchura/8, pady=etiqueta/128, selectcolor="#68EB6C",
                     onvalue=1, offvalue=0, command=lambda: self.Listener(self.diente16, 38)).pack(anchor="w")
     '''
     def tiposD(self):
@@ -104,7 +113,6 @@ class inter_1(interfaz):
             var.eliminarDiente(n)
         graficador.actualizar()
         var.canvas = graficador.canvas     
-
 
 class Graficador:
 
@@ -168,7 +176,8 @@ class Graficador:
         self.Iniciar_Dentadura()
 
     def Iniciar_Dentadura(self):
-
+        #x=int(width/4)
+        #y=int(3*height/8)
         self.canvas.create_image(0, 0, image=fondo, anchor="nw")
         
         for element in self.Dientes:

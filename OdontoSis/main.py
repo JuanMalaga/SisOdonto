@@ -19,7 +19,7 @@ var = variables.VarGlo()
 color = {"celeste": "#88BFF3", "gris": "#93A5B6"}
 Ventana_Principal = tk.Tk()
 Ventana_Principal.title("SIDECO")
-#Ventana_Principal.resizable(0,0)
+Ventana_Principal.resizable(0,0)
 Ventana_Principal.config(bg="#88BFF3")
 Ventana_Principal.iconbitmap('./odonto.ico')
 # CENTRALIZANDO VENTANA
@@ -47,9 +47,6 @@ canvas.pack(fill=None, expand=False)
 btnState = False
 combo=ttk.Combobox(Ventana_Principal, width=28)
 combo.set("Maxilar Inferior")
-
-# CONEXION USUARIOS
-
 
 # BIENVENIDA
 def vista():
@@ -146,20 +143,16 @@ def precarga():
 def iniciar():
     for widget in Ventana_Principal.winfo_children():
         widget.destroy()
-    ancho=int(15*width/16)
-    largo=int(7*height/8)
-    Ventana_Principal.geometry(f"{ancho}x{largo}+{int(width/36.6)}+{int(height/28.8)}")
-    print(ancho,largo)
+    Ventana_Principal.state('zoomed')
     # Declaracion Elementos de la GUI
-    canvas = tk.Canvas(Ventana_Principal, width=int(15*ancho/32), height=int(3*largo/4))
-    canvas.place(x=int(3*ancho/8), y=int(3*largo/16))
+    canvas = tk.Canvas(Ventana_Principal, width=int(width/2), height=int(3*height/4))
+    canvas.place(x=int(3*width/8), y=int(height/5))
     frame = Frame(Ventana_Principal)
-    frame.place(x=150, y=int(3*largo/16), width=240, height=500)
-    frame2 = Frame(Ventana_Principal, width=352, height=240)
-    frame2.place(x=150, y=700)
+    frame.place(x=int(width/9), y=int(height/5), width=int(width/4), height=int(3*height/4))
+    frame2 = Frame(Ventana_Principal, width=20, height=10, bg=color["celeste"])
+    frame2.place(x=0, y=1000)
 
     #globalizando para todos los archivos
-
     var = variables.VarGlo()
     var.agregar_Interfaz(Ventana_Principal,canvas,frame,frame2)
     var.Iniciar_Dentadura()
@@ -207,16 +200,16 @@ def iniciar():
 
     # MARCA DE AGUA FO
     homeLabel = tk.Label(topFrame, text="MAXILAR INFERIOR", font="Bahnschrift 12",
-                        bg=color["celeste"], fg="gray17", height=2, padx=20)
+                        bg=color["celeste"], fg="gray17", padx=20, pady=2)
     homeLabel.pack(side="right")
 
     # BOTON DE MENU VERTICAL
-    navbarBtn = tk.Button(topFrame, image=navIcon,
+    navbarBtn = tk.Button(Ventana_Principal, image=navIcon,
                         bg=color["celeste"], activebackground=color["celeste"], bd=0, padx=20, command=switch)
     navbarBtn.place(x=10, y=10)
 
     # NAVBAR VERTICAL
-    navRoot = tk.Frame(Ventana_Principal, bg="gray17", height=1000, width=150)
+    navRoot = tk.Frame(Ventana_Principal, bg="gray17", height=1500, width=int(width/9))
     navRoot.place(x=-300, y=0)
     tk.Label(navRoot, font="Bahnschrift 15",
             bg=color["gris"], fg="white", height=2, width=300, padx=20).place(x=0, y=0)
@@ -225,11 +218,11 @@ def iniciar():
     y = 80
     # OPCIONES
     options = ["Guardar Como", "Maxilar Superior",
-            "Maxilar Inferior", "Herramientas", "Salir"]
+            "Maxilar Inferior", "Fases", "Herramientas", "Salir"]
 
     # BOTONES DE OPCIONES
 
-    for i in range(4):
+    for i in range(5):
         tk.Button(navRoot, text=options[i], font="BahnschriftLight 12" , bg="gray17", fg=color["gris"],
                 activebackground="grey17", activeforeground="white", bd=0).place(x=15, y=y)
         y += 40
@@ -237,9 +230,9 @@ def iniciar():
     # BOTON PARA CERRAR MENU VERTICAL
     closeBtn = tk.Button(navRoot, image=closeIcon,
                         bg=color["gris"], activebackground=color["gris"], bd=0, command=switch)
-    closeBtn.place(x=110, y=10)
+    closeBtn.place(x=int(width/12), y=10)
 
-    tk.Button(navRoot, text=options[4], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
+    tk.Button(navRoot, text=options[5], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
           activebackground="grey17", activeforeground="white", bd=0, command=salir).place(x=15, y=y)
 
 
@@ -249,13 +242,13 @@ def iniciar():
     # TEXTO CENTRAL
     brandLabel = tk.Label(Ventana_Principal, text="SISTEMA DE SIMULACIÓN ODONTOLÓGICA",
                         font=("Bahnschrift",int(width/64)), bg=color["celeste"], fg="black")
-    brandLabel.place(x=340, y=8)
+    brandLabel.pack()
+
     graficador = interfaz_fase_1.Graficador()
 
     tk.Button(navRoot, text=options[1], font="BahnschriftLight 12", bg="gray17", fg=color["gris"],
           activebackground="grey17", activeforeground="white", bd=0).place(x=15, y=120)
     
-
 precarga()
 Ventana_Principal.mainloop()
 
