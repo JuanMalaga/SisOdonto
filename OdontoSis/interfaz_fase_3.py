@@ -91,7 +91,8 @@ class interfaz_fase_3(interfaz):
             self.y = evento.y
             tupla = self.obtener_diente()
             if(self.actual == "retenedor_circular"):
-                Retenedor = Image.open("./src/retenedores/retenedores.png")
+                Retenedor = Image.open("./src/retenedores/retenedores_izquierdo.png")
+                RetenedorD = Image.open("./src/retenedores/retenedores_derecho.png")
                 opcion = 1
             elif(self.actual == "retenedor_Vert_sup_iz"):
                 Retenedor = Image.open("./src/retenedores/Retenedor_Vertica_sup_iz.png")
@@ -102,11 +103,15 @@ class interfaz_fase_3(interfaz):
 
             self.tkimage = itk.PhotoImage(Retenedor)
             
+            if(opcion == 1):
+                print("entro")
+
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
                     permitido = True
                     Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(Retenedor)
+                    RetenedorD = RetenedorD.resize((150, 125), Image.ANTIALIAS)
+                    self.tkimage = itk.PhotoImage(self.get_concat_h_cut_center(Retenedor,RetenedorD))
                     self.x = 65
                     self.y = 37
                     
@@ -114,9 +119,10 @@ class interfaz_fase_3(interfaz):
                 if(opcion == 1):
                     permitido = True
                     Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(Retenedor)
+                    RetenedorD = RetenedorD.resize((160, 120), Image.ANTIALIAS)
+                    self.tkimage = itk.PhotoImage(self.get_concat_h_cut_center(Retenedor,RetenedorD))
                     self.x = 60
-                    self.y = 140   
+                    self.y = 135   
 
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):
