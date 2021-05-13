@@ -155,14 +155,16 @@ class interfaz_fase_2(interfaz):
                     permitido = True
                     if (not tupla[1][1]):
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(230))
-                        self.x = 210
-                        self.y = 500
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(220))
+                        self.x = 207
+                        self.y = 502
                     else:
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(270))
-                        self.x = 252
-                        self.y = 535   
+                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
+                        apoyoa = apoyoa.rotate(40)
+                        self.tkimage = itk.PhotoImage(apoyoa)
+                        self.x = 250
+                        self.y = 540   
 
             elif (tupla[0] == 42 and self.existe_diente(42)):
                 if(opcion == 2):
@@ -170,14 +172,16 @@ class interfaz_fase_2(interfaz):
                     if (not tupla[1][1]):
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(270))
-                        self.x = 265
-                        self.y = 540
+                        self.x = 263
+                        self.y = 545
 
                     else:
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(290))
-                        self.x = 308
-                        self.y = 550
+                        apoyoa = apoyoa.rotate(290)
+                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
+                        self.tkimage = itk.PhotoImage(apoyoa)
+                        self.x = 305
+                        self.y = 555
 
             elif (tupla[0] == 41 and self.existe_diente(41)):
                 if(opcion == 2):
@@ -186,12 +190,14 @@ class interfaz_fase_2(interfaz):
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(270))
                         self.x = 320
-                        self.y = 550
+                        self.y = 555
                     else:
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(310))
-                        self.x = 370
-                        self.y = 550
+                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
+                        apoyoa = apoyoa.rotate(90)
+                        self.tkimage = itk.PhotoImage(apoyoa)
+                        self.x = 368
+                        self.y = 560
 
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
@@ -269,29 +275,33 @@ class interfaz_fase_2(interfaz):
                     if (not tupla[1][1]  or not tupla[1][0] ):
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(320))
-                        self.x = 495
-                        self.y = 520
+                        self.x = 500
+                        self.y = 525
 
                     else:
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(350))
+                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
+                        apoyoa = apoyoa.rotate(130)
+                        self.tkimage = itk.PhotoImage(apoyoa)
                         self.x = 540
-                        self.y = 485
+                        self.y = 490
 
             if (tupla[0] == 32 and self.existe_diente(32)):
                 if(opcion == 2):
                     permitido = True
                     if (not tupla[1][1]):
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(270))
+                        self.tkimage = itk.PhotoImage(apoyoa.rotate(275))
                         self.x = 440
-                        self.y = 545
+                        self.y = 550
 
                     else:
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(320))
-                        self.x = 485
-                        self.y = 530
+                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
+                        apoyoa = apoyoa.rotate(93)
+                        self.tkimage = itk.PhotoImage(apoyoa)
+                        self.x = 486
+                        self.y = 540
 
             if (tupla[0] == 31 and self.existe_diente(31)):
                 if(opcion == 2):
@@ -300,12 +310,14 @@ class interfaz_fase_2(interfaz):
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(270))
                         self.x = 380
-                        self.y = 550
+                        self.y = 558
                     else:
                         apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(310))
-                        self.x = 425
-                        self.y = 550
+                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
+                        apoyoa = apoyoa.rotate(90)
+                        self.tkimage = itk.PhotoImage(apoyoa)
+                        self.x = 426
+                        self.y = 555
 
             var.agregarApoyo(self.tkimage)
             ultimo_elemento = len(self.Apoyos)-1
