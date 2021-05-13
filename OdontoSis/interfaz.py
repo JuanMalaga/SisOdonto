@@ -1,5 +1,5 @@
 from variables import VarGlo
-
+from PIL import Image
 
 class interfaz():
 
@@ -116,3 +116,12 @@ class interfaz():
             centro_y = centro_y - 20     
         print(diente,self.obtener_posicion(centro_x,centro_y))
         return diente,self.obtener_posicion(centro_x,centro_y)
+
+    def get_concat_h_cut_center(self,im1, im2):
+        im1 = im1.crop((0,0,im1.width/2,im1.height))
+        im2 = im2.crop((im2.width/2,0,im2.width,im2.height))
+        dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
+        dst = Image.new("RGBA", dimensiones)
+        dst.paste(im1,(0,0))
+        dst.paste(im2, (im1.width, (im1.height - im2.height) // 2))
+        return dst        

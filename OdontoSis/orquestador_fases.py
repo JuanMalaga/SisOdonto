@@ -16,23 +16,26 @@ height = resolucion.GetSystemMetrics(1)
 
 class orquestador (metaclass=SingletonMeta):
     def __init__(self):
+        self.ancho = 8
         self.arreglo = []
+        print("el ancho es: ")
+        print(width)
         global var
         var = VarGlo()
         global pos_inicial
-        pos_inicial = int(width/9)
+        pos_inicial = int(width/7.8)
         altura=int(height/8)
         boton1 = botonFase(pos_inicial, altura, "FASE I\nDIENTES", 0)
         self.arreglo.append(boton1)
-        boton2 = botonFase(pos_inicial+int(width/7.8)*1, altura, "FASE II\nAPOYOS", 1)
+        boton2 = botonFase(pos_inicial+int(width/self.ancho)*1, altura, "FASE II\nAPOYOS", 1)
         self.arreglo.append(boton2)
-        boton3 = botonFase(pos_inicial+int(width/7.8)*2, altura, "FASE III\nRETENEDORES", 2)
+        boton3 = botonFase(pos_inicial+int(width/self.ancho)*2, altura, "FASE III\nRETENEDORES", 2)
         self.arreglo.append(boton3)
-        boton4 = botonFase(pos_inicial+int(width/7.8)*3, altura, "FASE IV\nCONECTOR MENOR", 3)
+        boton4 = botonFase(pos_inicial+int(width/self.ancho)*3, altura, "FASE IV\nCONECTOR MENOR", 3)
         self.arreglo.append(boton4)
-        boton5 = botonFase(pos_inicial+int(width/7.8)*4, altura, "FASE V\nCONECTOR MAYOR", 4)
+        boton5 = botonFase(pos_inicial+int(width/self.ancho)*4, altura, "FASE V\nCONECTOR MAYOR", 4)
         self.arreglo.append(boton5)
-        boton6 = botonFase(pos_inicial+int(width/7.8)*5, altura, "FASE VI\nBASES (REJILLAS)", 5)
+        boton6 = botonFase(pos_inicial+int(width/self.ancho)*5, altura, "FASE VI\nBASES (REJILLAS)", 5)
         self.arreglo.append(boton6)
 
     def cambiar(self):
