@@ -145,7 +145,7 @@ def iniciar():
         widget.destroy()
     Ventana_Principal.state('zoomed')
     # Declaracion Elementos de la GUI
-    canvas = tk.Canvas(Ventana_Principal, width=int(width/2), height=int(3*height/4))
+    canvas = tk.Canvas(Ventana_Principal, width=int(width/2), height=int(3*height/4), bg="white")
     canvas.place(x=int(3*width/8), y=int(height/5))
     frame = Frame(Ventana_Principal)
     frame.place(x=int(width/9), y=int(height/5), width=int(width/4), height=int(3*height/4))
