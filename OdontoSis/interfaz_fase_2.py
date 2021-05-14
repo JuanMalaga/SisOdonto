@@ -47,17 +47,27 @@ class interfaz_fase_2(interfaz):
         self.im3 = itk.PhotoImage(self.im3)
 
         self.boton1 = ttk.Button(
-            self.frame, image = self.im1, command=self.Escoger_apoyo_oclusal_superior)
+            self.frame, image = self.im1, command=lambda:[self.oclusal(), self.Escoger_apoyo_oclusal_superior()])
         self.boton1.grid(column=0, row=1, padx=5)
 
         self.boton3 = ttk.Button(
-            self.frame, image = self.im3, text="2", command=self.Escoger_apoyo_incisal)
+            self.frame, image = self.im3, text="2", command=lambda:[self.incisal(), self.Escoger_apoyo_incisal()])
         self.boton3.grid(column=0, row=2, padx=5)
         self.canvas.bind("<Configure>", self.show_width)
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
         
-            
+    def oclusal(self):
+        self.img = Image.open('./src/imagenes/apoyos.png')
+        self.img = self.img.resize((150, 200), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=150,y=150) 
+    
+    def incisal(self):
+        self.img = Image.open('./src/imagenes/incisal.png')
+        self.img = self.img.resize((150, 200), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=150,y=150)      
 
     def borrar_linea(self):
         self.canvas.delete("diente1")

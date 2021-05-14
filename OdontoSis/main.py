@@ -53,10 +53,6 @@ def vista():
         
     elif combo.get() == 'Maxilar Superior':
        pass
-    
-def ingreso():
-      Ventana_Principal.state(newstate = "normal")
-      root.state(newstate = "withdraw")
 
 # CERRAR VENTANA
 def salir():
@@ -127,7 +123,7 @@ def precarga():
     label.place(x=int(3*width/32), y=int(5*height/16))
 
     boton=tk.Button(Ventana_Principal, text="Ingresar al Administrador", font=letra, bg="gray17", fg="white",
-            activebackground="grey17", activeforeground="white", bd=0, command=ingreso)
+            activebackground="grey17", activeforeground="white", bd=0)
     boton.place(x=int(17*width/64),y=int(3*height/8))
 
     boton=tk.Button(Ventana_Principal, text="Ingresar al Sistema", font=letra, bg="gray17", fg="white",
