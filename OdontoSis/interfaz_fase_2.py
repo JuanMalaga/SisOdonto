@@ -5,6 +5,11 @@ from interfaz import interfaz
 from variables import VarGlo
 from tkinter import Frame, Button, Label
 from PIL import ImageTk as itk
+import ctypes
+
+resolucion = ctypes.windll.user32 
+width = resolucion.GetSystemMetrics(0)
+height = resolucion.GetSystemMetrics(1)
 
 class interfaz_fase_2(interfaz):
 
@@ -97,8 +102,8 @@ class interfaz_fase_2(interfaz):
                     if (tupla[1][0]):
                         print("esta rotando")
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 130
-                        self.y = 50
+                        self.x = int(23*width/256)
+                        self.y = int(height/16)
                     else:
                         print("inferior")
                         self.x = 127

@@ -122,52 +122,131 @@ class Graficador:
     pos_y_ini = 0
     ventana: tk.Tk
     canvas: tk.Canvas
-    fondo: tk.PhotoImage
-    dientes: tk.PhotoImage = []
+    fondo: itk.PhotoImage
+    dientes: itk.PhotoImage = []
 
     def __init__(self):
         global var
         var = variables.VarGlo()
         self.Dientes = var.Dientes
-        self.pos_x_ini = 78
-        self.pos_y_ini = 43
+        self.pos_x_ini = int(15*width/256) #int(width/8) #78
+        self.pos_y_ini = int(height/20) #int(11*height/64) #43
+        self.ancho = int(width/2)
+        self.alto = int(3*height/4)
+        self.tmolar_w = int(2*width/23.6)
+        self.tmolar_h = int(2*height/14.4)
+        self.molar_w = int(2*width/25.6)
+        self.molar_h = int(2*height/14.4)
+        self.s_premolar_w = int(width/9.8)
+        self.s_premolar_h = int(height/7.2)
+        self.p_premolar_w = int(width/14)
+        self.p_premolar_h = int(height/8)
+        self.canino_w = int(width/20)
+        self.canino_h = int(height/10.2)
+        self.lateral_w = int(width/23)
+        self.lateral_h = int(height/10)
+        self.incisivo_w = int(width/19)
+        self.incisivo_h = int(height/8.2)
+        self.d_incisivo_w = int(width/15)
+        self.d_incisivo_h = int(height/9.5)
+        self.d_lateral_w = int(width/15)
+        self.d_lateral_h = int(height/6.5)
+        self.d_canino_w = int(width/16)
+        self.d_canino_h = int(height/10)
+        self.dp_premolar_w = int(width/18)
+        self.dp_premolar_h = int(height/9)
+        self.ds_premolar_w = int(width/14)
+        self.ds_premolar_h = int(height/9)
+        self.d_molar_w = int(width/12.8)
+        self.d_molar_h = int(height/8)
         self.ventana = var.ventana
         self.canvas = var.canvas
         global fondo
         #declarar todas las imagenes
-        fondo = tk.PhotoImage(file="./src/Base_I_res.png")
-        diente1 = tk.PhotoImage(file="./src/dientes/TercerMolar_I_I.png")
-        self.dientes.append(diente1)
-        diente2 = tk.PhotoImage(file="./src/dientes/SegundoMolar_I_I.png")
-        self.dientes.append(diente2)
-        diente3 = tk.PhotoImage(file="./src/dientes/PrimerMolar_I_I.png")
-        self.dientes.append(diente3)
-        diente4 = tk.PhotoImage(file="./src/dientes/SegundoPreMolar_I_I.png")
-        self.dientes.append(diente4)
-        diente5 = tk.PhotoImage(file="./src/dientes/PrimerPreMolar_I_I.png")
-        self.dientes.append(diente5)
-        diente6 = tk.PhotoImage(file="./src/dientes/Canino_I_I.png")
-        self.dientes.append(diente6)
-        diente7 = tk.PhotoImage(file="./src/dientes/IncisivoLateral_I_I.png")
-        self.dientes.append(diente7)
-        diente8 = tk.PhotoImage(file="./src/dientes/IncisivoCentral_I_I.png")
-        self.dientes.append(diente8)
-        diente9 = tk.PhotoImage(file="./src/dientes/IncisivoCentral_D_I.png")
-        self.dientes.append(diente9)
-        diente10 = tk.PhotoImage(file="./src/dientes/IncisivoLateral_D_I.png")
-        self.dientes.append(diente10)
-        diente11 = tk.PhotoImage(file="./src/dientes/Canino_D_I.png")
-        self.dientes.append(diente11)
-        diente12 = tk.PhotoImage(file="./src/dientes/PrimerPreMolar_D_I.png")
-        self.dientes.append(diente12)
-        diente13 = tk.PhotoImage(file="./src/dientes/SegundoPreMolar_D_I.png")
-        self.dientes.append(diente13)
-        diente14 = tk.PhotoImage(file="./src/dientes/PrimerMolar_D_I.png")
-        self.dientes.append(diente14)
-        diente15 = tk.PhotoImage(file="./src/dientes/SegundoMolar_D_I.png")
-        self.dientes.append(diente15)
-        diente16 = tk.PhotoImage(file="./src/dientes/TercerMolar_D_I.png")
-        self.dientes.append(diente16)
+        fondo = Image.open("./src/Base_I_res.png")
+        fondo_base = fondo.resize((self.ancho, self.alto), Image.ANTIALIAS)
+        self.base = itk.PhotoImage(fondo_base)
+        #----------------------------------------
+        uno = Image.open("./src/dientes/TercerMolar_I_I.png")
+        sm_i_diente = uno.resize((self.tmolar_w, self.tmolar_h), Image.ANTIALIAS)
+        self.diente1 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente1)
+        #----------------------------------------
+        dos = Image.open("./src/dientes/SegundoMolar_I_I.png")
+        sm_i_diente = dos.resize((self.molar_w, self.molar_h), Image.ANTIALIAS)
+        self.diente2 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente2)
+        #----------------------------------------
+        tres = Image.open("./src/dientes/PrimerMolar_I_I.png")
+        sm_i_diente = tres.resize((self.molar_w, self.molar_h), Image.ANTIALIAS)
+        self.diente3 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente3)
+        #----------------------------------------
+        cuatro = Image.open("./src/dientes/SegundoPreMolar_I_I.png")
+        sm_i_diente = cuatro.resize((self.s_premolar_w, self.s_premolar_h), Image.ANTIALIAS)
+        self.diente4 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente4)
+        #----------------------------------------
+        cinco = Image.open("./src/dientes/PrimerPreMolar_I_I.png")
+        sm_i_diente = cinco.resize((self.p_premolar_w, self.p_premolar_h), Image.ANTIALIAS)
+        self.diente5 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente5)
+        #----------------------------------------
+        seis = Image.open("./src/dientes/Canino_I_I.png")
+        sm_i_diente = seis.resize((self.canino_w, self.canino_h), Image.ANTIALIAS)
+        self.diente6 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente6)
+        #----------------------------------------
+        siete = Image.open("./src/dientes/IncisivoLateral_I_I.png")
+        sm_i_diente = siete.resize((self.lateral_w, self.lateral_h), Image.ANTIALIAS)
+        self.diente7 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente7)
+        #----------------------------------------
+        ocho = Image.open("./src/dientes/IncisivoCentral_I_I.png")
+        sm_i_diente = ocho.resize((self.incisivo_w, self.incisivo_h), Image.ANTIALIAS)
+        self.diente8 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente8)
+        #----------------------------------------
+        nueve = Image.open("./src/dientes/IncisivoCentral_D_I.png")
+        sm_i_diente = nueve.resize((self.d_incisivo_w, self.d_incisivo_h), Image.ANTIALIAS)
+        self.diente9 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente9)
+        #----------------------------------------
+        diez = Image.open("./src/dientes/IncisivoLateral_D_I.png")
+        sm_i_diente = diez.resize((self.d_lateral_w, self.d_lateral_h), Image.ANTIALIAS)
+        self.diente10 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente10)
+        #----------------------------------------
+        once = Image.open("./src/dientes/Canino_D_I.png")
+        sm_i_diente = once.resize((self.d_canino_w, self.d_canino_h), Image.ANTIALIAS)
+        self.diente11 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente11)
+        #----------------------------------------
+        doce = Image.open("./src/dientes/PrimerPreMolar_D_I.png")
+        sm_i_diente = doce.resize((self.dp_premolar_w, self.dp_premolar_h), Image.ANTIALIAS)
+        self.diente12 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente12)
+        #----------------------------------------
+        trece = Image.open("./src/dientes/SegundoPreMolar_D_I.png")
+        sm_i_diente = trece.resize((self.ds_premolar_w, self.ds_premolar_h), Image.ANTIALIAS)
+        self.diente13 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente13)
+        #---------------------------------------- 
+        catorce = Image.open("./src/dientes/PrimerMolar_D_I.png")
+        sm_i_diente = catorce.resize((self.d_molar_w, self.d_molar_h), Image.ANTIALIAS)
+        self.diente14 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente14)
+        #----------------------------------------
+        quince = Image.open("./src/dientes/SegundoMolar_D_I.png")
+        sm_i_diente = quince.resize((self.d_molar_w, self.d_molar_h), Image.ANTIALIAS)
+        self.diente15 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente15)
+        #----------------------------------------
+        dieciseis = Image.open("./src/dientes/TercerMolar_D_I.png")
+        sm_i_diente = dieciseis.resize((self.d_molar_w, self.d_molar_h), Image.ANTIALIAS)
+        self.diente16 = itk.PhotoImage(sm_i_diente)
+        self.dientes.append(self.diente16)
+        #----------------------------------------
         self.Iniciar_Dentadura()
 
     def actualizar(self):
@@ -176,91 +255,91 @@ class Graficador:
         self.Iniciar_Dentadura()
 
     def Iniciar_Dentadura(self):
-        #x=int(width/4)
-        #y=int(3*height/8)
-        self.canvas.create_image(0, 0, image=fondo, anchor="nw")
+        x=int(width/2)
+        y=int(3*height/4)
+        self.canvas.create_image(0, 0, image=self.base, anchor="nw")
         
         for element in self.Dientes:
 
             if(element == 48):
 
                 self.canvas.create_image(
-                    self.pos_x_ini, self.pos_y_ini, image=self.dientes[0], anchor="nw")
+                   self.pos_x_ini-int(width/200), self.pos_y_ini+int(height/512), image=self.dientes[0], anchor="nw")
 
             elif(element == 47):
 
                 self.canvas.create_image(
-                    self.pos_x_ini, self.pos_y_ini+100, image=self.dientes[1], anchor="nw")
+                    self.pos_x_ini-int(width/200), self.pos_y_ini+int(height/9), image=self.dientes[1], anchor="nw")
 
             elif(element == 46):
 
                 self.canvas.create_image(
-                    self.pos_x_ini, self.pos_y_ini+200, image=self.dientes[2], anchor="nw")
+                    self.pos_x_ini, self.pos_y_ini+int(7*height/32), image=self.dientes[2], anchor="nw")
 
             elif(element == 45):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+25, self.pos_y_ini+300, image=self.dientes[3], anchor="nw")
+                    self.pos_x_ini+16, self.pos_y_ini+int(81*height/256), image=self.dientes[3], anchor="nw")
 
             elif(element == 44):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+72, self.pos_y_ini+377, image=self.dientes[4], anchor="nw")
+                    self.pos_x_ini+int(11*width/256), self.pos_y_ini+int(101*height/256), image=self.dientes[4], anchor="nw")
 
             elif(element == 43):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+127, self.pos_y_ini+437, image=self.dientes[5], anchor="nw")
+                    self.pos_x_ini+int(5*width/64), self.pos_y_ini+int(119*height/256), image=self.dientes[5], anchor="nw")
 
             elif(element == 42):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+192, self.pos_y_ini+454, image=self.dientes[6], anchor="nw")
+                    self.pos_x_ini+int(29*width/256), self.pos_y_ini+int(31*height/64), image=self.dientes[6], anchor="nw")
 
             elif(element == 41):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+237, self.pos_y_ini+454, image=self.dientes[7], anchor="nw")
+                    self.pos_x_ini+int(9*width/64), self.pos_y_ini+int(31*height/64), image=self.dientes[7], anchor="nw")
 
             elif(element == 31):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+287, self.pos_y_ini+462, image=self.dientes[8], anchor="nw")
+                    self.pos_x_ini+int(43*width/256), self.pos_y_ini+int(63*height/128), image=self.dientes[8], anchor="nw")
 
             elif(element == 32):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+357, self.pos_y_ini+437, image=self.dientes[9], anchor="nw")
+                    self.pos_x_ini+int(27*width/128), self.pos_y_ini+int(59*height/128), image=self.dientes[9], anchor="nw")
 
             elif(element == 33):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+402, self.pos_y_ini+427, image=self.dientes[10], anchor="nw")
+                    self.pos_x_ini+int(62*width/256), self.pos_y_ini+int(115*height/256), image=self.dientes[10], anchor="nw")
 
             elif(element == 34):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+462, self.pos_y_ini+377, image=self.dientes[11], anchor="nw")
+                    self.pos_x_ini+int(35*width/128), self.pos_y_ini+int(99*height/256), image=self.dientes[11], anchor="nw")
 
             elif(element == 35):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+473, self.pos_y_ini+299, image=self.dientes[12], anchor="nw")
+                    self.pos_x_ini+int(73*width/256), self.pos_y_ini+int(79*height/256), image=self.dientes[12], anchor="nw")
 
             elif(element == 36):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+498, self.pos_y_ini+200, image=self.dientes[13], anchor="nw")
+                    self.pos_x_ini+int(75*width/256), self.pos_y_ini+int(55*height/256), image=self.dientes[13], anchor="nw")
 
             elif(element == 37):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+508, self.pos_y_ini+92, image=self.dientes[14], anchor="nw")
+                    self.pos_x_ini+int(78*width/256), self.pos_y_ini+int(height/9-height/256), image=self.dientes[14], anchor="nw")
 
             elif(element == 38):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+504, self.pos_y_ini-5, image=self.dientes[15], anchor="nw")
+                    self.pos_x_ini+int(78*width/256), self.pos_y_ini+int(height/512), image=self.dientes[15], anchor="nw")
 
 class Graficador_Superior:
 
