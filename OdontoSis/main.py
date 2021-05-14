@@ -25,9 +25,7 @@ Ventana_Principal.iconbitmap('./odonto.ico')
 # CENTRALIZANDO VENTANA
 width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
-#Ventana_Principal.geometry("600x900+550+150")
 Ventana_Principal.geometry(f"{int(width/2)}x{int(height/2)}+{int(width/4)}+{int(3*height/16)}")
-#print(int(width/2),int(height/2))
 #imagenes 
 navIcon = PhotoImage(file="./src/menu.png")
 closeIcon = PhotoImage(file="./src/close.png")

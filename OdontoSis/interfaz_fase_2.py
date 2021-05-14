@@ -32,6 +32,7 @@ class interfaz_fase_2(interfaz):
         self.crear_botones()
 
     def crear_botones(self):
+        
         self.im1 = Image.open(self.direccionBase+'apoyo_oclusal_superior.png')
         self.im1 = self.im1.resize((var.size, var.size), Image.ANTIALIAS)
         self.im1 = itk.PhotoImage(self.im1)
@@ -47,7 +48,7 @@ class interfaz_fase_2(interfaz):
         self.boton3 = ttk.Button(
             self.frame, image = self.im3, text="2", command=self.Escoger_apoyo_incisal)
         self.boton3.grid(column=0, row=2, padx=5)
-
+        self.canvas.bind("<Configure>", self.show_width)
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
         
@@ -56,6 +57,12 @@ class interfaz_fase_2(interfaz):
     def borrar_linea(self):
         self.canvas.delete("diente1")
         var.borrarRetenedores()
+
+    def show_width(self,event):
+        print(self.canvas.widget.winfo_width())
+        self.w = event.width
+        self.h = event.height
+        print ('width  = {}, height = {}'.format(self.w, self.h))
 
     def Escoger_apoyo_oclusal_superior(self):
         self.actual = "oclusal_superior"
