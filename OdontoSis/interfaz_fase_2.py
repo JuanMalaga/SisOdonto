@@ -78,9 +78,6 @@ class interfaz_fase_2(interfaz):
     def left_but_down(self, evento):
         opcion = 0
         permitido = False
-        print(evento.x)
-        print(evento.y)
-        print(self.actual)
         if(self.actual != "ninguno" and self.actual != None):
             self.x = evento.x
             self.y = evento.y
@@ -102,12 +99,12 @@ class interfaz_fase_2(interfaz):
                     if (tupla[1][0]):
                         print("esta rotando")
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = int(23*width/256)
-                        self.y = int(height/16)
+                        self.x = 165
+                        self.y = 35
                     else:
                         print("inferior")
-                        self.x = 127
-                        self.y = 125
+                        self.x = 165
+                        self.y = 90
 
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(opcion == 1):
@@ -115,20 +112,22 @@ class interfaz_fase_2(interfaz):
                     if (tupla[1][0]):
                         print("esta rotando")
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 127
-                        self.y = 150
+                        self.x = 165
+                        self.y = 100
                     else:
                         print("no")
-                        self.x = 125
-                        self.y = 226
+                        self.x = 165
+                        self.y = 157
 
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):
                     permitido = True
                     if (tupla[1][0]):
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 125
-                        self.y = 260
+                        #self.x = 125
+                        #self.y = 260
+                        self.x = 165
+                        self.y = 171
                     else:
                         self.tkimage = itk.PhotoImage(apoyoa.rotate(40))
                         self.x = 140
@@ -330,6 +329,10 @@ class interfaz_fase_2(interfaz):
                         self.tkimage = itk.PhotoImage(apoyoa)
                         self.x = 426
                         self.y = 555
+
+            self.x = int((self.x)*width/1920)
+            print(self.x)
+            self.y = int((self.y)*width/1080)
 
             var.agregarApoyo(self.tkimage)
             ultimo_elemento = len(self.Apoyos)-1
