@@ -64,10 +64,8 @@ class interfaz_fase_2(interfaz):
         var.borrarRetenedores()
 
     def show_width(self,event):
-        print(self.canvas.widget.winfo_width())
         self.w = event.width
         self.h = event.height
-        print ('width  = {}, height = {}'.format(self.w, self.h))
 
     def Escoger_apoyo_oclusal_superior(self):
         self.actual = "oclusal_superior"
@@ -83,14 +81,14 @@ class interfaz_fase_2(interfaz):
             self.y = evento.y
             tupla = self.obtener_diente()
             if(self.actual == "oclusal_superior"):
-                print("carga")
                 apoyoa = Image.open("./src/apoyos/apoyo_oclusal_superior.png")
                 opcion = 1
 
             elif(self.actual == "incisal"):
                 apoyoa = Image.open("./src/apoyos/apoyo_incisal.png")
                 opcion = 2
-            
+                
+            self.tkimage = itk.PhotoImage(apoyoa)
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
                     if (tupla[1][0]):
@@ -217,7 +215,7 @@ class interfaz_fase_2(interfaz):
             
             var.agregarApoyo(self.tkimage)
             ultimo_elemento = len(self.Apoyos)-1
-            if(permitido):
+            if(self.permitido):
                 self.canvas.create_image(
                     self.x, self.y, image=var.Apoyos[ultimo_elemento], anchor="nw", tag="apoyo"+"_"+str(ultimo_elemento))
                 var.grabar(2, self.x, self.y, opcion)
@@ -231,13 +229,4 @@ class interfaz_fase_2(interfaz):
         pass
 
 
-    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = apoyoa.width, alto = apoyoa.height,rotacion = 0, flip = False):
-        self.permitido = True
-        self.x= int((X)*width/1920)
-        self.y= int((Y)*height/1080)
-        if (flip):
-            apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
-        apoyoa.rotate(rotacion)
-        medidas = (int(ancho*width/1920),int(alto*height/1080))
-        apoyoa = apoyoa.resize(medidas)
-        self.tkimage = itk.PhotoImage(apoyoa)
+    
