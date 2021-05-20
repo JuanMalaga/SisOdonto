@@ -18,8 +18,6 @@ class orquestador (metaclass=SingletonMeta):
     def __init__(self):
         self.ancho = 7.8
         self.arreglo = []
-        print("el ancho es: ")
-        print(width)
         global var
         var = VarGlo()
         global pos_inicial

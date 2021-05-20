@@ -1,15 +1,58 @@
 from variables import VarGlo
 from PIL import Image
+import ctypes
+from PIL import ImageTk as itk
+
+resolucion = ctypes.windll.user32 
+width = resolucion.GetSystemMetrics(0)
+height = resolucion.GetSystemMetrics(1)
+
+#locaciones
+mitad_x = 470
+primer_diente_y = 182
+segundo_diente_iz_y = 305
+segundo_diente_de_y = 289
+
+#Terceros
+tercero_primer_iz = (188,426)
+tercero_segundo_iz = (206,421)
+tercero_primer_de = (732,405)
+tercero_segundo_de = (758,410)
+#cuartos 
+cuarto_primer_iz = (221,523)
+cuarto_segundo_iz = (244,506)
+cuarto_primer_de = (702,485)
+cuarto_segundo_de = (723,496)
+#quintos
+quinto_primer_iz = (266,598)
+quinto_segundo_iz = (297,577)
+quinto_primer_de = (665,568)
+quinto_segundo_de = (676,572)
+#sextos
+sexto_primer_iz = (334,652)
+sexto_segundo_iz = (349,616)
+sexto_primer_de = (608,619)
+sexto_segundo_de = (615,627)
+#septimos
+septimo_primer_iz = (399,674)
+septimo_segundo_iz = (405,629)
+septimo_primer_de = (538,646)
+septimo_segundo_de = (541,661)
+
 
 class interfaz():
 
+    def cuadriculas(self):
+        canvas.create_line(mitad_x,0,mitad_x,1000)
+        canvas.create_line(0,primer_diente_y,1000,primer_diente_y)
+        canvas.create_line(0,segundo_diente_iz_y,mitad_x,segundo_diente_iz_y)
+        canvas.create_line(940,segundo_diente_de_y,mitad_x,segundo_diente_de_y)
+        canvas.create_line(tercero_primer_iz,tercero_segundo_iz)
+
     def cambiar_interfaz(self):
-
         var = VarGlo()
-
         for widget in var.frame.winfo_children():
             widget.destroy()
-
         for widget in var.frame2.winfo_children():
             widget.destroy()
         self.actual = "ninguno"
@@ -23,7 +66,6 @@ class interfaz():
             derecha = True
         else:
             derecha = False
-
         if(centro_y>pos_y):
             arriba = True
         else:
@@ -37,85 +79,68 @@ class interfaz():
             return True
         return False
 
+    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False):
+        self.permitido = True
+        if(ancho == -1 and alto == -1):
+            ancho = apoyoa.width
+            alto = apoyoa.height
+        self.x= int((X)*width/1920)
+        self.y= int((Y)*height/1080)
+        if (flip):
+            apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
+        apoyoa.rotate(rotacion)
+        medidas = (int(ancho*width/1920),int(alto*height/1080))
+        apoyoa = apoyoa.resize(medidas)
+        self.tkimage = itk.PhotoImage(apoyoa)
+
     def obtener_diente(self):
-        diente = -1
+        self.diente = -1
         global pos_x
         global pos_y
-        pos_x = self.x - 10
-        pos_y = self.y - 20
+        
+        pos_x = self.x*1980/width
+        pos_y = self.y*1080/height
 
-        if(pos_x < 384):
-            if(pos_y<131):
-                diente = 48
-                centro_x = 136
-                centro_y = 76
-            elif(pos_y<235):
-                diente = 47
-                centro_x = 134
-                centro_y = 179
-            elif(13*pos_y<-3*pos_x+4958): 
-                diente = 46
-                centro_x = 136
-                centro_y = 290
-            elif(pos_y<-0.25*pos_x+470.75): 
-                diente = 45
-                centro_x = 166
-                centro_y = 383
-            elif(pos_y<-3/7*pos_x+580): 
-                diente = 44 
-                centro_x = 196
-                centro_y = 458
-            elif(pos_y<-2.4*pos_x+1171.2): 
-                diente = 43
-                centro_x = 246
-                centro_y = 507
-            elif(pos_y<-6*pos_x+2483): 
-                diente = 42
-                centro_x = 299
-                centro_y = 524
+        var = VarGlo()
+        canvas = var.canvas
+        if(pos_x < mitad_x):
+            if(pos_y<primer_diente_y):
+                self.asignar(48,136,76)
+            elif(pos_y<segundo_diente_iz_y):
+                self.asignar(47,136,76)
+            elif(self.pertenece_cuadrante(tercero_primer_iz,tercero_segundo_iz)): 
+                self.asignar(46,136,76)
+            elif(self.pertenece_cuadrante(cuarto_primer_iz,cuarto_segundo_iz)): 
+                self.asignar(45,136,76)
+            elif(self.pertenece_cuadrante(quinto_primer_iz,quinto_segundo_iz)): 
+                self.asignar(44,136,76)
+            elif(self.pertenece_cuadrante(sexto_primer_iz,sexto_segundo_iz)): 
+                self.asignar(43,136,76)
+            elif(self.pertenece_cuadrante(septimo_primer_iz,septimo_segundo_iz)): 
+                self.asignar(42,136,76)
             else: 
-                diente =41   
-                centro_x = 358
-                centro_y = 536                             
+                self.asignar(41,136,76)
         else:
-            
-            if(pos_y<126):
-                diente = 38
-                centro_x = 650
-                centro_y = 100
-            elif(pos_y < 228):
-                diente = 37  
-                centro_x = 641
-                centro_y = 184 
-            elif(23*pos_y<10*pos_x+1584): 
-                diente = 36 
-                centro_x = 632
-                centro_y = 286
-            elif(11*pos_y<4*pos_x+2204): 
-                diente = 35 
-                centro_x = 592
-                centro_y = 385
-            elif(pos_y<0.6*pos_x+142.8): 
-                diente = 34 
-                centro_x = 573
-                centro_y = 462
-            elif(7*pos_y<10*pos_x-1350): 
-                diente = 33 
-                centro_x = 525
-                centro_y = 515
-            elif(pos_y<4.8*pos_x-1585.4): 
-                diente = 32 
-                centro_x = 475
-                centro_y = 517
+            if(pos_y<primer_diente_y):
+                self.asignar(38,136,76)
+            elif(pos_y < segundo_diente_de_y):
+                self.asignar(37,136,76)  
+            elif(self.pertenece_cuadrante(tercero_primer_de,tercero_segundo_de)): 
+                self.asignar(36,136,76)
+            elif(self.pertenece_cuadrante(cuarto_primer_de,cuarto_segundo_de)): 
+                self.asignar(35,136,76)
+            elif(self.pertenece_cuadrante(quinto_primer_de,quinto_segundo_de)): 
+                self.asignar(34,136,76) 
+            elif(self.pertenece_cuadrante(sexto_primer_de,sexto_segundo_de)): 
+                self.asignar(33,136,76) 
+            elif(self.pertenece_cuadrante(septimo_primer_de,septimo_segundo_de)): 
+                self.asignar(32,136,76)
             else: 
-                diente = 31 
-                centro_x = 414
-                centro_y = 535
-
-            centro_x = centro_x - 10    
-            centro_y = centro_y - 20     
-        print(diente,self.obtener_posicion(centro_x,centro_y))
-        return diente,self.obtener_posicion(centro_x,centro_y)
+                print("entro")
+                self.asignar(31,136,76)
+  
+        print(self.diente)
+        return self.diente,self.obtener_posicion(self.centro_x,self.centro_y)
 
     def get_concat_h_cut_center(self,im1, im2):
         im1 = im1.crop((0,0,im1.width/2,im1.height))
@@ -125,3 +150,21 @@ class interfaz():
         dst.paste(im1,(0,0))
         dst.paste(im2, (im1.width, (im1.height - im2.height) // 2))
         return dst        
+
+
+    def pertenece_cuadrante(self,v1,v2):
+        x1 = v1[0]
+        y1 = v1[1]
+        x2 = v2[0]
+        y2 = v2[1]
+        m = (y2-y1)/(x2-x1)
+        b = y2-m*x2
+        if(pos_y<m*pos_x+b):
+            return True
+        else:
+            return False    
+
+    def asignar(self,diente,x,y):
+        self.diente = diente
+        self.centro_y = y
+        self.centro_x = x         

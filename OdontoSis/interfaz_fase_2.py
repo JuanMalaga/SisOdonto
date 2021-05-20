@@ -74,10 +74,8 @@ class interfaz_fase_2(interfaz):
         var.borrarRetenedores()
 
     def show_width(self,event):
-        print(self.canvas.widget.winfo_width())
         self.w = event.width
         self.h = event.height
-        print ('width  = {}, height = {}'.format(self.w, self.h))
 
     def Escoger_apoyo_oclusal_superior(self):
         self.actual = "oclusal_superior"
@@ -87,266 +85,147 @@ class interfaz_fase_2(interfaz):
 
     def left_but_down(self, evento):
         opcion = 0
-        permitido = False
+        self.permitido = False
         if(self.actual != "ninguno" and self.actual != None):
             self.x = evento.x
             self.y = evento.y
             tupla = self.obtener_diente()
             if(self.actual == "oclusal_superior"):
-                print("carga")
                 apoyoa = Image.open("./src/apoyos/apoyo_oclusal_superior.png")
                 opcion = 1
 
             elif(self.actual == "incisal"):
                 apoyoa = Image.open("./src/apoyos/apoyo_incisal.png")
                 opcion = 2
-            
+                
             self.tkimage = itk.PhotoImage(apoyoa)
-            
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        print("esta rotando")
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 165
-                        self.y = 35
+                        self.conf_imagen(apoyoa,165,35,rotacion = 180)
+                        
                     else:
-                        print("inferior")
-                        self.x = 165
-                        self.y = 90
-
+                        self.conf_imagen(apoyoa,165,90)
+                    
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        print("esta rotando")
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 165
-                        self.y = 100
+                        self.conf_imagen(apoyoa,165,100,rotacion = 180)
+                    
                     else:
-                        print("no")
-                        self.x = 165
-                        self.y = 157
+                        self.conf_imagen(apoyoa,165,157)
 
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        #self.x = 125
-                        #self.y = 260
-                        self.x = 165
-                        self.y = 171
+                        self.conf_imagen(apoyoa,165,171,rotacion = 180)
+                        
                     else:
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(40))
-                        self.x = 140
-                        self.y = 345
+                        self.conf_imagen(apoyoa,140,345,rotacion = 40)
 
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
-                    permitido = True
+
                     if (tupla[1][0]):
-                        apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(172))
-                        self.x = 160
-                        self.y = 368
+                        self.conf_imagen(apoyoa,160,368,ancho = 35, alto = 25,rotacion = 172)
+
                     else:
-                        apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(55))
-                        self.x = 175
-                        self.y = 415
+                        self.conf_imagen(apoyoa,175,415,ancho = 35, alto = 25,rotacion = 55)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        apoyoa = apoyoa.resize((30, 20), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 190
-                        self.y = 445
+                        self.conf_imagen(apoyoa,190,445,ancho = 30, alto = 20,rotacion = 180)
+
                     else:
-                        apoyoa = apoyoa.resize((30, 20), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(70))
-                        self.x = 215
-                        self.y = 480
+                        self.conf_imagen(apoyoa,215,480,ancho = 30, alto = 20,rotacion = 70)
 
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
-                    permitido = True
                     if (not tupla[1][1]):
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(220))
-                        self.x = 207
-                        self.y = 502
+                        self.conf_imagen(apoyoa,207,502,ancho = 40, alto = 25,rotacion = 220)
+                        
                     else:
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
-                        apoyoa = apoyoa.rotate(40)
-                        self.tkimage = itk.PhotoImage(apoyoa)
-                        self.x = 250
-                        self.y = 540   
+                        self.conf_imagen(apoyoa,207,502,ancho = 40, alto = 25,rotacion = 40, flip = True)
 
             elif (tupla[0] == 42 and self.existe_diente(42)):
                 if(opcion == 2):
-                    permitido = True
                     if (not tupla[1][1]):
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(270))
-                        self.x = 263
-                        self.y = 545
+                        self.conf_imagen(apoyoa,263,545,ancho = 40, alto = 25,rotacion = 270)
 
                     else:
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        apoyoa = apoyoa.rotate(290)
-                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
-                        self.tkimage = itk.PhotoImage(apoyoa)
-                        self.x = 305
-                        self.y = 555
+                        self.conf_imagen(apoyoa,305,555,ancho = 40, alto = 25,rotacion = 290, flip = True)
 
             elif (tupla[0] == 41 and self.existe_diente(41)):
                 if(opcion == 2):
-                    permitido = True
                     if (not tupla[1][1]):
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(270))
-                        self.x = 320
-                        self.y = 555
+                        self.conf_imagen(apoyoa,320,555,ancho = 40, alto = 25,rotacion = 270)
+                        
                     else:
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
-                        apoyoa = apoyoa.rotate(90)
-                        self.tkimage = itk.PhotoImage(apoyoa)
-                        self.x = 368
-                        self.y = 560
+                        self.conf_imagen(apoyoa,368,560,ancho = 40, alto = 25,rotacion = 90, flip = True)
 
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        print("arriba")
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 624
-                        self.y = 44
+                        self.conf_imagen(apoyoa,624,44,rotacion = 180)
+                        
                     else:
-                        print("abajo")
-                        self.x = 629
-                        self.y = 120
+                        self.conf_imagen(apoyoa,629,120)
 
             if (tupla[0] == 37 and self.existe_diente(37)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        print("esta rotando")
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 628
-                        self.y = 144
+                        self.conf_imagen(apoyoa,628,144, rotacion = 180)
+                        
                     else:
-                        print("no")
-                        self.x = 629
-                        self.y = 222
+                        self.conf_imagen(apoyoa,629,222)
+                        
             if (tupla[0] == 36 and self.existe_diente(36)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        print("esta rotando")
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(180))
-                        self.x = 629
-                        self.y = 251
+                        self.conf_imagen(apoyoa,629,251, rotacion = 180)
                     else:
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(320))
-                        print("no")
-                        self.x = 612
-                        self.y = 335
+                        self.conf_imagen(apoyoa,612,335, rotacion = 320)
 
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        print("esta rotando")
-                        apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(181))
-                        self.x = 600
-                        self.y = 355
+                        self.conf_imagen(apoyoa,600,355, ancho = 35, alto = 25,rotacion = 181)
                     else:
-                        print("no")
-                        apoyoa = apoyoa.resize((35, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(310))
-                        self.x = 580
-                        self.y = 408
+                        self.conf_imagen(apoyoa,580,408, ancho = 35, alto = 25,rotacion = 310)
+                        
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(opcion == 1):
-                    permitido = True
                     if (tupla[1][0]):
-                        print("esta rotando")
-                        apoyoa = apoyoa.resize((30, 20), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(147))
-                        self.x = 572
-                        self.y = 430
+                        self.conf_imagen(apoyoa,572,430, ancho = 30, alto = 20,rotacion = 147)
                     else:
-                        print("no")
-                        apoyoa = apoyoa.resize((30, 20), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(280))
-                        self.x = 545
-                        self.y = 465
+                        self.conf_imagen(apoyoa,545,465, ancho = 30, alto = 20,rotacion = 280)
+                        
 
             if (tupla[0] == 33 and self.existe_diente(33)):
                 if(opcion == 2):
-                    permitido = True
                     if (not tupla[1][1]  or not tupla[1][0] ):
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(320))
-                        self.x = 500
-                        self.y = 525
-
+                        self.conf_imagen(apoyoa,500,525, ancho = 40, alto = 25,rotacion = 320)
                     else:
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
-                        apoyoa = apoyoa.rotate(130)
-                        self.tkimage = itk.PhotoImage(apoyoa)
-                        self.x = 540
-                        self.y = 490
+                        self.conf_imagen(apoyoa,540,490, ancho = 40, alto = 25,rotacion = 130, flip = True)
 
             if (tupla[0] == 32 and self.existe_diente(32)):
                 if(opcion == 2):
-                    permitido = True
                     if (not tupla[1][1]):
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(275))
-                        self.x = 440
-                        self.y = 550
-
+                        self.conf_imagen(apoyoa,440,550, ancho = 40, alto = 25,rotacion = 275)
                     else:
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
-                        apoyoa = apoyoa.rotate(93)
-                        self.tkimage = itk.PhotoImage(apoyoa)
-                        self.x = 486
-                        self.y = 540
+                        self.conf_imagen(apoyoa,486,540, ancho = 40, alto = 25,rotacion = 93, flip = True)
 
             if (tupla[0] == 31 and self.existe_diente(31)):
                 if(opcion == 2):
-                    permitido = True
                     if (not tupla[1][1]):
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        self.tkimage = itk.PhotoImage(apoyoa.rotate(270))
-                        self.x = 380
-                        self.y = 558
+                        self.conf_imagen(apoyoa,380,558, ancho = 40, alto = 25,rotacion = 270)
                     else:
-                        apoyoa = apoyoa.resize((40, 25), Image.ANTIALIAS)
-                        apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
-                        apoyoa = apoyoa.rotate(90)
-                        self.tkimage = itk.PhotoImage(apoyoa)
-                        self.x = 426
-                        self.y = 555
-
-            self.x = int((self.x)*width/1920)
-            print(self.x)
-            self.y = int((self.y)*width/1080)
-
+                        self.conf_imagen(apoyoa,426,555, ancho = 40, alto = 25,rotacion = 90, flip = True)
+            
             var.agregarApoyo(self.tkimage)
             ultimo_elemento = len(self.Apoyos)-1
-            if(permitido):
+            if(self.permitido):
                 self.canvas.create_image(
                     self.x, self.y, image=var.Apoyos[ultimo_elemento], anchor="nw", tag="apoyo"+"_"+str(ultimo_elemento))
                 var.grabar(2, self.x, self.y, opcion)
@@ -358,3 +237,6 @@ class interfaz_fase_2(interfaz):
 
     def left_but_up(self, evento):
         pass
+
+
+    
