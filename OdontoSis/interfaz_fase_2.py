@@ -92,43 +92,43 @@ class interfaz_fase_2(interfaz):
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,165,35,rotacion = 180)
+                        self.conf_imagen(apoyoa,160,63,rotacion = 180)
                         
                     else:
-                        self.conf_imagen(apoyoa,165,90)
+                        self.conf_imagen(apoyoa,160,152)
                     
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,165,100,rotacion = 180)
+                        self.conf_imagen(apoyoa,160,177,rotacion = 180)
                     
                     else:
-                        self.conf_imagen(apoyoa,165,157)
+                        self.conf_imagen(apoyoa,160,269)
 
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,165,171,rotacion = 180)
+                        self.conf_imagen(apoyoa,163,302,rotacion = 180)
                         
                     else:
-                        self.conf_imagen(apoyoa,140,345,rotacion = 40)
+                        self.conf_imagen(apoyoa,175,388,rotacion = 40)
 
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
 
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,160,368,ancho = 35, alto = 25,rotacion = 172)
+                        self.conf_imagen(apoyoa,200,424,ancho = 35, alto = 25,rotacion = 172)
 
                     else:
-                        self.conf_imagen(apoyoa,175,415,ancho = 35, alto = 25,rotacion = 55)
+                        self.conf_imagen(apoyoa,219,471,ancho = 35, alto = 25,rotacion = 55)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,190,445,ancho = 30, alto = 20,rotacion = 180)
+                        self.conf_imagen(apoyoa,240,508,ancho = 30, alto = 20,rotacion = 190)
 
                     else:
-                        self.conf_imagen(apoyoa,215,480,ancho = 30, alto = 20,rotacion = 70)
+                        self.conf_imagen(apoyoa,270,550,ancho = 30, alto = 20,rotacion = 70)
 
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
