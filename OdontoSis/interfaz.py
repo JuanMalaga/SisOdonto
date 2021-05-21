@@ -8,7 +8,7 @@ width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 
 #locaciones
-mitad_x = 470
+mitad_x = 485
 primer_diente_y = 182
 segundo_diente_iz_y = 305
 segundo_diente_de_y = 289
@@ -87,13 +87,14 @@ class interfaz():
         if(ancho == -1 and alto == -1):
             ancho = apoyoa.width
             alto = apoyoa.height
+        medidas = (int(ancho*width*crecimiento/1920),int(alto*height*crecimiento/1080))
+        apoyoa = apoyoa.resize(medidas)     
         self.x= int((X)*width/1920)
         self.y= int((Y)*height/1080)
         if (flip):
             apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
         apoyoa = apoyoa.rotate(rotacion)
-        medidas = (int(ancho*width*crecimiento/1920),int(alto*height*crecimiento/1080))
-        apoyoa = apoyoa.resize(medidas)
+        
         self.tkimage = itk.PhotoImage(apoyoa)
 
     def obtener_diente(self):

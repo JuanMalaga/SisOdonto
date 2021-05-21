@@ -100,6 +100,8 @@ class interfaz_fase_2(interfaz):
 
     def left_but_down(self, evento):
         opcion = 0
+        a = 80
+        b = 92
         self.permitido = False
         if(self.actual != "ninguno" and self.actual != None):
             self.x = evento.x
@@ -158,26 +160,26 @@ class interfaz_fase_2(interfaz):
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,287,600,ancho = 40, alto = 25,rotacion = 220)
+                        self.conf_imagen(apoyoa,265,581,ancho = 40, alto = 25,rotacion = 220)
                         
                     else:
-                        self.conf_imagen(apoyoa,334,600,ancho = 40, alto = 25,rotacion = 40, flip = True)
+                        self.conf_imagen(apoyoa,313,625,ancho = 40, alto = 25,rotacion = 40, flip = True)
 
             elif (tupla[0] == 42 and self.existe_diente(42)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,313,575,ancho = 40, alto = 25,rotacion = 270)
+                        self.conf_imagen(apoyoa,320,630,ancho = 40, alto = 25,rotacion = 270)
 
                     else:
-                        self.conf_imagen(apoyoa,535,585,ancho = 40, alto = 25,rotacion = 290, flip = True)
+                        self.conf_imagen(apoyoa,375,645,ancho = 40, alto = 25,rotacion = 70, flip = True)
 
             elif (tupla[0] == 41 and self.existe_diente(41)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,320,555,ancho = 40, alto = 25,rotacion = 270)
+                        self.conf_imagen(apoyoa,387,647,ancho = 40, alto = 25,rotacion = 270)
                         
                     else:
-                        self.conf_imagen(apoyoa,368,560,ancho = 40, alto = 25,rotacion = 90, flip = True)
+                        self.conf_imagen(apoyoa,445,650,ancho = 40, alto = 25,rotacion = 90, flip = True)
 
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
@@ -220,23 +222,23 @@ class interfaz_fase_2(interfaz):
             if (tupla[0] == 33 and self.existe_diente(33)):
                 if(opcion == 2):
                     if (not tupla[1][1]  or not tupla[1][0] ):
-                        self.conf_imagen(apoyoa,500,525, ancho = 40, alto = 25,rotacion = 320)
+                        self.conf_imagen(apoyoa,520+a,518+b, ancho = 40, alto = 25,rotacion = 320)
                     else:
-                        self.conf_imagen(apoyoa,540,490, ancho = 40, alto = 25,rotacion = 130, flip = True)
+                        self.conf_imagen(apoyoa,570+a,472+b, ancho = 40, alto = 25,rotacion = 130, flip = True)
 
             if (tupla[0] == 32 and self.existe_diente(32)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,440,550, ancho = 40, alto = 25,rotacion = 275)
+                        self.conf_imagen(apoyoa,450+a,550+b, ancho = 40, alto = 25,rotacion = 280)
                     else:
-                        self.conf_imagen(apoyoa,486,540, ancho = 40, alto = 25,rotacion = 93, flip = True)
+                        self.conf_imagen(apoyoa,510+a,535+b, ancho = 40, alto = 25,rotacion = 93, flip = True)
 
             if (tupla[0] == 31 and self.existe_diente(31)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,380,558, ancho = 40, alto = 25,rotacion = 270)
+                        self.conf_imagen(apoyoa,375+a,558+b, ancho = 40, alto = 25,rotacion = 270)
                     else:
-                        self.conf_imagen(apoyoa,426,555, ancho = 40, alto = 25,rotacion = 90, flip = True)
+                        self.conf_imagen(apoyoa,435+a,555+b, ancho = 40, alto = 25,rotacion = 90, flip = True)
             
             var.agregarApoyo(self.tkimage)
             ultimo_elemento = len(self.Apoyos)-1
