@@ -26,18 +26,18 @@ cuarto_segundo_de = (723,496)
 #quintos
 quinto_primer_iz = (266,598)
 quinto_segundo_iz = (297,577)
-quinto_primer_de = (665,568)
-quinto_segundo_de = (676,572)
+quinto_primer_de = (665,558)
+quinto_segundo_de = (676,562)
 #sextos
-sexto_primer_iz = (334,652)
-sexto_segundo_iz = (349,616)
-sexto_primer_de = (608,619)
-sexto_segundo_de = (615,627)
+sexto_primer_iz = (342,645)
+sexto_segundo_iz = (352,625)
+sexto_primer_de = (622,619)
+sexto_segundo_de = (631,627)
 #septimos
-septimo_primer_iz = (399,674)
-septimo_segundo_iz = (405,629)
-septimo_primer_de = (538,646)
-septimo_segundo_de = (541,661)
+septimo_primer_iz = (412,674)
+septimo_segundo_iz = (414,629)
+septimo_primer_de = (555,646)
+septimo_segundo_de = (558,661)
 
 
 class interfaz():
@@ -80,8 +80,10 @@ class interfaz():
         return False
 
     def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False):
-        self.permitido = True
-        crecimiento = 4/3
+        crecimiento = 1
+        if(apoyoa.filename == "./src/apoyos/apoyo_oclusal_superior.png"):
+            crecimiento = 4/3
+        self.permitido = True 
         if(ancho == -1 and alto == -1):
             ancho = apoyoa.width
             alto = apoyoa.height
