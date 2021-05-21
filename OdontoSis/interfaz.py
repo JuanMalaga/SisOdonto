@@ -81,6 +81,7 @@ class interfaz():
 
     def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False):
         self.permitido = True
+        crecimiento = 4/3
         if(ancho == -1 and alto == -1):
             ancho = apoyoa.width
             alto = apoyoa.height
@@ -88,8 +89,8 @@ class interfaz():
         self.y= int((Y)*height/1080)
         if (flip):
             apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
-        apoyoa.rotate(rotacion)
-        medidas = (int(ancho*width/1920),int(alto*height/1080))
+        apoyoa = apoyoa.rotate(rotacion)
+        medidas = (int(ancho*width*crecimiento/1920),int(alto*height*crecimiento/1080))
         apoyoa = apoyoa.resize(medidas)
         self.tkimage = itk.PhotoImage(apoyoa)
 
@@ -97,7 +98,8 @@ class interfaz():
         self.diente = -1
         global pos_x
         global pos_y
-        
+        print(self.x)
+        print(self.y)
         pos_x = self.x*1980/width
         pos_y = self.y*1080/height
 
@@ -105,41 +107,41 @@ class interfaz():
         canvas = var.canvas
         if(pos_x < mitad_x):
             if(pos_y<primer_diente_y):
-                self.asignar(48,136,76)
+                self.asignar(48,185 ,121)
             elif(pos_y<segundo_diente_iz_y):
-                self.asignar(47,136,76)
+                self.asignar(47,184 ,240)
             elif(self.pertenece_cuadrante(tercero_primer_iz,tercero_segundo_iz)): 
-                self.asignar(46,136,76)
+                self.asignar(46,190 ,363)
             elif(self.pertenece_cuadrante(cuarto_primer_iz,cuarto_segundo_iz)): 
-                self.asignar(45,136,76)
+                self.asignar(45,215 ,467)
             elif(self.pertenece_cuadrante(quinto_primer_iz,quinto_segundo_iz)): 
-                self.asignar(44,136,76)
+                self.asignar(44,261 ,545)
             elif(self.pertenece_cuadrante(sexto_primer_iz,sexto_segundo_iz)): 
-                self.asignar(43,136,76)
+                self.asignar(43,318 ,606)
             elif(self.pertenece_cuadrante(septimo_primer_iz,septimo_segundo_iz)): 
-                self.asignar(42,136,76)
+                self.asignar(42,376 ,637)
             else: 
-                self.asignar(41,136,76)
+                self.asignar(41,439 ,648)
         else:
             if(pos_y<primer_diente_y):
-                self.asignar(38,136,76)
+                self.asignar(38,769 ,117)
             elif(pos_y < segundo_diente_de_y):
-                self.asignar(37,136,76)  
+                self.asignar(37,772 ,230)  
             elif(self.pertenece_cuadrante(tercero_primer_de,tercero_segundo_de)): 
-                self.asignar(36,136,76)
+                self.asignar(36,752 ,351)
             elif(self.pertenece_cuadrante(cuarto_primer_de,cuarto_segundo_de)): 
-                self.asignar(35,136,76)
+                self.asignar(35,726 ,442)
             elif(self.pertenece_cuadrante(quinto_primer_de,quinto_segundo_de)): 
-                self.asignar(34,136,76) 
+                self.asignar(34,689 ,523) 
             elif(self.pertenece_cuadrante(sexto_primer_de,sexto_segundo_de)): 
-                self.asignar(33,136,76) 
+                self.asignar(33,635 ,593) 
             elif(self.pertenece_cuadrante(septimo_primer_de,septimo_segundo_de)): 
-                self.asignar(32,136,76)
+                self.asignar(32,572 ,630)
             else: 
-                print("entro")
-                self.asignar(31,136,76)
+                self.asignar(31,501 ,640)
   
         print(self.diente)
+        
         return self.diente,self.obtener_posicion(self.centro_x,self.centro_y)
 
     def get_concat_h_cut_center(self,im1, im2):

@@ -128,9 +128,6 @@ class interfaz_fase_3(interfaz):
     def left_but_down(self, evento):
         opcion = 0
         permitido = False
-        print(evento.x)
-        print(evento.y)
-        print(self.actual)
         if(self.actual != "ninguno"):
             self.x = evento.x
             self.y = evento.y
