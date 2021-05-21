@@ -329,12 +329,12 @@ class Graficador:
             elif(element == 36):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+int(75*width/256), self.pos_y_ini+int(55*height/256), image=self.dientes[13], anchor="nw")
+                    self.pos_x_ini+int(77*width/256), self.pos_y_ini+int(55*height/256), image=self.dientes[13], anchor="nw")
 
             elif(element == 37):
 
                 self.canvas.create_image(
-                    self.pos_x_ini+int(78*width/256), self.pos_y_ini+int(height/9-height/256), image=self.dientes[14], anchor="nw")
+                    self.pos_x_ini+int(78*width/256), self.pos_y_ini+int(247*height/(9*256)), image=self.dientes[14], anchor="nw")
 
             elif(element == 38):
 
