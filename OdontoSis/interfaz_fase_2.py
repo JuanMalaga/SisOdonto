@@ -1,6 +1,7 @@
 import tkinter as tk
 from PIL import Image
 from tkinter import ttk
+from tkinter.font import Font
 from interfaz import interfaz
 from variables import VarGlo
 from tkinter import Frame, Button, Label
@@ -58,16 +59,30 @@ class interfaz_fase_2(interfaz):
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
         
     def oclusal(self):
-        self.img = Image.open('./src/imagenes/apoyos.png')
-        self.img = self.img.resize((150, 200), Image.ANTIALIAS)
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
+        self.img = Image.open('./src/imagenes/oclusales.png')
+        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
         self.img = itk.PhotoImage(self.img) 
-        self.label = ttk.Label(self.frame, image = self.img).place(x=150,y=150) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=0,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.opcion=Font(family="Roboto Mono", size = int(width/160))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, text="Apoyos oclusales", width=self.ancho).place(x=19*self.ancho/64,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(30*self.ancho/32), width=self.ancho,justify="center",
+        text="Se usan sobre dientes molares y premolares. Tienen forma de triángulo redondeado sin base, de color ROJO.").place(x=self.ancho/32,y=58*self.largo/64) 
     
     def incisal(self):
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
         self.img = Image.open('./src/imagenes/incisal.png')
-        self.img = self.img.resize((150, 200), Image.ANTIALIAS)
+        self.img = self.img.resize((self.ancho, int(13*self.largo/64)), Image.ANTIALIAS)
         self.img = itk.PhotoImage(self.img) 
-        self.label = ttk.Label(self.frame, image = self.img).place(x=150,y=150)      
+        self.label = ttk.Label(self.frame, image = self.img).place(x=0,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.opcion=Font(family="Roboto Mono", size = int(width/160))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, text="Apoyos incisales", width=self.ancho).place(x=19*self.ancho/64,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(30*self.ancho/32), width=self.ancho,justify="center",
+        text="Se usan en dientes caninos e incisivos INFERIORES. Tienen forma de un dedito, de color ROJO.").place(x=self.ancho/32,y=58*self.largo/64)       
 
     def borrar_linea(self):
         self.canvas.delete("diente1")

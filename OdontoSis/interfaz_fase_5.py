@@ -1,10 +1,16 @@
 import tkinter as tk
 from PIL import Image
 from tkinter import ttk
+from tkinter.font import Font
 from interfaz import interfaz
 from variables import VarGlo
 from tkinter import Frame, Button, Label
 from PIL import ImageTk as itk
+import ctypes
+
+resolucion = ctypes.windll.user32 
+width = resolucion.GetSystemMetrics(0)
+height = resolucion.GetSystemMetrics(1)
 
 class interfaz_fase_5(interfaz):
 
@@ -68,17 +74,56 @@ class Graficador_conectores_mayores:
         self.im3 = itk.PhotoImage(self.im3)
 
         self.boton2 = ttk.Button(
-            self.frame, image=self.im1, command=self.Escoger_retenedor_circular)
+            self.frame, image=self.im1, command=lambda:[self.lingual_simple(), self.Escoger_retenedor_circular()])
         self.boton2.grid(column=0, row=1, padx=5)
         self.boton3 = ttk.Button(
-            self.frame, image=self.im2, command=self.Escoger_retenedor_vertical_sup_iz)
+            self.frame, image=self.im2, command=lambda:[self.doble_lingual(), self.Escoger_retenedor_vertical_sup_iz()])
         self.boton3.grid(column=0, row=2, padx=5)
         self.boton4 = ttk.Button(
-            self.frame, image=self.im3, command=self.Escoger_retenedor_vertical_sup_der)
+            self.frame, image=self.im3, command=lambda:[self.placa_lingual(), self.Escoger_retenedor_vertical_sup_der()])
         self.boton4.grid(column=0, row=3, padx=5)
 
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
+
+    def lingual_simple(self):
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
+        self.img = Image.open('./src/imagenes/barra_lingual_simple.png')
+        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.opcion=Font(family="Roboto Mono", size = int(width/196))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, width=self.ancho, text="Barra lingual simple").place(x=self.ancho/4,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(61*self.ancho/64), width=self.ancho, justify="center",
+        text="Es muy delgada, se aloja en el piso de la boca, se aleja 3 mm del margen gingival. Su longitud depende de cada caso.").place(x=self.ancho/32,y=58*self.largo/64) 
+
+    def doble_lingual(self):
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
+        self.img = Image.open('./src/imagenes/doble_barra_lingual.png')
+        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.opcion=Font(family="Roboto Mono", size = int(width/196))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, width=self.ancho, text=" Doble barra lingual").place(x=self.ancho/4,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(61*self.ancho/64), width=self.ancho, justify="center",
+        text="La barra inferior es igual a la anterior. La barra superior va sobre los dientes anteriores inferiores. La barra inferior se aleja 3 mm del margen gingival.").place(x=self.ancho/32,y=58*self.largo/64)
+
+    def placa_lingual(self):
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
+        self.img = Image.open('./src/imagenes/placa.png')
+        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.opcion=Font(family="Roboto Mono", size = int(width/196))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, width=self.ancho, text="      Placa lingual").place(x=self.ancho/4,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(61*self.ancho/64), width=self.ancho, justify="center",
+        text="Cubre toda la encía, y llega hasta los cíngulos de los dientes anteriores, y hasta el ecuador de los dientes posteriores.").place(x=self.ancho/32,y=58*self.largo/64)
 
     def Escoger_retenedor_circular(self):
         self.actual = "barra_lingual_simple"

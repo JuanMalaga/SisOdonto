@@ -1,11 +1,17 @@
 import tkinter as tk
 from PIL import Image
 from tkinter import ttk
+from tkinter.font import Font
 from interfaz import interfaz
 from variables import VarGlo
 from tkinter import Frame, Button, Label
 from variables import VarGlo
 from PIL import ImageTk as itk
+import ctypes
+
+resolucion = ctypes.windll.user32 
+width = resolucion.GetSystemMetrics(0)
+height = resolucion.GetSystemMetrics(1)
 
 class interfaz_fase_3(interfaz):
 
@@ -55,18 +61,57 @@ class interfaz_fase_3(interfaz):
         self.im6 = itk.PhotoImage(self.im6)
 
         self.boton2 = ttk.Button(
-            self.frame, image=self.im1, command=self.Escoger_retenedor_circular)
+            self.frame, image=self.im1, command=lambda:[self.retenedor(), self.Escoger_retenedor_circular()])
         self.boton2.grid(column=0, row=1, padx=5)
         self.boton3 = ttk.Button(
-            self.frame, image=self.im2, command=self.Escoger_retenedor_vertical_sup_iz)
+            self.frame, image=self.im2, command=lambda:[self.retenedor_i(), self.Escoger_retenedor_vertical_sup_iz()])
         self.boton3.grid(column=0, row=2, padx=5)
         self.boton7 = ttk.Button(
-            self.frame, image=self.im6, command=self.Escoger_retenedor_barra_t)
+            self.frame, image=self.im6, command=lambda:[self.retenedor_t(), self.Escoger_retenedor_barra_t()])
         self.boton7.grid(column=0, row=5, padx=5)
 
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
 
+    def retenedor(self):
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
+        self.img = Image.open('./src/imagenes/retenedor.png')
+        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.opcion=Font(family="Roboto Mono", size = int(width/196))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, width=self.ancho, text="Retenedor circunferencial").place(x=13*self.ancho/64,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(15*self.ancho/16), width=self.ancho, justify="center",
+        text="Abraza la circunferencia del diente molar o premolar. Tiene dos brazos curvos: uno del mismo grosor desde su inicio hasta su fin, y otro que se va adelgazando progresivamente hasta terminar en punta. Color ROJO. Se usa indistintamente en dientes posteriores molares y premolares, superiores e inferiores.").place(x=self.ancho/32,y=58*self.largo/64) 
+
+    def retenedor_i(self):
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
+        self.img = Image.open('./src/imagenes/retenedor_i.png')
+        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.opcion=Font(family="Roboto Mono", size = int(width/196))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, text="Retenedor de barra en I", width=self.ancho).place(x=13*self.ancho/64,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(15*self.ancho/16), width=self.ancho, justify="center",
+        text="Tiene un solo brazo, bastante largo que viene a tomar contacto con el diente en un solo punto (llamado en “I”), o dos puntos (llamado en “T” o en “Y”). Color ROJO. Los retenedores en “I” se usan en dientes superiores por ser menos notorios al sonreír, generalmente en caninos o 1° premolares superiores.").place(x=self.ancho/32,y=58*self.largo/64) 
+
+    def retenedor_t(self):
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
+        self.img = Image.open('./src/imagenes/retenedor_t.png')
+        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.opcion=Font(family="Roboto Mono", size = int(width/196))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, text="Retenedor de barra en T", width=self.ancho).place(x=13*self.ancho/64,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(15*self.ancho/16), width=self.ancho, justify="center",
+        text="Tiene un solo brazo, bastante largo que viene a tomar contacto con el diente en un solo punto (llamado en “I”), o dos puntos (llamado en “T” o en “Y”). Color ROJO. Los retenedores en “T” se usan más en dientes inferiores.").place(x=self.ancho/32,y=58*self.largo/64) 
+    
     def borrar_linea(self):
         self.canvas.delete("diente1")
 
