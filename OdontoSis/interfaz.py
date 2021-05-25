@@ -147,8 +147,8 @@ class interfaz():
         
         return self.diente,self.obtener_posicion(self.centro_x,self.centro_y)
 
-    def get_concat_h_cut_center(self,im1, im2):
-        im1 = im1.crop((0,0,im1.width/2,im1.height))
+    def get_concat_h_cut_center(self,im1, im2, separacion = 0):
+        im1 = im1.crop((0,0,im1.width/2+separacion,im1.height))
         im2 = im2.crop((im2.width/2,0,im2.width,im2.height))
         dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
         dst = Image.new("RGBA", dimensiones)

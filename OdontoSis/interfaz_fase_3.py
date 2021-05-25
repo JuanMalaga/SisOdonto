@@ -127,6 +127,8 @@ class interfaz_fase_3(interfaz):
 
     def left_but_down(self, evento):
         opcion = 0
+        w = int(width/1920)
+        h = int(height/1080)
         self.permitido = False
         if(self.actual != "ninguno"):
             self.x = evento.x
@@ -151,25 +153,25 @@ class interfaz_fase_3(interfaz):
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
                     self.permitido = True
-                    Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
-                    RetenedorD = RetenedorD.resize((150, 125), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(self.get_concat_h_cut_center(Retenedor,RetenedorD))
-                    self.x = 65
-                    self.y = 37
+                    Retenedor = Retenedor.resize((180*w, 140*h), Image.ANTIALIAS)
+                    RetenedorD = RetenedorD.resize((180*w, 140*h), Image.ANTIALIAS)
+                    self.tkimage = itk.PhotoImage(self.get_concat_h_cut_center(Retenedor,RetenedorD,separacion = 5))
+                    self.x = 85
+                    self.y = 50
                     
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(opcion == 1):
                     self.permitido = True
-                    Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
-                    RetenedorD = RetenedorD.resize((160, 120), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(self.get_concat_h_cut_center(Retenedor,RetenedorD))
-                    self.x = 60
-                    self.y = 135   
+                    Retenedor = Retenedor.resize((160*w, 140*h), Image.ANTIALIAS)
+                    RetenedorD = RetenedorD.resize((160*w, 140*h), Image.ANTIALIAS)
+                    self.tkimage = itk.PhotoImage(self.get_concat_h_cut_center(Retenedor,RetenedorD,separacion = 20))
+                    self.x = 85
+                    self.y = 165   
 
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):
                     self.permitido = True
-                    Retenedor = Retenedor.resize((165, 130), Image.ANTIALIAS)
+                    Retenedor = Retenedor.resize((165*w, 130*h), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 65
                     self.y = 245
@@ -177,27 +179,29 @@ class interfaz_fase_3(interfaz):
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
                     self.permitido = True
-                    Retenedor = Retenedor.resize((140, 95), Image.ANTIALIAS)
+                    Retenedor = Retenedor.resize((140*w, 95*h), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(Retenedor.rotate(30))
                     self.x = 105
                     self.y = 355
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
-                    permitido = True
-                    Retenedor = Retenedor.resize((120, 80), Image.ANTIALIAS)
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((120*w, 80*h), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(Retenedor.rotate(30))
                     self.x = 142
                     self.y = 435
 
                 if(opcion == 2):
-                    permitido = True
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 110
                     self.y = 410
                 
                 if(opcion == 3):
-                    permitido = True
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 110
                     self.y = 410
@@ -205,14 +209,16 @@ class interfaz_fase_3(interfaz):
 
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
-                    permitido = True
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.rotate(25, Image.NEAREST)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 155
                     self.y = 475
                 
                 if(opcion == 3):
-                    permitido = True
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.rotate(25, Image.NEAREST)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 155
@@ -220,8 +226,8 @@ class interfaz_fase_3(interfaz):
 
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
-                    permitido = True
-                    Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((160*w, 120*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     
@@ -230,8 +236,8 @@ class interfaz_fase_3(interfaz):
 
             if (tupla[0] == 37 and self.existe_diente(37)):
                 if(opcion == 1):
-                    permitido = True
-                    Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((160*w, 120*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 578
@@ -239,8 +245,8 @@ class interfaz_fase_3(interfaz):
 
             if (tupla[0] == 36 and self.existe_diente(36)):
                 if(opcion == 1):
-                    permitido = True
-                    Retenedor = Retenedor.resize((165, 130), Image.ANTIALIAS)
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((165*w, 130*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 563
@@ -248,8 +254,8 @@ class interfaz_fase_3(interfaz):
 
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(opcion == 1):
-                    permitido = True
-                    Retenedor = Retenedor.resize((140, 95), Image.ANTIALIAS)
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((140*w, 95*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.rotate(30)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
@@ -258,8 +264,8 @@ class interfaz_fase_3(interfaz):
 
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(opcion == 1):
-                    permitido = True
-                    Retenedor = Retenedor.resize((120, 80), Image.ANTIALIAS)
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((120*w, 80*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.rotate(30)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
@@ -267,14 +273,16 @@ class interfaz_fase_3(interfaz):
                     self.y = 420
 
                 if(opcion == 2):
-                    permitido = True
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 575
                     self.y = 395
                 
                 if(opcion == 3):
-                    permitido = True
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 575
@@ -282,7 +290,8 @@ class interfaz_fase_3(interfaz):
 
             if (tupla[0] == 33 and self.existe_diente(33)):
                 if(opcion == 2):
-                    permitido = True
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.rotate(25, Image.NEAREST)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
@@ -290,7 +299,8 @@ class interfaz_fase_3(interfaz):
                     self.y = 460
                 
                 if(opcion == 3):
-                    permitido = True
+                    self.permitido = True
+                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.rotate(25, Image.NEAREST)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
                     self.tkimage = itk.PhotoImage(Retenedor)
@@ -299,7 +309,9 @@ class interfaz_fase_3(interfaz):
 
             var.agregarRetenedor(self.tkimage)
             ultimo_elemento = len(self.Retenedores)-1
-            if(permitido):
+            self.x= int((self.x)*width/1920)
+            self.y= int((self.y)*height/1080)
+            if(self.permitido):
                 self.canvas.create_image(self.x, self.y, image=self.Retenedores[ultimo_elemento], anchor="nw", tag="retenedor")
                 var.grabar(3,self.x,self.y,opcion)
                 
