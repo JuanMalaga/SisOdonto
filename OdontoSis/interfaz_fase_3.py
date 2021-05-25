@@ -127,7 +127,7 @@ class interfaz_fase_3(interfaz):
 
     def left_but_down(self, evento):
         opcion = 0
-        permitido = False
+        self.permitido = False
         if(self.actual != "ninguno"):
             self.x = evento.x
             self.y = evento.y
@@ -150,7 +150,7 @@ class interfaz_fase_3(interfaz):
 
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
-                    permitido = True
+                    self.permitido = True
                     Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
                     RetenedorD = RetenedorD.resize((150, 125), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(self.get_concat_h_cut_center(Retenedor,RetenedorD))
@@ -159,7 +159,7 @@ class interfaz_fase_3(interfaz):
                     
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(opcion == 1):
-                    permitido = True
+                    self.permitido = True
                     Retenedor = Retenedor.resize((160, 120), Image.ANTIALIAS)
                     RetenedorD = RetenedorD.resize((160, 120), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(self.get_concat_h_cut_center(Retenedor,RetenedorD))
@@ -168,7 +168,7 @@ class interfaz_fase_3(interfaz):
 
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):
-                    permitido = True
+                    self.permitido = True
                     Retenedor = Retenedor.resize((165, 130), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(Retenedor)
                     self.x = 65
@@ -176,7 +176,7 @@ class interfaz_fase_3(interfaz):
 
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
-                    permitido = True
+                    self.permitido = True
                     Retenedor = Retenedor.resize((140, 95), Image.ANTIALIAS)
                     self.tkimage = itk.PhotoImage(Retenedor.rotate(30))
                     self.x = 105
