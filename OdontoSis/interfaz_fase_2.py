@@ -66,10 +66,10 @@ class interfaz_fase_2(interfaz):
         self.img = itk.PhotoImage(self.img) 
         self.label = ttk.Label(self.frame, image = self.img).place(x=0,y=int(5*self.largo/8))
         self.tamaño=Font(family="Bahnschrift", size = int(width/100))
-        self.opcion=Font(family="Roboto Mono", size = int(width/160))
+        self.opcion=Font(family="Roboto Mono", size = int(width/196))
         self.titulo = ttk.Label(self.frame, font=self.tamaño, text="Apoyos oclusales", width=self.ancho).place(x=19*self.ancho/64,y=55*self.largo/64)
         self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(30*self.ancho/32), width=self.ancho,justify="center",
-        text="Se usan sobre dientes molares y premolares. Tienen forma de triángulo redondeado sin base, de color ROJO.").place(x=self.ancho/32,y=58*self.largo/64) 
+        text="Se usan sobre dientes molares y premolares. Tienen forma de triángulo redondeado sin base, de color ROJO.").place(x=11*self.ancho/128,y=58*self.largo/64) 
     
     def incisal(self):
         self.ancho=int(width/4)
@@ -79,10 +79,10 @@ class interfaz_fase_2(interfaz):
         self.img = itk.PhotoImage(self.img) 
         self.label = ttk.Label(self.frame, image = self.img).place(x=0,y=int(5*self.largo/8))
         self.tamaño=Font(family="Bahnschrift", size = int(width/100))
-        self.opcion=Font(family="Roboto Mono", size = int(width/160))
+        self.opcion=Font(family="Roboto Mono", size = int(width/196))
         self.titulo = ttk.Label(self.frame, font=self.tamaño, text="Apoyos incisales", width=self.ancho).place(x=19*self.ancho/64,y=55*self.largo/64)
-        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(30*self.ancho/32), width=self.ancho,justify="center",
-        text="Se usan en dientes caninos e incisivos INFERIORES. Tienen forma de un dedito, de color ROJO.").place(x=self.ancho/32,y=58*self.largo/64)       
+        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(13*self.ancho/16), width=self.ancho,justify="center",
+        text="Se usan en dientes caninos e incisivos INFERIORES. Tienen forma de un dedito, de color ROJO.").place(x=11*self.ancho/128,y=58*self.largo/64)       
 
     def borrar_linea(self):
         self.canvas.delete("diente1")
