@@ -177,65 +177,30 @@ class interfaz_fase_3(interfaz):
                     self.y = 435
 
                 if(opcion == 2):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 110
-                    self.y = 410
-                
+                    self.conf_imagen(Retenedor,155,475)
+                   
                 if(opcion == 3):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 110
-                    self.y = 410
-                    
+                    self.conf_imagen(Retenedor,155,475)
 
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.rotate(25, Image.NEAREST)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 155
-                    self.y = 475
+                    self.conf_imagen(Retenedor,215,560, rotacion = 25)
                 
                 if(opcion == 3):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.rotate(25, Image.NEAREST)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 155
-                    self.y = 475
+                    self.conf_imagen(Retenedor,215,560, rotacion = 25)
 
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((160*w, 120*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
+                    self.conf_imagen(Retenedor,685,47,ancho = 175, alto = 140, extra = RetenedorD, flip = True, separado = 5)
                     
-                    self.x = 575
-                    self.y = 32
-
             if (tupla[0] == 37 and self.existe_diente(37)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((160*w, 120*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 578
-                    self.y = 132
+                    self.conf_imagen(Retenedor,692,165, ancho = 155,alto = 125, extra = RetenedorD, flip = True, separado =15)
 
             if (tupla[0] == 36 and self.existe_diente(36)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((165*w, 130*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 563
-                    self.y = 235 
-
+                    self.conf_imagen(Retenedor,687,285, ancho =165, alto =130, extra = RetenedorD, flip = True, separado =8, rotacion = 340)
+                    
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(opcion == 1):
                     self.permitido = True
@@ -257,6 +222,7 @@ class interfaz_fase_3(interfaz):
                     self.y = 420
 
                 if(opcion == 2):
+                    self.conf_imagen(Retenedor, 575,395)
                     self.permitido = True
                     Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
                     Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
