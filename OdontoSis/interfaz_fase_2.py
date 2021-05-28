@@ -138,16 +138,16 @@ class interfaz_fase_2(interfaz):
                         self.conf_imagen(apoyoa,163,302,rotacion = 180)
                         
                     else:
-                        self.conf_imagen(apoyoa,175,388,rotacion = 40)
+                        self.conf_imagen(apoyoa,185,388,rotacion = 40)
 
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
 
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,200,424,ancho = 35, alto = 25,rotacion = 172)
+                        self.conf_imagen(apoyoa,210,424,ancho = 35, alto = 25,rotacion = 172)
 
                     else:
-                        self.conf_imagen(apoyoa,219,471,ancho = 35, alto = 25,rotacion = 55)
+                        self.conf_imagen(apoyoa,229,471,ancho = 35, alto = 25,rotacion = 55)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
