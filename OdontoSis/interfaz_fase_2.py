@@ -82,12 +82,11 @@ class interfaz_fase_2(interfaz):
         self.opcion=Font(family="Roboto Mono", size = int(width/196))
         self.titulo = ttk.Label(self.frame, font=self.tamaño, text="Apoyos incisales", width=self.ancho).place(x=19*self.ancho/64,y=55*self.largo/64)
         self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(13*self.ancho/16), width=self.ancho,justify="center",
-        text="Se usan en dientes caninos e incisivos INFERIORES. Tienen forma de un dedito, de color ROJO.").place(x=11*self.ancho/128,y=58*self.largo/64)       
+        text="Se usan en dientes caninos e incisivos INFERIORES. Tienen forma de un dedito, de color ROJO.").place(x=11*self.ancho/128,y=58*self.largo/64)             
 
     def borrar_linea(self):
         self.canvas.delete("diente1")
-        var.borrarRetenedores()
-
+    
     def show_width(self,event):
         self.w = event.width
         self.h = event.height
