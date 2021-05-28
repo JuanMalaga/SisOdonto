@@ -16,39 +16,23 @@ class interfaz_fase_4(interfaz):
     canvas: tk.Canvas
     fondo : tk.PhotoImage
     conectores : tk.PhotoImage = []
-
-
-    def __init__ (self):
-        global graficador 
-        global var
-        var = VarGlo()
-        graficador = Graficador_conectores()
-
-
-
-    def iniciar_interfaz(self):
-        self.cambiar_interfaz()
-        graficador.crear_botones()
-        
-    def limpiar(self):
-        graficador.limpiar()
-
-class Graficador_conectores:
-    x = 0
-    y = 0
-    ventana: tk.Tk
-    canvas: tk.Canvas
-    
-    frame: Frame
     direccionBase = "./src/conectores_menores/"
 
-    def __init__(self):
+    def __init__ (self):
         global var
         var = VarGlo()
         self.canvas = var.canvas
         self.frame = var.frame
         self.actual = "ninguno"
         self.conectores = var.Conectores_menores
+
+    def iniciar_interfaz(self):
+        self.cambiar_interfaz()
+        self.crear_botones()
+        
+    def limpiar(self):
+        self.limpiar()
+    
 
     def cambio_fase(self):
         for widget in self.frame.winfo_children():
@@ -94,14 +78,13 @@ class Graficador_conectores:
 
     def left_but_down(self, evento):
         if(self.actual != ""):
-            self.x = evento.x-40
-            self.y = evento.y-35
-            Retenedor = tk.PhotoImage()
-
+            self. permitido = False
+            self.x = evento.x
+            self.y = evento.y
+            tupla = self.obtener_diente()
             opcion = 0
             if(self.actual == "inferior_posterior"):
-                Retenedor = tk.PhotoImage(
-                    file=self.direccionBase+"inferior_posterior.png")
+                Retenedor = Image.open(self.direccionBase+"48.png")
                 opcion = 1
 
             elif(self.actual == "superior_anterior"):
@@ -114,11 +97,17 @@ class Graficador_conectores:
                     file=self.direccionBase+"superior_posterior.png")
                 opcion = 3
 
-            self.conectores.append(Retenedor)
-            var.grabar(4,self.x,self.y,opcion)
-            
-            self.canvas.create_image(self.x, self.y, image=self.conectores[len(
-                self.conectores)-1], anchor="nw", tag="conector")
+            if (tupla[0] == 48 and self.existe_diente(48)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 47 and self.existe_diente(47)):
+                pass
+
+            var.agregarConec_Menor(self.tkimage)
+            ultimo_elemento = len(self.conectores)-1
+            if(self.permitido):
+                self.canvas.create_image(self.x, self.y, image=self.conectores[ultimo_elemento], anchor="nw", tag="conector")
+                var.grabar(3,self.x,self.y,opcion)    
 
     def left_but_up(self, evento):
         return
