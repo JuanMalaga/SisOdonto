@@ -149,9 +149,6 @@ class interfaz_fase_3(interfaz):
 
             self.tkimage = itk.PhotoImage(Retenedor)
             
-            if(opcion == 1):
-                print("entro")
-
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
                     self.conf_imagen(Retenedor,85,50,ancho = 180, alto = 140,extra = RetenedorD, separado = 5)
@@ -166,130 +163,60 @@ class interfaz_fase_3(interfaz):
 
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
-                    self.conf_imagen(Retenedor,105,440,ancho = 140, alto = 95,extra = RetenedorD, separado = 20,rotacion = 30)
+                    Retenedor = Image.open("./src/retenedores/35.png")
+                    self.conf_imagen(Retenedor,153,415)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((120*w, 80*h), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(Retenedor.rotate(30))
-                    self.x = 142
-                    self.y = 435
-
+                    Retenedor = Image.open("./src/retenedores/34.png")
+                    self.conf_imagen(Retenedor,210,500)
                 if(opcion == 2):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 110
-                    self.y = 410
-                
+                    self.conf_imagen(Retenedor,155,475)
+                   
                 if(opcion == 3):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 110
-                    self.y = 410
-                    
+                    self.conf_imagen(Retenedor,155,475)
 
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.rotate(25, Image.NEAREST)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 155
-                    self.y = 475
+                    self.conf_imagen(Retenedor,215,560, rotacion = 25)
                 
                 if(opcion == 3):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.rotate(25, Image.NEAREST)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 155
-                    self.y = 475
+                    self.conf_imagen(Retenedor,215,560, rotacion = 25)
 
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((160*w, 120*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
+                    self.conf_imagen(Retenedor,685,47,ancho = 175, alto = 140, extra = RetenedorD, flip = True, separado = 5)
                     
-                    self.x = 575
-                    self.y = 32
-
             if (tupla[0] == 37 and self.existe_diente(37)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((160*w, 120*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 578
-                    self.y = 132
+                    self.conf_imagen(Retenedor,692,165, ancho = 155,alto = 125, extra = RetenedorD, flip = True, separado =15)
 
             if (tupla[0] == 36 and self.existe_diente(36)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((165*w, 130*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 563
-                    self.y = 235 
-
+                    self.conf_imagen(Retenedor,687,285, ancho =165, alto =130, extra = RetenedorD, flip = True, separado =8, rotacion = 340)
+                    
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((140*w, 95*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.rotate(30)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 540
-                    self.y = 342
+                    Retenedor = Image.open("./src/retenedores/35.png")
+                    self.conf_imagen(Retenedor,670,400, flip = True, alto = 100)
 
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(opcion == 1):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((120*w, 80*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.rotate(30)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 525
-                    self.y = 420
+                    Retenedor = Image.open("./src/retenedores/34.png")
+                    self.conf_imagen(Retenedor,633,480,flip = True)
 
                 if(opcion == 2):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 575
-                    self.y = 395
+                    self.conf_imagen(Retenedor, 689,455, flip = True)
                 
                 if(opcion == 3):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 575
-                    self.y = 395
+                    self.conf_imagen(Retenedor, 689,455, flip = True)
 
             if (tupla[0] == 33 and self.existe_diente(33)):
                 if(opcion == 2):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.rotate(25, Image.NEAREST)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 530
-                    self.y = 460
+                    self.conf_imagen(Retenedor, 645,535, rotacion = 335, flip = True)
                 
                 if(opcion == 3):
-                    self.permitido = True
-                    Retenedor = Retenedor.resize((Retenedor.width*w, Retenedor.height*h), Image.ANTIALIAS)
-                    Retenedor = Retenedor.rotate(25, Image.NEAREST)
-                    Retenedor = Retenedor.transpose(Image.FLIP_LEFT_RIGHT)
-                    self.tkimage = itk.PhotoImage(Retenedor)
-                    self.x = 530
-                    self.y = 460
+                    self.conf_imagen(Retenedor, 645,535, rotacion = 335, flip = True)
 
             var.agregarRetenedor(self.tkimage)
             ultimo_elemento = len(self.Retenedores)-1

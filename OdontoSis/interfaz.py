@@ -84,8 +84,10 @@ class interfaz():
         if(apoyoa.filename == "./src/apoyos/apoyo_oclusal_superior.png"):
             crecimiento = 4/3
         self.permitido = True 
-        if(ancho == -1 and alto == -1):
+        if(ancho == -1):
             ancho = apoyoa.width
+            
+        if(alto == -1):    
             alto = apoyoa.height
         medidas = (int(ancho*width*crecimiento/1920),int(alto*height*crecimiento/1080))
         apoyoa = apoyoa.resize(medidas)   
