@@ -79,7 +79,7 @@ class interfaz():
             return True
         return False
 
-    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0):
+    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0, vertical = False):
         crecimiento = 1
         if(apoyoa.filename == "./src/apoyos/apoyo_oclusal_superior.png"):
             crecimiento = 4/3
@@ -98,7 +98,10 @@ class interfaz():
             apoyoa = self.get_concat_h_cut_center(apoyoa,extra,separacion = separado)
         if (flip):
             apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
+        if ( vertical):
+            apoyoa = apoyoa.transpose(Image.FLIP_TOP_BOTTOM)     
         dst = apoyoa.rotate(rotacion)
+        
         self.tkimage = itk.PhotoImage(dst)
         
     def obtener_diente(self):

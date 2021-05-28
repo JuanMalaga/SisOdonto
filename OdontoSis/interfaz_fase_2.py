@@ -147,7 +147,7 @@ class interfaz_fase_2(interfaz):
                         self.conf_imagen(apoyoa,210,424,ancho = 35, alto = 25,rotacion = 172)
 
                     else:
-                        self.conf_imagen(apoyoa,229,471,ancho = 35, alto = 25,rotacion = 55)
+                        self.conf_imagen(apoyoa,219,471,ancho = 35, alto = 25,rotacion = 55)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):

@@ -127,9 +127,9 @@ class interfaz_fase_3(interfaz):
 
     def left_but_down(self, evento):
         opcion = 0
-        w = int(width/1920)
-        h = int(height/1080)
         self.permitido = False
+        suma = 0
+        const = 10
         if(self.actual != "ninguno"):
             self.x = evento.x
             self.y = evento.y
@@ -151,25 +151,49 @@ class interfaz_fase_3(interfaz):
             
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
-                    self.conf_imagen(Retenedor,85,50,ancho = 180, alto = 140,extra = RetenedorD, separado = 5)
-                    
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
+                    self.conf_imagen(Retenedor,85,50+suma,ancho = 180, alto = 140,extra = RetenedorD, separado = 5, vertical = vert)
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(opcion == 1):
-                    self.conf_imagen(Retenedor,85,165,ancho = 160, alto = 140,extra = RetenedorD, separado = 20)
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
+                    self.conf_imagen(Retenedor,85,165+suma,ancho = 160, alto = 140,extra = RetenedorD, separado = 20, vertical = vert)
 
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):
-                    self.conf_imagen(Retenedor,103,300,ancho = 150, alto = 130,extra = RetenedorD, separado = 12,rotacion = 15)
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
+                    self.conf_imagen(Retenedor,103,300+suma,ancho = 150, alto = 130,extra = RetenedorD, separado = 12,rotacion = 15, vertical = vert)
 
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
                     Retenedor = Image.open("./src/retenedores/35.png")
-                    self.conf_imagen(Retenedor,153,415)
+                    self.conf_imagen(Retenedor,153,415+suma, vertical = vert)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
                     Retenedor = Image.open("./src/retenedores/34.png")
-                    self.conf_imagen(Retenedor,210,500)
+                    self.conf_imagen(Retenedor,210,500+suma, vertical = vert)
                 if(opcion == 2):
                     self.conf_imagen(Retenedor,155,475)
                    
@@ -185,25 +209,50 @@ class interfaz_fase_3(interfaz):
 
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
-                    self.conf_imagen(Retenedor,685,47,ancho = 175, alto = 140, extra = RetenedorD, flip = True, separado = 5)
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
+                    self.conf_imagen(Retenedor,685,47+suma,ancho = 175, alto = 140, extra = RetenedorD, flip = True, separado = 5, vertical = vert)
                     
             if (tupla[0] == 37 and self.existe_diente(37)):
                 if(opcion == 1):
-                    self.conf_imagen(Retenedor,692,165, ancho = 155,alto = 125, extra = RetenedorD, flip = True, separado =15)
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
+                    self.conf_imagen(Retenedor,692,165+suma, ancho = 155,alto = 125, extra = RetenedorD, flip = True, separado =15, vertical = vert)
 
             if (tupla[0] == 36 and self.existe_diente(36)):
                 if(opcion == 1):
-                    self.conf_imagen(Retenedor,687,285, ancho =165, alto =130, extra = RetenedorD, flip = True, separado =8, rotacion = 340)
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
+                    self.conf_imagen(Retenedor,687,285+suma, ancho =165, alto =130, extra = RetenedorD, flip = True, separado =8, rotacion = 340, vertical = vert)
                     
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(opcion == 1):
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
                     Retenedor = Image.open("./src/retenedores/35.png")
-                    self.conf_imagen(Retenedor,670,400, flip = True, alto = 100)
+                    self.conf_imagen(Retenedor,670,400+suma, flip = True, alto = 100, vertical = vert)
 
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(opcion == 1):
+                    if(tupla[1][0]):
+                        vert = True
+                        suma = const
+                    else:
+                        vert = False
                     Retenedor = Image.open("./src/retenedores/34.png")
-                    self.conf_imagen(Retenedor,633,480,flip = True)
+                    self.conf_imagen(Retenedor,633,480+suma,flip = True, vertical = vert)
 
                 if(opcion == 2):
                     self.conf_imagen(Retenedor, 689,455, flip = True)
