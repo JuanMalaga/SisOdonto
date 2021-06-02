@@ -79,6 +79,12 @@ class interfaz():
             return True
         return False
 
+    def no_existe_diente(self,numero):
+        var = VarGlo()
+        if(var.Dientes.count(numero)>0):
+            return False
+        return True
+
     def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0, vertical = False):
         crecimiento = 1
         if(apoyoa.filename == "./src/apoyos/apoyo_oclusal_superior.png"):

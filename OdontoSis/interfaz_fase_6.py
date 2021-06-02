@@ -103,129 +103,56 @@ class interfaz_fase_6(interfaz):
             
             self.tkimage = itk.PhotoImage(retenedor)
 
-            if (tupla[0] == 48 and self.existe_diente(48)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        self.conf_imagen(retenedor,160,63,rotacion = 180)
-                        
-                    else:
-                        self.conf_imagen(retenedor,160,152)
-
-            elif (tupla[0] == 47 and self.existe_diente(47)):
+            if (tupla[0] == 47 and self.no_existe_diente(47)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(retenedor,160,177,rotacion = 180)
-                    
-                    else:
-                        self.conf_imagen(retenedor,160,269)
 
-            elif (tupla[0] == 46 and self.existe_diente(46)):
+            elif (tupla[0] == 46 and self.no_existe_diente(46)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(retenedor,163,302,rotacion = 180)
                         
-                    else:
-                        self.conf_imagen(retenedor,175,388,rotacion = 40)
-
-            elif (tupla[0] == 45 and self.existe_diente(45)):
+            elif (tupla[0] == 45 and self.no_existe_diente(45)):
                 if(opcion == 1):
 
                     if (tupla[1][0]):
                         self.conf_imagen(retenedor,200,424,ancho = 35, alto = 25,rotacion = 172)
 
-                    else:
-                        self.conf_imagen(retenedor,219,471,ancho = 35, alto = 25,rotacion = 55)
-
-            elif (tupla[0] == 44 and self.existe_diente(44)):
+            elif (tupla[0] == 44 and self.no_existe_diente(44)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(retenedor,240,508,ancho = 30, alto = 20,rotacion = 190)
 
-                    else:
-                        self.conf_imagen(retenedor,270,550,ancho = 30, alto = 20,rotacion = 70)
-
-            elif (tupla[0] == 43 and self.existe_diente(43)):
+            elif (tupla[0] == 43 and self.no_existe_diente(43)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
                         self.conf_imagen(retenedor,265,581,ancho = 40, alto = 25,rotacion = 220)
                         
-                    else:
-                        self.conf_imagen(retenedor,313,625,ancho = 40, alto = 25,rotacion = 40, flip = True)
-
-            elif (tupla[0] == 42 and self.existe_diente(42)):
-                if(opcion == 2):
-                    if (not tupla[1][1]):
-                        self.conf_imagen(retenedor,320,630,ancho = 40, alto = 25,rotacion = 270)
-
-                    else:
-                        self.conf_imagen(retenedor,375,645,ancho = 40, alto = 25,rotacion = 70, flip = True)
-
-            elif (tupla[0] == 41 and self.existe_diente(41)):
-                if(opcion == 2):
-                    if (not tupla[1][1]):
-                        self.conf_imagen(retenedor,387,647,ancho = 40, alto = 25,rotacion = 270)
-                        
-                    else:
-                        self.conf_imagen(retenedor,445,650,ancho = 40, alto = 25,rotacion = 90, flip = True)
-
-            if (tupla[0] == 38 and self.existe_diente(38)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        self.conf_imagen(retenedor,739,60,rotacion = 180)
-                        
-                    else:
-                        self.conf_imagen(retenedor,739,150)
-
-            if (tupla[0] == 37 and self.existe_diente(37)):
+            if (tupla[0] == 37 and self.no_existe_diente(37)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(retenedor,739,175, rotacion = 180)
-                        
-                    else:
-                        self.conf_imagen(retenedor,739,255)
-                        
-            if (tupla[0] == 36 and self.existe_diente(36)):
+                              
+            if (tupla[0] == 36 and self.no_existe_diente(36)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(retenedor,740,292, rotacion = 180)
-                    else:
-                        self.conf_imagen(retenedor,720,372, rotacion = 320)
-
-            if (tupla[0] == 35 and self.existe_diente(35)):
+          
+            if (tupla[0] == 35 and self.no_existe_diente(35)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(retenedor,700,400, ancho = 35, alto = 25,rotacion = 181)
-                    else:
-                        self.conf_imagen(retenedor,680,450, ancho = 35, alto = 25,rotacion = 310)
                         
-            if (tupla[0] == 34 and self.existe_diente(34)):
+            if (tupla[0] == 34 and self.no_existe_diente(34)):
                 if(opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(retenedor,663,482, ancho = 30, alto = 20,rotacion = 180)
-                    else:
-                        self.conf_imagen(retenedor,640,530, ancho = 30, alto = 20,rotacion = 280)
-                        
+                        self.conf_imagen(retenedor,663,482, ancho = 30, alto = 20,rotacion = 180)           
 
-            if (tupla[0] == 33 and self.existe_diente(33)):
+            if (tupla[0] == 33 and self.no_existe_diente(33)):
                 if(opcion == 2):
                     if (not tupla[1][1]  or not tupla[1][0] ):
                         self.conf_imagen(retenedor,520+a,518+b, ancho = 40, alto = 25,rotacion = 320)
-                    else:
-                        self.conf_imagen(retenedor,570+a,472+b, ancho = 40, alto = 25,rotacion = 130, flip = True)
-
-            if (tupla[0] == 32 and self.existe_diente(32)):
-                if(opcion == 2):
-                    if (not tupla[1][1]):
-                        self.conf_imagen(retenedor,450+a,550+b, ancho = 40, alto = 25,rotacion = 280)
-                    else:
-                        self.conf_imagen(retenedor,510+a,535+b, ancho = 40, alto = 25,rotacion = 93, flip = True)
-
-            if (tupla[0] == 31 and self.existe_diente(31)):
-                if(opcion == 2):
-                    if (not tupla[1][1]):
-                        self.conf_imagen(retenedor,375+a,558+b, ancho = 40, alto = 25,rotacion = 270)
-                    else:
-                        self.conf_imagen(retenedor,435+a,555+b, ancho = 40, alto = 25,rotacion = 90, flip = True)
 
             var.agregarRetenedor(self.tkimage)
             ultimo_elemento = len(self.Retenedores)-1
