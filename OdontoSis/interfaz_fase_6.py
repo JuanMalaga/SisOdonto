@@ -105,91 +105,139 @@ class interfaz_fase_6(interfaz):
 
             #MULTIPLE
 
-            if (tupla[0] == 47 and self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble3.png")
-                        self.conf_imagen(base,160,155,ancho = 150, alto = 350,rotacion = 0, flip=True)
+            if (self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44)):
+                if(tupla[0] == 47 or tupla[0] == 46 or tupla[0] == 45 or tupla[0] == 44):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble3.png")
+                            self.conf_imagen(base,180,168,ancho = 155, alto = 420,rotacion = 8, flip=True)
 
-            if (tupla[0] == 47 and self.no_existe_diente(47) and self.no_existe_diente(46)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble2.png")
-                        self.conf_imagen(base,170,168,ancho = 160, alto = 395,rotacion = 3, flip=True)
+            elif (self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45)):
+                if(tupla[0] == 47 or tupla[0] == 46 or tupla[0] == 45):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble3.png")
+                            self.conf_imagen(base,165,175,ancho = 150, alto = 340,rotacion = 2, flip=True)
 
+            elif (self.no_existe_diente(47) and self.no_existe_diente(46)):
+                if(tupla[0] == 47 or tupla[0] == 46): 
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble2.png")
+                            self.conf_imagen(base,170,168,ancho = 160, alto = 395,rotacion = 3, flip=True)
+
+            elif (self.no_existe_diente(46) and self.no_existe_diente(45)):
+                if(tupla[0] == 46 or tupla[0] == 45): 
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble2.png")
+                            self.conf_imagen(base,190,280,ancho = 160, alto = 360,rotacion = 10, flip=True)
+
+            elif (self.no_existe_diente(45) and self.no_existe_diente(44)):
+                if(tupla[0] == 45 or tupla[0] == 44): 
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble2_ro.png")
+                            self.conf_imagen(base,190,375,ancho = 150, alto = 270,rotacion = -30, flip=True)
+
+            elif (self.no_existe_diente(44) and self.no_existe_diente(43)):
+                if(tupla[0] == 44 or tupla[0] == 43): 
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble2_ro.png")
+                            self.conf_imagen(base,245,440,ancho = 110, alto = 270,rotacion = -8, flip=True)
+    
             #INDIVIDUAL
         
-            elif (tupla[0] == 47 and self.no_existe_diente(47)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1.png")
-                        self.conf_imagen(base,160,175, ancho=150, alto=270, rotacion = 0, flip=True)
+            elif (self.no_existe_diente(47)):
+                if(tupla[0] == 47):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1.png")
+                            self.conf_imagen(base,160,175, ancho=150, alto=270, rotacion = 0, flip=True)
 
-            elif (tupla[0] == 46 and self.no_existe_diente(46)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1.png")
-                        self.conf_imagen(base,180,290,ancho=150, alto=270,rotacion = 5, flip=True)
+            elif (self.no_existe_diente(46)):
+                if(tupla[0] == 46):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1.png")
+                            self.conf_imagen(base,180,290,ancho=150, alto=270,rotacion = 5, flip=True)
                    
-            elif (tupla[0] == 45 and self.no_existe_diente(45)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1.png")
-                        self.conf_imagen(base,215,400,ancho=130, alto=200,rotacion = 20, flip=True)
+            elif (self.no_existe_diente(45)):
+                if(tupla[0] == 45):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1.png")
+                            self.conf_imagen(base,215,400,ancho=130, alto=200,rotacion = 20, flip=True)
 
-            elif (tupla[0] == 44 and self.no_existe_diente(44)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1_ro.png")
-                        self.conf_imagen(base,238,463,ancho=120, alto=162,rotacion = 5, flip=True)
+            if (self.no_existe_diente(43)):
+                if(tupla[0] == 43):
+                    if(opcion == 1):
+                        if (not tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1_ro.png")
+                            self.conf_imagen(base,295,525,ancho=90, alto=135,rotacion = 26, flip=True)
 
-            elif (tupla[0] == 43 and self.no_existe_diente(43)):
-                if(opcion == 1):
-                    if (not tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1_ro.png")
-                        self.conf_imagen(base,295,525,ancho=90, alto=135,rotacion = 26, flip=True)
+            if (self.no_existe_diente(44)):
+                if(tupla[0] == 44):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1_ro.png")
+                            self.conf_imagen(base,244,474,ancho=95, alto=145,rotacion = 5, flip=True)
 
             #DERECHA
 
             #MULTIPLE
 
-            if (tupla[0] == 37 and self.no_existe_diente(37) and self.no_existe_diente(36) and self.no_existe_diente(35)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble3.png")
-                        self.conf_imagen(base,632,174,ancho = 150, alto = 310,rotacion = 0)
+            if (self.no_existe_diente(37) and self.no_existe_diente(36) and self.no_existe_diente(35)):
+                if(tupla[0] == 37 or tupla[0] == 36 or tupla[0] == 35):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble3.png")
+                            self.conf_imagen(base,632,174,ancho = 150, alto = 310,rotacion = 0)
+            
+            elif (self.no_existe_diente(37) and self.no_existe_diente(36)):
+                if(tupla[0] == 37 or tupla[0] == 36): 
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble2.png")
+                            self.conf_imagen(base,626,160,ancho = 160, alto = 395,rotacion = 0)
 
             #INDIVIDUAL
 
-            elif (tupla[0] == 37 and self.no_existe_diente(37)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1.png")
-                        self.conf_imagen(base,632,175,ancho=150,alto=260,rotacion = 0) 
+            elif (self.no_existe_diente(37)):
+                if(tupla[0] == 37):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1.png")
+                            self.conf_imagen(base,632,175,ancho=150,alto=260,rotacion = 0) 
                               
-            elif (tupla[0] == 36 and self.no_existe_diente(36)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1.png")
-                        self.conf_imagen(base,620,275,ancho=150, alto=270,rotacion = -8)
+            elif (self.no_existe_diente(36)):
+                if(tupla[0] == 36):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1.png")
+                            self.conf_imagen(base,620,275,ancho=150, alto=270,rotacion = -8)
           
-            elif (tupla[0] == 35 and self.no_existe_diente(35)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1_ro.png")
-                        self.conf_imagen(base,655,378,ancho=100, alto=150,rotacion = 8)
+            elif (self.no_existe_diente(35)):
+                if(tupla[0] == 35):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1_ro.png")
+                            self.conf_imagen(base,655,378,ancho=100, alto=150,rotacion = 8)
                         
-            elif (tupla[0] == 34 and self.no_existe_diente(34)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1_ro.png")
-                        self.conf_imagen(base,620,450,ancho=100, alto=162,rotacion = -5)           
+            if (self.no_existe_diente(34)):
+                if(tupla[0] == 34):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1_ro.png")
+                            self.conf_imagen(base,620,450,ancho=100, alto=162,rotacion = -5)           
 
-            elif (tupla[0] == 33 and self.no_existe_diente(33)):
-                if(opcion == 1):
-                    if (tupla[1][0]):
-                        base = Image.open("./src/bases/base_doble1_ro.png")
-                        self.conf_imagen(base,575,525, ancho=90, alto=130,rotacion = -28)
+            if (self.no_existe_diente(33)):
+                if(tupla[0] == 33):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_doble1_ro.png")
+                            self.conf_imagen(base,575,525, ancho=90, alto=130,rotacion = -28)
 
             var.agregarBase(self.tkimage)
             ultimo_elemento = len(self.Bases)-1
