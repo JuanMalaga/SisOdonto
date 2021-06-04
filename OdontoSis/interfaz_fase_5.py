@@ -13,8 +13,6 @@ width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 
 class interfaz_fase_5(interfaz):
-    
-    
     ventana: tk.Tk
     canvas: tk.Canvas
     fondo : tk.PhotoImage
@@ -26,24 +24,17 @@ class interfaz_fase_5(interfaz):
         global var
         var = VarGlo()
         self.actual = "ninguno"
-        self.conectores = var.Conectores_mayores
+        self.canvas = var.canvas
+        self.frame = var.frame
+        self.conectores = var.Conectores_mayores 
 
     def iniciar_interfaz(self):
         self.cambiar_interfaz()
-        graficador.crear_botones()
+        self.crear_botones()
         
     def limpiar(self):
-        graficador.limpiar()
+        self.limpiar()
         
-    
-
-    def __init__(self):
-        global var
-        var = VarGlo()
-        self.canvas = var.canvas
-        self.frame = var.frame
-        
-
     def cambio_fase(self):
         for widget in self.frame.winfo_children():
             widget.destroy()
@@ -127,17 +118,19 @@ class interfaz_fase_5(interfaz):
 
     def left_but_down(self, evento):
         if(self.actual != ""):
+            self.permitido = False
             self.x = evento.x
             self.y = evento.y
-            conector_mayor = tk.PhotoImage()
+            tupla = self.obtener_diente()
             opcion = 0
+            self.tkimage = None
             if(self.actual == "barra_lingual_simple"):
-                conector_mayor = tk.PhotoImage(
-                    file=self.direccionBase+"conec_mayor.png")
-                self.conf_imagen()    
-                self.x = 200
-                self.y = 160
                 opcion = 1
+                conector_mayor = Image.open(self.direccionBase+"conec_mayor.png")
+                mitad = Image.open(self.direccionBase+"conec_mayor.png")
+                mitad = mitad.transpose(Image.FLIP_LEFT_RIGHT)
+                #cortar_imagenes()
+                self.conf_imagen(conector_mayor,249, 75, extra = mitad, extremno = True) 
 
             elif(self.actual == "doble_barra_lingual"):
                 conector_mayor = tk.PhotoImage(
@@ -153,11 +146,11 @@ class interfaz_fase_5(interfaz):
                 self.y = 406
                 opcion = 3
 
-            var.agregarConec_Mayor(conector_mayor)
-            var.grabar(5,self.x,self.y,opcion)
-
-            self.canvas.create_image(self.x, self.y, image=self.conectores[len(
-                self.conectores)-1], anchor="nw", tag="conector_mayor")
+            var.agregarConec_Mayor(self.tkimage)
+            ultimo_elemento = len(self.conectores)-1
+            if(self.permitido):
+                self.canvas.create_image(self.x, self.y, image=self.conectores[ultimo_elemento], anchor="nw", tag="conector_mayor")
+                var.grabar(5,self.x,self.y,opcion) 
 
     def left_but_up(self, evento):
         return

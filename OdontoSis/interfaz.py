@@ -85,7 +85,7 @@ class interfaz():
             return False
         return True
 
-    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0, vertical = False):
+    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0, vertical = False, extremno = False):
         crecimiento = 1
         if(apoyoa.filename == "./src/apoyos/apoyo_oclusal_superior.png"):
             crecimiento = 4/3
@@ -101,7 +101,7 @@ class interfaz():
         self.y= int((Y)*height/1080)
         if(extra is not None):
             extra = extra.resize(medidas)
-            apoyoa = self.get_concat_h_cut_center(apoyoa,extra,separacion = separado)
+            apoyoa = self.get_concat_h_cut_center(apoyoa,extra,separacion = separado, ampliar= extremno)
         if (flip):
             apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
         if ( vertical):
@@ -160,10 +160,18 @@ class interfaz():
         
         return self.diente,self.obtener_posicion(self.centro_x,self.centro_y)
 
-    def get_concat_h_cut_center(self,im1, im2, separacion = 0):
-        im1 = im1.crop((0,0,im1.width/2+separacion,im1.height))
-        im2 = im2.crop((im2.width/2,0,im2.width,im2.height))
-        dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
+    def get_concat_h_cut_center(self,im1, im2, separacion = 0, ampliar = False):
+        print(im1.width + im2.width)
+        if(ampliar):
+            dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
+
+        
+        print(im1.width + im2.width)
+        if(not ampliar):
+            im1 = im1.crop((0,0,im1.width/2+separacion,im1.height))
+            im2 = im2.crop((im2.width/2,0,im2.width,im2.height))
+            dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
+        
         dst = Image.new("RGBA", dimensiones)
         dst.paste(im1,(0,0))
         dst.paste(im2, (im1.width, (im1.height - im2.height) // 2))
