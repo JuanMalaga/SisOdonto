@@ -99,7 +99,7 @@ class interfaz_fase_4(interfaz):
 
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
-                    self.conf_imagen(Retenedor,140,161)
+                    self.conf_imagen(Retenedor,150,161)
 
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(opcion == 1):

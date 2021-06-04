@@ -149,6 +149,9 @@ class interfaz_fase_3(interfaz):
 
             self.tkimage = itk.PhotoImage(Retenedor)
             
+            if(tupla[1][0]):
+                RetenedorD = Image.open("./src/retenedores/retenedores_derecho_inv.png")
+
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
                     if(tupla[1][0]):
@@ -179,11 +182,13 @@ class interfaz_fase_3(interfaz):
                 if(opcion == 1):
                     if(tupla[1][0]):
                         vert = True
-                        suma = const
+                        suma = const-20
+                        rotate = 45
                     else:
                         vert = False
+                        rotate = 0
                     Retenedor = Image.open("./src/retenedores/35.png")
-                    self.conf_imagen(Retenedor,153,415+suma, vertical = vert)
+                    self.conf_imagen(Retenedor,153,415+suma, vertical = vert, rotacion = rotate)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):

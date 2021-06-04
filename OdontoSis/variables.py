@@ -40,7 +40,7 @@ class VarGlo(metaclass=SingletonMeta):
     # actual
     actual = ""
     fase_actual = 0
-
+    Apoyos_en_pantalla = []
     def Guardar_archivo(self):
         file = open("datos/archivo.txt", "w", encoding="utf-8")
         for i in self.cambios:
@@ -54,6 +54,18 @@ class VarGlo(metaclass=SingletonMeta):
             file.write(str(i.unidad))
             file.write(") \n")
         file.close()
+
+    def AgregarDato(self, num):
+        self.Apoyos_en_pantalla.append(num)
+
+    def EliminarDato(self, num):
+        self.Apoyos_en_pantalla.remove(num)     
+
+    def revisarDatos(self, num):
+        if(self.Apoyos_en_pantalla.count(num)>0):
+            return True
+        return False
+
 
     def Iniciar_Dentadura(self):
         self.Dientes = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38]

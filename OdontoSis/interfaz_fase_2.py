@@ -119,126 +119,135 @@ class interfaz_fase_2(interfaz):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,160,63,rotacion = 180)
-                        
+                        dato = "1"
                     else:
                         self.conf_imagen(apoyoa,160,152)
-                    
+                        dato = "2"
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,160,177,rotacion = 180)
-                    
+                        dato = "1"
                     else:
                         self.conf_imagen(apoyoa,160,269)
-
+                        dato = "2"
             elif (tupla[0] == 46 and self.existe_diente(46)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,163,302,rotacion = 180)
-                        
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,185,388,rotacion = 40)
-
+                        self.conf_imagen(apoyoa,175,388,rotacion = 40)
+                        dato = "2"
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
 
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,210,424,ancho = 35, alto = 25,rotacion = 172)
-
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,219,471,ancho = 35, alto = 25,rotacion = 55)
-
+                        self.conf_imagen(apoyoa,219,471,ancho = 35, alto = 25,rotacion = 65)
+                        dato = "2"
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,240,508,ancho = 30, alto = 20,rotacion = 190)
-
+                        dato = "2"
                     else:
                         self.conf_imagen(apoyoa,270,550,ancho = 30, alto = 20,rotacion = 70)
-
+                        
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,265,581,ancho = 40, alto = 25,rotacion = 220)
-                        
+                        self.conf_imagen(apoyoa,265,581,ancho = 40, alto = 25,rotacion = 250)
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,313,625,ancho = 40, alto = 25,rotacion = 40, flip = True)
-
+                        self.conf_imagen(apoyoa,313,625,ancho = 40, alto = 25,rotacion = 19, flip = True)
+                        dato = "2"
             elif (tupla[0] == 42 and self.existe_diente(42)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
                         self.conf_imagen(apoyoa,320,630,ancho = 40, alto = 25,rotacion = 270)
-
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,375,645,ancho = 40, alto = 25,rotacion = 70, flip = True)
-
+                        self.conf_imagen(apoyoa,375,645,ancho = 40, alto = 25,rotacion = 49, flip = True)
+                        dato = "2"
             elif (tupla[0] == 41 and self.existe_diente(41)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,387,647,ancho = 40, alto = 25,rotacion = 270)
-                        
+                        self.conf_imagen(apoyoa,387,647,ancho = 40, alto = 25,rotacion = 290)
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,445,650,ancho = 40, alto = 25,rotacion = 90, flip = True)
-
+                        self.conf_imagen(apoyoa,445,650,ancho = 40, alto = 25,rotacion = 55, flip = True)
+                        dato = "2"
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,739,60,rotacion = 180)
-                        
+                        dato = "1"
                     else:
                         self.conf_imagen(apoyoa,739,150)
-
+                        dato = "2"
             if (tupla[0] == 37 and self.existe_diente(37)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,739,175, rotacion = 180)
-                        
+                        dato = "1"
                     else:
                         self.conf_imagen(apoyoa,739,255)
-                        
+                        dato = "2"
             if (tupla[0] == 36 and self.existe_diente(36)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,740,292, rotacion = 180)
+                        dato = "1"
                     else:
                         self.conf_imagen(apoyoa,720,372, rotacion = 320)
-
+                        dato = "2"
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,700,400, ancho = 35, alto = 25,rotacion = 181)
+                        self.conf_imagen(apoyoa,700,405, ancho = 35, alto = 25,rotacion = 189)
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,680,450, ancho = 35, alto = 25,rotacion = 310)
-                        
+                        self.conf_imagen(apoyoa,690,450, ancho = 35, alto = 25,rotacion = 302)
+                        dato = "2"
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,663,482, ancho = 30, alto = 20,rotacion = 180)
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,640,530, ancho = 30, alto = 20,rotacion = 280)
-                        
+                        self.conf_imagen(apoyoa,645,530, ancho = 30, alto = 20,rotacion = 280)
+                        dato = "2"
 
             if (tupla[0] == 33 and self.existe_diente(33)):
                 if(opcion == 2):
                     if (not tupla[1][1]  or not tupla[1][0] ):
-                        self.conf_imagen(apoyoa,520+a,518+b, ancho = 40, alto = 25,rotacion = 320)
+                        self.conf_imagen(apoyoa,520+a,518+b, ancho = 40, alto = 25,rotacion = 340)
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,570+a,472+b, ancho = 40, alto = 25,rotacion = 130, flip = True)
-
+                        self.conf_imagen(apoyoa,570+a,472+b, ancho = 40, alto = 25,rotacion = 105, flip = True)
+                        dato = "2"
             if (tupla[0] == 32 and self.existe_diente(32)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,450+a,550+b, ancho = 40, alto = 25,rotacion = 280)
+                        self.conf_imagen(apoyoa,450+a,550+b, ancho = 40, alto = 25,rotacion = 305)
+                        dato = "1"
                     else:
                         self.conf_imagen(apoyoa,510+a,535+b, ancho = 40, alto = 25,rotacion = 93, flip = True)
-
+                        dato = "2"
             if (tupla[0] == 31 and self.existe_diente(31)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
-                        self.conf_imagen(apoyoa,375+a,558+b, ancho = 40, alto = 25,rotacion = 270)
+                        self.conf_imagen(apoyoa,375+a,558+b, ancho = 40, alto = 25,rotacion = 290)
+                        dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,435+a,555+b, ancho = 40, alto = 25,rotacion = 90, flip = True)
+                        self.conf_imagen(apoyoa,435+a,555+b, ancho = 40, alto = 25,rotacion = 70, flip = True)
+                        dato = "2"
             
+            ApoyoEnPantalla = str(tupla[0])+dato
+            var.AgregarDato(ApoyoEnPantalla)
             var.agregarApoyo(self.tkimage)
             ultimo_elemento = len(self.Apoyos)-1
             if(self.permitido):
