@@ -163,7 +163,7 @@ class Graficador:
         self.canvas = var.canvas
         global fondo
         #declarar todas las imagenes
-        fondo = Image.open("./src/Base_I_res.png")
+        fondo = Image.open("./src/Base_I_res2.png")
         fondo_base = fondo.resize((self.ancho, self.alto), Image.ANTIALIAS)
         self.base = itk.PhotoImage(fondo_base)
         #----------------------------------------
