@@ -169,7 +169,6 @@ class interfaz():
         dst.paste(im2, (im1.width, (im1.height - im2.height) // 2))
         return dst        
 
-
     def pertenece_cuadrante(self,v1,v2):
         x1 = v1[0]
         y1 = v1[1]

@@ -107,9 +107,15 @@ class VarGlo(metaclass=SingletonMeta):
         
         self.Conectores_mayores.append(elemento)
 
-    def agregarBase(self,elemento):
-        
+    #Funciones de conector_mayor
+    def agregarBase(self, elemento):
         self.Bases.append(elemento)
+        
+    def elininarBase(self, elemento):
+        self.Bases.remove(elemento)
+
+    def borrarBase(self):
+        self.Bases.clear()
 
     def grabar(self, fase, X, Y, unidad):
         aux = componente_odontologico(fase, X, Y, unidad)
