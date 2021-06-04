@@ -129,9 +129,9 @@ class interfaz():
             elif(self.pertenece_cuadrante(sexto_primer_iz,sexto_segundo_iz)): 
                 self.asignar(43,318 ,606)
             elif(self.pertenece_cuadrante(septimo_primer_iz,septimo_segundo_iz)): 
-                self.asignar(42,376 ,637)
+                self.asignar(42,386 ,637)
             else: 
-                self.asignar(41,439 ,648)
+                self.asignar(41,449 ,648)
         else:
             if(pos_y<primer_diente_y):
                 self.asignar(38,769 ,117)
@@ -146,9 +146,9 @@ class interfaz():
             elif(self.pertenece_cuadrante(sexto_primer_de,sexto_segundo_de)): 
                 self.asignar(33,635 ,593) 
             elif(self.pertenece_cuadrante(septimo_primer_de,septimo_segundo_de)): 
-                self.asignar(32,572 ,630)
+                self.asignar(32,587 ,625)
             else: 
-                self.asignar(31,501 ,640)
+                self.asignar(31,511 ,640)
   
         print(self.diente)
         

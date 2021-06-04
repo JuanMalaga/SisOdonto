@@ -100,9 +100,56 @@ class interfaz_fase_4(interfaz):
             if (tupla[0] == 48 and self.existe_diente(48)):
                 if(opcion == 1):
                     self.conf_imagen(Retenedor,140,161)
-            elif (tupla[0] == 47 and self.existe_diente(47)):
-                pass
 
+            elif (tupla[0] == 47 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+
+            elif (tupla[0] == 46 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 45 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 44 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 43 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 42 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 41 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 38 and self.existe_diente(48)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+
+            elif (tupla[0] == 37 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+
+            elif (tupla[0] == 36 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 35 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 34 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 33 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 32 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+            elif (tupla[0] == 31 and self.existe_diente(47)):
+                if(opcion == 1):
+                    self.conf_imagen(Retenedor,140,161)
+                    
             var.agregarConec_Menor(self.tkimage)
             ultimo_elemento = len(self.conectores)-1
             if(self.permitido):
