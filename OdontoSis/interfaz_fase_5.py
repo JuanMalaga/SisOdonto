@@ -13,22 +13,20 @@ width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 
 class interfaz_fase_5(interfaz):
-
-    x = 0
-    y = 0
-    pos_x_ini = 0
-    pos_y_ini = 0
+    
+    
     ventana: tk.Tk
     canvas: tk.Canvas
     fondo : tk.PhotoImage
     conectores : tk.PhotoImage = []
-
-
+    direccionBase = "./src/conectores_mayores/inferiores/"
+    frame: Frame
+    
     def __init__ (self):
-        global graficador 
         global var
         var = VarGlo()
-        graficador = Graficador_conectores_mayores()
+        self.actual = "ninguno"
+        self.conectores = var.Conectores_mayores
 
     def iniciar_interfaz(self):
         self.cambiar_interfaz()
@@ -37,22 +35,15 @@ class interfaz_fase_5(interfaz):
     def limpiar(self):
         graficador.limpiar()
         
-class Graficador_conectores_mayores:
-    x = 0
-    y = 0
-    ventana: tk.Tk
-    canvas: tk.Canvas
-    conectores: tk.PhotoImage = []
-    frame: Frame
-    direccionBase = "./src/conectores_mayores/inferiores/"
+    
 
     def __init__(self):
         global var
         var = VarGlo()
         self.canvas = var.canvas
         self.frame = var.frame
-        self.actual = "ninguno"
-        self.conectores = var.Conectores_mayores
+        
+
     def cambio_fase(self):
         for widget in self.frame.winfo_children():
             widget.destroy()
@@ -142,9 +133,10 @@ class Graficador_conectores_mayores:
             opcion = 0
             if(self.actual == "barra_lingual_simple"):
                 conector_mayor = tk.PhotoImage(
-                    file=self.direccionBase+"barra_lingual_simple.png")
-                self.x = 170
-                self.y = 134
+                    file=self.direccionBase+"conec_mayor.png")
+                self.conf_imagen()    
+                self.x = 200
+                self.y = 160
                 opcion = 1
 
             elif(self.actual == "doble_barra_lingual"):
