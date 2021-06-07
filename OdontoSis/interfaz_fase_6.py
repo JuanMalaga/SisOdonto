@@ -116,8 +116,8 @@ class interfaz_fase_6(interfaz):
                 if(tupla[0] == 47 or tupla[0] == 46 or tupla[0] == 45):
                     if(opcion == 1):
                         if (tupla[1][0]):
-                            base = Image.open("./src/bases/base_doble3.png")
-                            self.conf_imagen(base,165,175,ancho = 150, alto = 340,rotacion = 2, flip=True)
+                            base = Image.open("./src/bases/base_doble3_f.png")
+                            self.conf_imagen(base,175,188, ancho= 145, alto= 315)
 
             elif (self.no_existe_diente(47) and self.no_existe_diente(46)):
                 if(tupla[0] == 47 or tupla[0] == 46): 
@@ -153,8 +153,8 @@ class interfaz_fase_6(interfaz):
                 if(tupla[0] == 47):
                     if(opcion == 1):
                         if (tupla[1][0]):
-                            base = Image.open("./src/bases/base_doble1.png")
-                            self.conf_imagen(base,160,175, ancho=150, alto=270, rotacion = 0, flip=True)
+                            base = Image.open("./src/bases/base_doble1_f.png")
+                            self.conf_imagen(base,130,179, ancho=210, alto=125)
 
             elif (self.no_existe_diente(46)):
                 if(tupla[0] == 46):
@@ -192,8 +192,8 @@ class interfaz_fase_6(interfaz):
                 if(tupla[0] == 37 or tupla[0] == 36 or tupla[0] == 35):
                     if(opcion == 1):
                         if (tupla[1][0]):
-                            base = Image.open("./src/bases/base_doble3.png")
-                            self.conf_imagen(base,632,174,ancho = 150, alto = 310,rotacion = 0)
+                            base = Image.open("./src/bases/base_doble3_f.png")
+                            self.conf_imagen(base,618,190,ancho = 165, alto = 282, rotacion=2, flip=True)
             
             elif (self.no_existe_diente(37) and self.no_existe_diente(36)):
                 if(tupla[0] == 37 or tupla[0] == 36): 
@@ -208,8 +208,8 @@ class interfaz_fase_6(interfaz):
                 if(tupla[0] == 37):
                     if(opcion == 1):
                         if (tupla[1][0]):
-                            base = Image.open("./src/bases/base_doble1.png")
-                            self.conf_imagen(base,632,175,ancho=150,alto=260,rotacion = 0) 
+                            base = Image.open("./src/bases/base_doble1_f.png")
+                            self.conf_imagen(base,595,174,ancho=230,alto=120,flip=True) 
                               
             elif (self.no_existe_diente(36)):
                 if(tupla[0] == 36):
