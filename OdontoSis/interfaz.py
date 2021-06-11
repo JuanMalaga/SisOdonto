@@ -164,7 +164,6 @@ class interfaz():
         print(im1.width + im2.width)
         if(ampliar):
             dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
-
         
         print(im1.width + im2.width)
         if(not ampliar):
