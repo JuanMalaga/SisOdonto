@@ -181,24 +181,26 @@ class interfaz_fase_3(interfaz):
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
                     if(tupla[1][0]):
-                        vert = True
-                        suma = const-20
-                        rotate = 45
+                        Retenedor = Image.open("./src/retenedores/35_inv.png")
                     else:
-                        vert = False
-                        rotate = 0
-                    Retenedor = Image.open("./src/retenedores/35.png")
-                    self.conf_imagen(Retenedor,153,415+suma, vertical = vert, rotacion = rotate)
+                        Retenedor = Image.open("./src/retenedores/35.png")
+                    
+                    self.conf_imagen(Retenedor,153,415)
+
+                if(opcion == 2):
+                    self.conf_imagen(Retenedor,110,392,rotacion =350)
+                   
+                if(opcion == 3):
+                    self.conf_imagen(Retenedor,110,392,rotacion =350)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
                     if(tupla[1][0]):
-                        vert = True
-                        suma = const
+                        Retenedor = Image.open("./src/retenedores/34_inv.png")
                     else:
-                        vert = False
-                    Retenedor = Image.open("./src/retenedores/34.png")
-                    self.conf_imagen(Retenedor,210,500+suma, vertical = vert)
+                        Retenedor = Image.open("./src/retenedores/34.png")
+                    self.conf_imagen(Retenedor,210,500)
+
                 if(opcion == 2):
                     self.conf_imagen(Retenedor,155,475)
                    
@@ -242,22 +244,23 @@ class interfaz_fase_3(interfaz):
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(opcion == 1):
                     if(tupla[1][0]):
-                        vert = True
-                        suma = const
+                        Retenedor = Image.open("./src/retenedores/35_inv.png")
                     else:
-                        vert = False
-                    Retenedor = Image.open("./src/retenedores/35.png")
-                    self.conf_imagen(Retenedor,670,400+suma, flip = True, alto = 100, vertical = vert)
+                        Retenedor = Image.open("./src/retenedores/35.png")
 
+                    self.conf_imagen(Retenedor,670,400, flip = True, alto = 100)
+                if(opcion == 2):
+                    self.conf_imagen(Retenedor, 735,368, flip = True,rotacion =10)
+                
+                if(opcion == 3):
+                    self.conf_imagen(Retenedor, 735,368, flip = True,rotacion =10)
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(opcion == 1):
                     if(tupla[1][0]):
-                        vert = True
-                        suma = const
+                        Retenedor = Image.open("./src/retenedores/34_inv.png")
                     else:
-                        vert = False
-                    Retenedor = Image.open("./src/retenedores/34.png")
-                    self.conf_imagen(Retenedor,633,480+suma,flip = True, vertical = vert)
+                        Retenedor = Image.open("./src/retenedores/34.png")
+                    self.conf_imagen(Retenedor,633,480,flip = True)
 
                 if(opcion == 2):
                     self.conf_imagen(Retenedor, 689,455, flip = True)
