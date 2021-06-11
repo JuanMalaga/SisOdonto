@@ -8,7 +8,7 @@ width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 
 #locaciones
-mitad_x = 485
+mitad_x = 470
 primer_diente_y = 182
 segundo_diente_iz_y = 305
 segundo_diente_de_y = 289
@@ -26,28 +26,33 @@ cuarto_segundo_de = (723,496)
 #quintos
 quinto_primer_iz = (266,598)
 quinto_segundo_iz = (297,577)
-quinto_primer_de = (665,558)
-quinto_segundo_de = (676,562)
+quinto_primer_de = (674,573)
+quinto_segundo_de = (662,566)
 #sextos
-sexto_primer_iz = (342,645)
-sexto_segundo_iz = (352,625)
-sexto_primer_de = (622,619)
-sexto_segundo_de = (631,627)
+sexto_primer_iz = (337,642)
+sexto_segundo_iz = (344,625)
+sexto_primer_de = (613,629)
+sexto_segundo_de = (608,617)
 #septimos
-septimo_primer_iz = (412,674)
-septimo_segundo_iz = (414,629)
-septimo_primer_de = (555,646)
-septimo_segundo_de = (558,661)
+septimo_primer_iz = (401,659)
+septimo_segundo_iz = (403,648)
+septimo_primer_de = (543,663)
+septimo_segundo_de = (538,634)
 
 
 class interfaz():
-
+    cuadricula = False
     def cuadriculas(self):
-        canvas.create_line(mitad_x,0,mitad_x,1000)
-        canvas.create_line(0,primer_diente_y,1000,primer_diente_y)
-        canvas.create_line(0,segundo_diente_iz_y,mitad_x,segundo_diente_iz_y)
-        canvas.create_line(940,segundo_diente_de_y,mitad_x,segundo_diente_de_y)
-        canvas.create_line(tercero_primer_iz,tercero_segundo_iz)
+        self.cuadricula = True
+        """ cantidad = 4
+        distance = 250
+        for i in range(50):
+            self.canvas.create_line(i*distance,0,i*distance,1000,fill="red") """
+        self.canvas.create_line(mitad_x,0,mitad_x,1000)
+        self.canvas.create_line(0,primer_diente_y,1000,primer_diente_y)
+        self.canvas.create_line(0,segundo_diente_iz_y,mitad_x,segundo_diente_iz_y)
+        self.canvas.create_line(940,segundo_diente_de_y,mitad_x,segundo_diente_de_y)
+        self.canvas.create_line(tercero_primer_iz,tercero_segundo_iz)
 
     def cambiar_interfaz(self):
         var = VarGlo()
@@ -114,11 +119,9 @@ class interfaz():
         self.diente = -1
         global pos_x
         global pos_y
-        print(self.x)
-        print(self.y)
-        pos_x = self.x*1980/width
+        pos_x = self.x*1920/width
         pos_y = self.y*1080/height
-
+        print(pos_x, pos_y)
         var = VarGlo()
         canvas = var.canvas
         if(pos_x < mitad_x):
@@ -155,23 +158,15 @@ class interfaz():
                 self.asignar(32,587 ,625)
             else: 
                 self.asignar(31,511 ,640)
-  
-        print(self.diente)
-        
         return self.diente,self.obtener_posicion(self.centro_x,self.centro_y)
 
     def get_concat_h_cut_center(self,im1, im2, separacion = 0, ampliar = False):
-        print(im1.width + im2.width)
         if(ampliar):
             dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
-
-        
-        print(im1.width + im2.width)
         if(not ampliar):
             im1 = im1.crop((0,0,im1.width/2+separacion,im1.height))
             im2 = im2.crop((im2.width/2,0,im2.width,im2.height))
             dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
-        
         dst = Image.new("RGBA", dimensiones)
         dst.paste(im1,(0,0))
         dst.paste(im2, (im1.width, (im1.height - im2.height) // 2))
@@ -184,6 +179,11 @@ class interfaz():
         y2 = v2[1]
         m = (y2-y1)/(x2-x1)
         b = y2-m*x2
+        if(self.cuadricula):
+            if(x1< mitad_x):
+                self.canvas.create_line(0,b,mitad_x,mitad_x*m+b)
+            else:
+                self.canvas.create_line(mitad_x,mitad_x*m+b,2*mitad_x,(2*mitad_x)*m+b)
         if(pos_y<m*pos_x+b):
             return True
         else:

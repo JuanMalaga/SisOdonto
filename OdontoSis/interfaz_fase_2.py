@@ -102,7 +102,7 @@ class interfaz_fase_2(interfaz):
         a = 80
         b = 92
         self.permitido = False
-        if(self.actual != "ninguno" and self.actual != None):
+        if(self.actual != "ninguno" and self.actual != None ):
             self.x = evento.x
             self.y = evento.y
             tupla = self.obtener_diente()
@@ -141,21 +141,20 @@ class interfaz_fase_2(interfaz):
                         dato = "2"
             elif (tupla[0] == 45 and self.existe_diente(45)):
                 if(opcion == 1):
-
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,210,424,ancho = 35, alto = 25,rotacion = 172)
+                        self.conf_imagen(apoyoa,198,424,ancho = 30, alto = 20,rotacion = 172)
                         dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,219,471,ancho = 35, alto = 25,rotacion = 65)
+                        self.conf_imagen(apoyoa,219,480,ancho = 30, alto = 20,rotacion = 65)
                         dato = "2"
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(opcion == 1):
                     if (tupla[1][0]):
                         self.conf_imagen(apoyoa,240,508,ancho = 30, alto = 20,rotacion = 190)
-                        dato = "2"
+                        dato = "1"
                     else:
                         self.conf_imagen(apoyoa,270,550,ancho = 30, alto = 20,rotacion = 70)
-                        
+                        dato = "1"
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(opcion == 2):
                     if (not tupla[1][1]):
@@ -207,18 +206,18 @@ class interfaz_fase_2(interfaz):
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,700,405, ancho = 35, alto = 25,rotacion = 189)
+                        self.conf_imagen(apoyoa,715,402, ancho = 30, alto = 20,rotacion = 185)
                         dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,690,450, ancho = 35, alto = 25,rotacion = 302)
+                        self.conf_imagen(apoyoa,683,458, ancho = 30, alto = 20,rotacion = 302)
                         dato = "2"
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa,663,482, ancho = 30, alto = 20,rotacion = 180)
+                        self.conf_imagen(apoyoa,670,482, ancho = 30, alto = 20,rotacion = 180)
                         dato = "1"
                     else:
-                        self.conf_imagen(apoyoa,645,530, ancho = 30, alto = 20,rotacion = 280)
+                        self.conf_imagen(apoyoa,640,530, ancho = 30, alto = 20,rotacion = 280)
                         dato = "2"
 
             if (tupla[0] == 33 and self.existe_diente(33)):
@@ -245,12 +244,11 @@ class interfaz_fase_2(interfaz):
                     else:
                         self.conf_imagen(apoyoa,435+a,555+b, ancho = 40, alto = 25,rotacion = 70, flip = True)
                         dato = "2"
-            
-            ApoyoEnPantalla = str(tupla[0])+dato
-            var.AgregarDato(ApoyoEnPantalla)
-            var.agregarApoyo(self.tkimage)
-            ultimo_elemento = len(self.Apoyos)-1
             if(self.permitido):
+                ApoyoEnPantalla = str(tupla[0])+dato
+                var.AgregarDato(ApoyoEnPantalla)
+                var.agregarApoyo(self.tkimage)
+                ultimo_elemento = len(self.Apoyos)-1
                 self.canvas.create_image(
                     self.x, self.y, image=var.Apoyos[ultimo_elemento], anchor="nw", tag="apoyo"+"_"+str(ultimo_elemento))
                 var.grabar(2, self.x, self.y, opcion)
