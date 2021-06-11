@@ -199,8 +199,8 @@ class interfaz_fase_6(interfaz):
                 if(tupla[0] == 37 or tupla[0] == 36): 
                     if(opcion == 1):
                         if (tupla[1][0]):
-                            base = Image.open("./src/bases/base_doble2.png")
-                            self.conf_imagen(base,626,160,ancho = 160, alto = 395,rotacion = 0)
+                            base = Image.open("./src/bases/base_doble2_d.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815, rotacion=-4)
 
             #INDIVIDUAL
 
@@ -237,7 +237,36 @@ class interfaz_fase_6(interfaz):
                     if(opcion == 1):
                         if (tupla[1][0]):
                             base = Image.open("./src/bases/base_doble1_ro.png")
-                            self.conf_imagen(base,575,525, ancho=90, alto=130,rotacion = -28)
+                            self.conf_imagen(base,575,525, ancho=90, alto=130,rotacion = -28) 
+
+            #TOTAL
+
+            if (self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44) and 
+                self.no_existe_diente(43) and self.no_existe_diente(42) and self.no_existe_diente(41)):
+                if(tupla[0] == 47 or tupla[0] == 46 or tupla[0] == 45 or tupla[0] == 44 or tupla[0] == 43 or tupla[0] == 42 or tupla[0] == 41):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_semicompleto.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(31) and self.no_existe_diente(32) and self.no_existe_diente(33) and self.no_existe_diente(34) and self.no_existe_diente(35) and 
+                self.no_existe_diente(36) and self.no_existe_diente(37)):
+                if(tupla[0] == 31 or tupla[0] == 32 or tupla[0] == 33 or tupla[0] == 34 or tupla[0] == 35 or tupla[0] == 36 or tupla[0] == 37):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_semicompleto_d.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44) and 
+                self.no_existe_diente(43) and self.no_existe_diente(42) and self.no_existe_diente(41) and self.no_existe_diente(31) and 
+                self.no_existe_diente(32) and self.no_existe_diente(33) and self.no_existe_diente(34) and self.no_existe_diente(35) and 
+                self.no_existe_diente(36) and self.no_existe_diente(37)):
+                if(tupla[0] == 47 or tupla[0] == 46 or tupla[0] == 45 or tupla[0] == 44 or tupla[0] == 43 or tupla[0] == 42 or tupla[0] == 41 
+                or tupla[0] == 31 or tupla[0] == 32 or tupla[0] == 33 or tupla[0] == 34 or tupla[0] == 35 or tupla[0] == 36 or tupla[0] == 37):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/base_completo.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
 
             var.agregarBase(self.tkimage)
             ultimo_elemento = len(self.Bases)-1
