@@ -41,6 +41,7 @@ class VarGlo(metaclass=SingletonMeta):
     actual = ""
     fase_actual = 0
     Apoyos_en_pantalla = []
+    Conectores_en_pantalla = []
     def Guardar_archivo(self):
         file = open("datos/archivo.txt", "w", encoding="utf-8")
         for i in self.cambios:
@@ -54,6 +55,16 @@ class VarGlo(metaclass=SingletonMeta):
             file.write(str(i.unidad))
             file.write(") \n")
         file.close()
+    def AgregarRetenedorPantalla(self, num):
+        self.Conectores_en_pantalla.append(num)
+
+    def EliminarRetenedorPantalla(self, num):
+        self.Conectores_en_pantalla.remove(num)     
+
+    def revisarRetenedorPantalla(self, num):
+        if(self.Conectores_en_pantalla.count(num)>0):
+            return True
+        return False
 
     def AgregarDato(self, num):
         self.Apoyos_en_pantalla.append(num)
