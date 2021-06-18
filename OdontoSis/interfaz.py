@@ -173,11 +173,8 @@ class interfaz():
     def get_concat_h_cut_center(self,im1, im2, separacion = 0, ampliar = False):
         if(ampliar):
             dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
-<<<<<<< HEAD
         
         print(im1.width + im2.width)
-=======
->>>>>>> main
         if(not ampliar):
             im1 = im1.crop((0,0,im1.width/2+separacion,im1.height))
             im2 = im2.crop((im2.width/2,0,im2.width,im2.height))
