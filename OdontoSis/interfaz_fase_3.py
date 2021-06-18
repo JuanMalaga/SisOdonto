@@ -14,7 +14,6 @@ width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 
 class interfaz_fase_3(interfaz):
-    opcion = 0
     x = 0
     y = 0
     fondo : tk.PhotoImage
@@ -25,26 +24,17 @@ class interfaz_fase_3(interfaz):
     direccionBase = "./src/retenedores/"
 
     def __init__ (self):
+        self.opcion = 0
         global var
         var = VarGlo()
         self.canvas = var.canvas
         self.frame = var.frame
-        self.actual = "ninguno"
         self.Retenedores = var.Retenedores
 
     def iniciar_interfaz(self):
         self.cambiar_interfaz()
         self.crear_botones()
-        self.actual = "ninguno"
         
-    def limpiar(self):
-        graficador.limpiar()
-        
-    def cambio_fase(self):
-        for widget in self.frame.winfo_children():
-            widget.destroy()
-        self.crear_botones()
-
     def crear_botones(self):
         self.crearImagenBoton('retenedores.png','./src/imagenes/retenedor.png',"Retenedor circunferencial","Abraza la circunferencia del diente molar o premolar. Tiene dos brazos curvos: uno del mismo grosor desde su inicio hasta su fin, y otro que se va adelgazando progresivamente hasta terminar en punta. Color ROJO. Se usa indistintamente en dientes posteriores molares y premolares, superiores e inferiores.")
         self.crearImagenBoton("Retenedor_Vertica_sup_iz.png",'./src/imagenes/retenedor_i.png',"Retenedor de barra en I","Tiene un solo brazo, bastante largo que viene a tomar contacto con el diente en un solo punto (llamado en “I”), o dos puntos (llamado en “T” o en “Y”). Color ROJO. Los retenedores en “I” se usan en dientes superiores por ser menos notorios al sonreír, generalmente en caninos o 1° premolares superiores.")
@@ -60,9 +50,7 @@ class interfaz_fase_3(interfaz):
         if(self.opcion != 0):
             self.x = evento.x
             self.y = evento.y
-
             tupla = self.obtener_diente()
-
             if(self.opcion == 1):
                 Retenedor = Image.open("./src/retenedores/retenedores_izquierdo.png")
                 RetenedorD = Image.open("./src/retenedores/retenedores_derecho.png")

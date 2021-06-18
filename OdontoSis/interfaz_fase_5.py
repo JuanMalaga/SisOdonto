@@ -8,152 +8,118 @@ from tkinter import Frame, Button, Label
 from PIL import ImageTk as itk
 import ctypes
 
-resolucion = ctypes.windll.user32 
+resolucion = ctypes.windll.user32
 width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
+
 
 class interfaz_fase_5(interfaz):
     ventana: tk.Tk
     canvas: tk.Canvas
-    fondo : tk.PhotoImage
-    conectores : tk.PhotoImage = []
+    fondo: tk.PhotoImage
+    conectores: tk.PhotoImage = []
     direccionBase = "./src/conectores_mayores/inferiores/"
     frame: Frame
-    
-    def __init__ (self):
+
+    def __init__(self):
+        self.opcion = 0
         global var
         var = VarGlo()
-        self.actual = "ninguno"
         self.canvas = var.canvas
         self.frame = var.frame
-        self.conectores = var.Conectores_mayores 
+        self.conectores = var.Conectores_mayores
 
     def iniciar_interfaz(self):
         self.cambiar_interfaz()
         self.crear_botones()
-        
+
     def limpiar(self):
         self.limpiar()
-        
+
     def cambio_fase(self):
         for widget in self.frame.winfo_children():
             widget.destroy()
         self.crear_botones()
 
+    
+
     def crear_botones(self):
-        self.im1 = Image.open(self.direccionBase+'barra_lingual_simple.png')
-        self.im1 = self.im1.resize((var.size, var.size), Image.ANTIALIAS)
-        self.im1 = itk.PhotoImage(self.im1)
-
-        self.im2 = Image.open(self.direccionBase +
-                              "doble_barra_lingual.png")
-        self.im2 = self.im2.resize((var.size, var.size), Image.ANTIALIAS)
-        self.im2 = itk.PhotoImage(self.im2)
-
-        self.im3 = Image.open(self.direccionBase +
-                              "placa_lingual.png")
-        self.im3 = self.im3.resize((var.size, var.size), Image.ANTIALIAS)
-        self.im3 = itk.PhotoImage(self.im3)
-
-        self.boton2 = ttk.Button(
-            self.frame, image=self.im1, command=lambda:[self.lingual_simple(), self.Escoger_retenedor_circular()])
-        self.boton2.grid(column=0, row=1, padx=5)
-        self.boton3 = ttk.Button(
-            self.frame, image=self.im2, command=lambda:[self.doble_lingual(), self.Escoger_retenedor_vertical_sup_iz()])
-        self.boton3.grid(column=0, row=2, padx=5)
-        self.boton4 = ttk.Button(
-            self.frame, image=self.im3, command=lambda:[self.placa_lingual(), self.Escoger_retenedor_vertical_sup_der()])
-        self.boton4.grid(column=0, row=3, padx=5)
+        self.crearImagenBoton('barra_lingual_simple.png', './src/imagenes/barra_lingual_simple.png', "Barra lingual simple",
+                              "Es muy delgada, se aloja en el piso de la boca, se aleja 3 mm del margen gingival. Su longitud depende de cada caso.")
+        self.crearImagenBoton("doble_barra_lingual.png", './src/imagenes/doble_barra_lingual.png', " Doble barra lingual",
+                              "La barra inferior es igual a la anterior. La barra superior va sobre los dientes anteriores inferiores. La barra inferior se aleja 3 mm del margen gingival.")
+        self.crearImagenBoton("placa_lingual.png", './src/imagenes/placa.png', "Placa lingual",
+                              "Cubre toda la encía, y llega hasta los cíngulos de los dientes anteriores, y hasta el ecuador de los dientes posteriores.")
+        self.crear_Borrador_()
 
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
 
-    def lingual_simple(self):
-        self.ancho=int(width/4)
-        self.largo=int(3*height/4)
-        self.img = Image.open('./src/imagenes/barra_lingual_simple.png')
-        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
-        self.img = itk.PhotoImage(self.img) 
-        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
-        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
-        self.opcion=Font(family="Roboto Mono", size = int(width/196))
-        self.titulo = ttk.Label(self.frame, font=self.tamaño, width=self.ancho, text="Barra lingual simple").place(x=self.ancho/4,y=55*self.largo/64)
-        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(61*self.ancho/64), width=self.ancho, justify="center",
-        text="Es muy delgada, se aloja en el piso de la boca, se aleja 3 mm del margen gingival. Su longitud depende de cada caso.").place(x=self.ancho/32,y=58*self.largo/64) 
-
-    def doble_lingual(self):
-        self.ancho=int(width/4)
-        self.largo=int(3*height/4)
-        self.img = Image.open('./src/imagenes/doble_barra_lingual.png')
-        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
-        self.img = itk.PhotoImage(self.img) 
-        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
-        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
-        self.opcion=Font(family="Roboto Mono", size = int(width/196))
-        self.titulo = ttk.Label(self.frame, font=self.tamaño, width=self.ancho, text=" Doble barra lingual").place(x=self.ancho/4,y=55*self.largo/64)
-        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(61*self.ancho/64), width=self.ancho, justify="center",
-        text="La barra inferior es igual a la anterior. La barra superior va sobre los dientes anteriores inferiores. La barra inferior se aleja 3 mm del margen gingival.").place(x=self.ancho/32,y=58*self.largo/64)
-
-    def placa_lingual(self):
-        self.ancho=int(width/4)
-        self.largo=int(3*height/4)
-        self.img = Image.open('./src/imagenes/placa.png')
-        self.img = self.img.resize((self.ancho, int(7*self.largo/32)), Image.ANTIALIAS)
-        self.img = itk.PhotoImage(self.img) 
-        self.label = ttk.Label(self.frame, image = self.img).place(x=-2,y=int(5*self.largo/8))
-        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
-        self.opcion=Font(family="Roboto Mono", size = int(width/196))
-        self.titulo = ttk.Label(self.frame, font=self.tamaño, width=self.ancho, text="      Placa lingual").place(x=self.ancho/4,y=55*self.largo/64)
-        self.descripcion = ttk.Label(self.frame, font=self.opcion, wraplength= int(61*self.ancho/64), width=self.ancho, justify="center",
-        text="Cubre toda la encía, y llega hasta los cíngulos de los dientes anteriores, y hasta el ecuador de los dientes posteriores.").place(x=self.ancho/32,y=58*self.largo/64)
-
-    def Escoger_retenedor_circular(self):
-        self.actual = "barra_lingual_simple"
-
-    def Escoger_retenedor_vertical_sup_iz(self):
-        self.actual = "doble_barra_lingual"
-
-    def Escoger_retenedor_vertical_sup_der(self):
-        self.actual = "placa_lingual"
-
     def left_but_down(self, evento):
-        if(self.actual != ""):
-            self.permitido = False
+        self.permitido = False
+        
+        if(self.opcion != 0):
             self.x = evento.x
             self.y = evento.y
             tupla = self.obtener_diente()
-            opcion = 0
             self.tkimage = None
-            if(self.actual == "barra_lingual_simple"):
-                opcion = 1
-                conector_mayor = Image.open(self.direccionBase+"conec_mayor.png")
+
+            if(self.opcion == 1):
+                conector_mayor = Image.open(
+                    self.direccionBase+"conec_mayor.png")
+
                 mitad = Image.open(self.direccionBase+"conec_mayor.png")
                 mitad = mitad.transpose(Image.FLIP_LEFT_RIGHT)
-                #cortar_imagenes()
-                self.conf_imagen(conector_mayor,249, 75, extra = mitad, extremno = True) 
 
-            elif(self.actual == "doble_barra_lingual"):
+                self.conf_imagen(conector_mayor, 249, 75,extra=mitad, Ampliar_separacion=True)
+
+                
+            elif(self.opcion == 2):
                 conector_mayor = tk.PhotoImage(
                     file=self.direccionBase+"doble_barra_lingual.png")
                 self.x = 184
                 self.y = 172
-                opcion = 2
+    
 
-            elif(self.actual == "placa_lingual"):
+            elif(self.opcion == 3):
                 conector_mayor = tk.PhotoImage(
                     file=self.direccionBase+"placa_lingual.png")
                 self.x = 248
                 self.y = 406
-                opcion = 3
+
 
             var.agregarConec_Mayor(self.tkimage)
             ultimo_elemento = len(self.conectores)-1
             if(self.permitido):
-                self.canvas.create_image(self.x, self.y, image=self.conectores[ultimo_elemento], anchor="nw", tag="conector_mayor")
-                var.grabar(5,self.x,self.y,opcion) 
+                self.canvas.create_image(
+                    self.x, self.y, image=self.conectores[ultimo_elemento], anchor="nw", tag="conector_mayor")
+                var.grabar(5, self.x, self.y, self.opcion)
+            superponedor = Image.open(self.direccionBase+"base_limpia.png")
+            
+            
+            self.cortar_imagenes(evento.y-73, evento.y-73)
+            
 
     def left_but_up(self, evento):
         return
 
     def limpiar(self):
         self.canvas.delete("conector_mayor")
+    
+    def cortar_imagenes(self,x=-1,y=-1):
+        self.borradores = []
+        superponedor = Image.open(self.direccionBase+"base_limpia.png")
+
+        if(x!=-1 and y!=-1):
+            crop = (0,0,superponedor.width,x)
+            crop2 = (0,0,superponedor.width,y)
+            
+        
+        self.conf_imagen(superponedor,249,73,crop=crop)
+        self.borradores.append(self.tkimage)
+        self.canvas.create_image(self.x, self.y, image=self.borradores[-1], anchor="nw", tag="conector_mayor")
+
+        mitad = Image.open(self.direccionBase+"base_limpia.png")
+        self.conf_imagen(mitad, 249+superponedor.width,73,crop=crop2,flip=True)
+        self.borradores.append(self.tkimage)
+        self.canvas.create_image(self.x, self.y, image=self.borradores[-1], anchor="nw", tag="conector_mayor")

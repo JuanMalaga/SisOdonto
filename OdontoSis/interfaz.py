@@ -65,7 +65,8 @@ class interfaz():
             widget.destroy()
         for widget in var.frame2.winfo_children():
             widget.destroy()
-        self.actual = "ninguno"
+        self.botonActual = 1
+        self.opcion = 0
 
     def elementos_Creados(self, arreglo):
         var = VarGlo()
@@ -95,23 +96,28 @@ class interfaz():
             return False
         return True
 
-    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0, vertical = False, extremno = False):
+    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0, vertical = False, Ampliar_separacion = False, crop = (-1,-1,-1,-1)):
         crecimiento = 1
         if(apoyoa.filename == "./src/apoyos/apoyo_oclusal_superior.png"):
             crecimiento = 4/3
         self.permitido = True 
+        if(crop != (-1,-1,-1,-1)):    
+            apoyoa = apoyoa.crop(crop) 
         if(ancho == -1):
             ancho = apoyoa.width
             
         if(alto == -1):    
             alto = apoyoa.height
+
+        
+
         medidas = (int(ancho*width*crecimiento/1920),int(alto*height*crecimiento/1080))
         apoyoa = apoyoa.resize(medidas)   
         self.x= int((X)*width/1920)
         self.y= int((Y)*height/1080)
         if(extra is not None):
             extra = extra.resize(medidas)
-            apoyoa = self.get_concat_h_cut_center(apoyoa,extra,separacion = separado, ampliar= extremno)
+            apoyoa = self.get_concat_h_cut_center(apoyoa,extra,separacion = separado, ampliar= Ampliar_separacion)
         if (flip):
             apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
         if ( vertical):
@@ -126,7 +132,6 @@ class interfaz():
         global pos_y
         pos_x = self.x*1920/width
         pos_y = self.y*1080/height
-        print(pos_x, pos_y)
         var = VarGlo()
         canvas = var.canvas
         if(pos_x < mitad_x):
@@ -196,8 +201,13 @@ class interfaz():
 
     def asignar(self,diente,x,y):
         self.diente = diente
+        dist = 20
         self.centro_y = y
         self.centro_x = x         
+        if(self.cuadricula):
+            self.canvas.create_line(x-dist,y,x+dist,y,width=5,fill="green")
+            self.canvas.create_line(x,y-dist,x,y+dist,width=5,fill="green")
+
 
     def crearImagenBoton(self,imagen,imagen_teoria = None,titulo_teoria = None,mensaje = None):
         posicion = self.botonActual
@@ -222,7 +232,6 @@ class interfaz():
 
     def Actualizar(self,num,imagen_teoria,titulo_teoria,mensaje):
         self.opcion = num
-        print(self.opcion)
         if(imagen_teoria is not None and titulo_teoria is not None and mensaje is not None):
             self.crear_teoria(imagen_teoria,titulo_teoria,mensaje)
 

@@ -14,7 +14,6 @@ height = resolucion.GetSystemMetrics(1)
 
 
 class interfaz_fase_2(interfaz):
-
     x = 0
     y = 0
     ventana: tk.Tk
@@ -23,12 +22,12 @@ class interfaz_fase_2(interfaz):
     direccionBase = "./src/apoyos/"
 
     def __init__(self):
+        self.opcion = 0
         global var
         var = VarGlo()
         self.canvas = var.canvas
         self.frame = var.frame
         self.Apoyos = var.Apoyos
-        self.opcion = 0
 
     def iniciar_interfaz(self):
         self.Apoyos = var.Apoyos
@@ -47,6 +46,7 @@ class interfaz_fase_2(interfaz):
     def left_but_down(self, evento):
         a = 80
         b = 92
+        #self.cuadriculas()
         self.permitido = False
         if(self.opcion != 0):
             self.x = evento.x
@@ -223,7 +223,7 @@ class interfaz_fase_2(interfaz):
     def limpiar(self):
         self.canvas.delete("apoyo")
         var.borrarApoyos()
-        self.actual = "ninguno"
+        self.opcion = 0
 
     def left_but_up(self, evento):
         pass
