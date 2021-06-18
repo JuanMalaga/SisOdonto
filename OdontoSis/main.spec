@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\USUARIO\\Desktop\\sisOdo\\v1\\SisOdonto\\OdontoSis'],
+             pathex=['C:\\Users\\User\\OneDrive\\Escritorio\\SisOdonto\\OdontoSis'],
              binaries=[],
              datas=[],
              hiddenimports=[],
