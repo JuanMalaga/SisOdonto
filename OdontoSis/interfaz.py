@@ -1,7 +1,9 @@
 from variables import VarGlo
 from PIL import Image
+from tkinter import ttk
 import ctypes
 from PIL import ImageTk as itk
+from tkinter.font import Font
 
 resolucion = ctypes.windll.user32 
 width = resolucion.GetSystemMetrics(0)
@@ -41,13 +43,16 @@ septimo_segundo_de = (538,634)
 
 
 class interfaz():
+
+    global var
+    var = VarGlo()
+    botonActual = 1
     cuadricula = False
+    Botones = []
+    Imagenes = []
+
     def cuadriculas(self):
         self.cuadricula = True
-        """ cantidad = 4
-        distance = 250
-        for i in range(50):
-            self.canvas.create_line(i*distance,0,i*distance,1000,fill="red") """
         self.canvas.create_line(mitad_x,0,mitad_x,1000)
         self.canvas.create_line(0,primer_diente_y,1000,primer_diente_y)
         self.canvas.create_line(0,segundo_diente_iz_y,mitad_x,segundo_diente_iz_y)
@@ -163,11 +168,6 @@ class interfaz():
     def get_concat_h_cut_center(self,im1, im2, separacion = 0, ampliar = False):
         if(ampliar):
             dimensiones = (im1.width + im2.width, max(im1.height, im2.height))
-<<<<<<< HEAD
-        
-        print(im1.width + im2.width)
-=======
->>>>>>> main
         if(not ampliar):
             im1 = im1.crop((0,0,im1.width/2+separacion,im1.height))
             im2 = im2.crop((im2.width/2,0,im2.width,im2.height))
@@ -198,3 +198,43 @@ class interfaz():
         self.diente = diente
         self.centro_y = y
         self.centro_x = x         
+
+    def crearImagenBoton(self,imagen,imagen_teoria = None,titulo_teoria = None,mensaje = None):
+        posicion = self.botonActual
+        im1 = Image.open(self.direccionBase+imagen)
+        im1 = im1.resize((var.size, var.size), Image.ANTIALIAS)
+        self.Imagenes.append(itk.PhotoImage(im1))
+        self.Botones.append(ttk.Button())
+        self.Botones[self.botonActual-1] = ttk.Button(
+            self.frame, image = self.Imagenes[-1], command= lambda : self.Actualizar(posicion,imagen_teoria,titulo_teoria,mensaje))
+        self.Botones[self.botonActual-1].grid(column=self.botonActual, row=1, padx=5)
+        self.botonActual+=1
+
+    def crear_Borrador_(self):
+        im1 = Image.open('C:\\Users\\USUARIO\\Desktop\\sisOdo\\v1\\SisOdonto\\OdontoSis\\src\\borrador.png')
+        im1 = im1.resize((var.size, var.size), Image.ANTIALIAS)
+        self.Imagenes.append(itk.PhotoImage(im1))
+        self.Botones.append(ttk.Button())
+        self.Botones[self.botonActual-1] = ttk.Button(
+            self.frame, image = self.Imagenes[-1], command= lambda : self.limpiar())
+        self.Botones[self.botonActual-1].grid(column=self.botonActual, row=1, padx=5)
+
+
+    def Actualizar(self,num,imagen_teoria,titulo_teoria,mensaje):
+        self.opcion = num
+        print(self.opcion)
+        if(imagen_teoria is not None and titulo_teoria is not None and mensaje is not None):
+            self.crear_teoria(imagen_teoria,titulo_teoria,mensaje)
+
+    def crear_teoria(self,imagen,titulo,mensaje):
+        self.ancho=int(width/4)
+        self.largo=int(3*height/4)
+        self.img = Image.open(imagen)
+        self.img = self.img.resize((self.ancho, int(13*self.largo/64)), Image.ANTIALIAS)
+        self.img = itk.PhotoImage(self.img) 
+        self.label = ttk.Label(self.frame, image = self.img).place(x=0,y=int(5*self.largo/8))
+        self.tamaño=Font(family="Bahnschrift", size = int(width/100))
+        self.fuente=Font(family="Roboto Mono", size = int(width/196))
+        self.titulo = ttk.Label(self.frame, font=self.tamaño, text=titulo, width=self.ancho).place(x=19*self.ancho/64,y=55*self.largo/64)
+        self.descripcion = ttk.Label(self.frame, font=self.fuente, wraplength= int(13*self.ancho/16), width=self.ancho,justify="center",
+        text=mensaje).place(x=11*self.ancho/128,y=58*self.largo/64)    
