@@ -58,7 +58,7 @@ class inter_1(interfaz):
         graficador_sup = Graficador_Superior()
         var.Iniciar_Dentadura_Sup()
         graficador_sup.actualizar() 
-        
+        "esto es un comentario"
     def etiquetas(self):
         tamaño=Font(family="Bahnschrift", size = int(width/100))
         opcion=Font(family="Roboto Mono", size = int(width/160))
