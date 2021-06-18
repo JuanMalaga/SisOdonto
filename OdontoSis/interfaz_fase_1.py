@@ -43,6 +43,7 @@ class inter_1(interfaz):
         self.actual = "ninguno"
         self.iniciar_dentadura()
         self.cambiar_interfaz()
+
         self.etiquetas()
         #self.tiposD()
         global graficador
