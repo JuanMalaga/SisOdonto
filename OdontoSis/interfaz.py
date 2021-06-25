@@ -96,7 +96,7 @@ class interfaz():
             return False
         return True
 
-    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0, vertical = False, Ampliar_separacion = False, crop = (-1,-1,-1,-1)):
+    def conf_imagen(self, apoyoa : Image, X, Y,  ancho = -1, alto = -1,rotacion = 0, flip = False,extra :Image = None, separado = 0, vertical = False, Ampliar_separacion = False, crop = (-1,-1,-1,-1), expand = False):
         crecimiento = 1
         if(apoyoa.filename == "./src/apoyos/apoyo_oclusal_superior.png"):
             crecimiento = 4/3
@@ -109,8 +109,6 @@ class interfaz():
         if(alto == -1):    
             alto = apoyoa.height
 
-        
-
         medidas = (int(ancho*width*crecimiento/1920),int(alto*height*crecimiento/1080))
         apoyoa = apoyoa.resize(medidas)   
         self.x= int((X)*width/1920)
@@ -122,7 +120,7 @@ class interfaz():
             apoyoa = apoyoa.transpose(Image.FLIP_LEFT_RIGHT)
         if ( vertical):
             apoyoa = apoyoa.transpose(Image.FLIP_TOP_BOTTOM)     
-        dst = apoyoa.rotate(rotacion)
+        dst = apoyoa.rotate(rotacion,expand = expand)
         
         self.tkimage = itk.PhotoImage(dst)
         
