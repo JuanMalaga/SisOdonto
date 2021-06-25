@@ -36,9 +36,9 @@ class interfaz_fase_3(interfaz):
         self.crear_botones()
         
     def crear_botones(self):
-        self.crearImagenBoton('retenedores.png','./src/imagenes/retenedor.png',"Retenedor circunferencial","Abraza la circunferencia del diente molar o premolar. Tiene dos brazos curvos: uno del mismo grosor desde su inicio hasta su fin, y otro que se va adelgazando progresivamente hasta terminar en punta. Color ROJO. Se usa indistintamente en dientes posteriores molares y premolares, superiores e inferiores.")
-        self.crearImagenBoton("Retenedor_Vertica_sup_iz.png",'./src/imagenes/retenedor_i.png',"Retenedor de barra en I","Tiene un solo brazo, bastante largo que viene a tomar contacto con el diente en un solo punto (llamado en “I”), o dos puntos (llamado en “T” o en “Y”). Color ROJO. Los retenedores en “I” se usan en dientes superiores por ser menos notorios al sonreír, generalmente en caninos o 1° premolares superiores.")
-        self.crearImagenBoton("retenedor_barra_T.png",'./src/imagenes/retenedor_t.png',"Retenedor de barra en T","Tiene un solo brazo, bastante largo que viene a tomar contacto con el diente en un solo punto (llamado en “I”), o dos puntos (llamado en “T” o en “Y”). Color ROJO. Los retenedores en “T” se usan más en dientes inferiores.")
+        self.crearImagenBoton('retenedores.png','./src/imagenes/retenedor.png',"Retenedor circunferencial","")
+        self.crearImagenBoton("Retenedor_Vertica_sup_iz.png",'./src/imagenes/retenedor_i.png',"Retenedor de barra en I","")
+        self.crearImagenBoton("retenedor_barra_T.png",'./src/imagenes/retenedor_t.png',"Retenedor de barra en T","")
         self.crear_Borrador_()    
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)

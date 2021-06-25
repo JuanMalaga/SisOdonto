@@ -223,7 +223,7 @@ class interfaz():
         self.botonActual+=1
 
     def crear_Borrador_(self):
-        im1 = Image.open('C:\\Users\\USUARIO\\Desktop\\sisOdo\\v1\\SisOdonto\\OdontoSis\\src\\borrador.png')
+        im1 = Image.open('./src/borrador.png')
         im1 = im1.resize((var.size, var.size), Image.ANTIALIAS)
         self.Imagenes.append(itk.PhotoImage(im1))
         self.Botones.append(ttk.Button())

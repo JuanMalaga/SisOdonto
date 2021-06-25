@@ -45,11 +45,11 @@ class interfaz_fase_5(interfaz):
 
     def crear_botones(self):
         self.crearImagenBoton('barra_lingual_simple.png', './src/imagenes/barra_lingual_simple.png', "Barra lingual simple",
-                              "Es muy delgada, se aloja en el piso de la boca, se aleja 3 mm del margen gingival. Su longitud depende de cada caso.")
+                              "")
         self.crearImagenBoton("doble_barra_lingual.png", './src/imagenes/doble_barra_lingual.png', " Doble barra lingual",
-                              "La barra inferior es igual a la anterior. La barra superior va sobre los dientes anteriores inferiores. La barra inferior se aleja 3 mm del margen gingival.")
+                              "")
         self.crearImagenBoton("placa_lingual.png", './src/imagenes/placa.png', "Placa lingual",
-                              "Cubre toda la encía, y llega hasta los cíngulos de los dientes anteriores, y hasta el ecuador de los dientes posteriores.")
+                              "")
         self.crear_Borrador_()
 
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
