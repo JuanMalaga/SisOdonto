@@ -29,6 +29,7 @@ class VarGlo(metaclass=SingletonMeta):
     Retenedores = []
     Conectores_menores = []
     Conectores_mayores = []
+    Subir = []
     Bases = []
     cambios: componente_odontologico = []
     canvas: tk.Canvas

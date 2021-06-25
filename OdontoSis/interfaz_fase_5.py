@@ -12,6 +12,8 @@ resolucion = ctypes.windll.user32
 width = resolucion.GetSystemMetrics(0)
 height = resolucion.GetSystemMetrics(1)
 
+constante_x = width/1920
+constante_y = height/1080
 
 class interfaz_fase_5(interfaz):
     ventana: tk.Tk
@@ -20,7 +22,7 @@ class interfaz_fase_5(interfaz):
     conectores: tk.PhotoImage = []
     direccionBase = "./src/conectores_mayores/inferiores/"
     frame: Frame
-
+    borradores = []
     def __init__(self):
         self.opcion = 0
         global var
@@ -57,8 +59,10 @@ class interfaz_fase_5(interfaz):
 
     def left_but_down(self, evento):
         self.permitido = False
-        
+        tag = "conector_mayor"
         if(self.opcion != 0):
+            superponedor = Image.open(self.direccionBase+"base_limpia.png")
+            punto_de_corte = evento.y-73*constante_y
             self.x = evento.x
             self.y = evento.y
             tupla = self.obtener_diente()
@@ -67,59 +71,72 @@ class interfaz_fase_5(interfaz):
             if(self.opcion == 1):
                 conector_mayor = Image.open(
                     self.direccionBase+"conec_mayor.png")
-
-                mitad = Image.open(self.direccionBase+"conec_mayor.png")
-                mitad = mitad.transpose(Image.FLIP_LEFT_RIGHT)
-
-                self.conf_imagen(conector_mayor, 249, 75,extra=mitad, Ampliar_separacion=True)
-
                 
             elif(self.opcion == 2):
-                conector_mayor = tk.PhotoImage(
-                    file=self.direccionBase+"doble_barra_lingual.png")
-                self.x = 184
-                self.y = 172
-    
-
+                conector_mayor = Image.open(
+                    self.direccionBase+"doble_barra_lingual_mitad.png")
+                
             elif(self.opcion == 3):
-                conector_mayor = tk.PhotoImage(
-                    file=self.direccionBase+"placa_lingual.png")
-                self.x = 248
-                self.y = 406
+                conector_mayor = Image.open(
+                    self.direccionBase+"placa_lingual.png")
+            
+            if(self.opcion != 3):
+                if(evento.x>470):
+                    self.canvas.delete("conector_mayor_derecho")
+                    self.conf_imagen(conector_mayor, 249+conector_mayor.width, 75,flip=True)
+                    tag = tag + "_derecho"
+                else:
+                    self.canvas.delete("conector_mayor_izquierdo")
+                    self.conf_imagen(conector_mayor, 249, 75)
+                    tag = tag + "_izquierdo"
+            else:
+                self.conf_imagen(conector_mayor,288,460)
 
-
-            var.agregarConec_Mayor(self.tkimage)
-            ultimo_elemento = len(self.conectores)-1
             if(self.permitido):
+                var.agregarConec_Mayor(self.tkimage)
                 self.canvas.create_image(
-                    self.x, self.y, image=self.conectores[ultimo_elemento], anchor="nw", tag="conector_mayor")
+                    self.x, self.y, image=self.conectores[-1], anchor="nw", tag=tag)
+                
                 var.grabar(5, self.x, self.y, self.opcion)
-            superponedor = Image.open(self.direccionBase+"base_limpia.png")
-            
-            
-            self.cortar_imagenes(evento.y-73, evento.y-73)
-            
+
+            if(self.opcion != 3):
+                if(evento.y<471*constante_y):
+                    if(evento.x>470):
+                        self.cortar_imagenes(derecha = punto_de_corte)
+                    else:
+                        self.cortar_imagenes(izquierda = punto_de_corte)
+                else:
+                    if(evento.x>470):
+                        self.cortar_imagenes(derecha = 398*constante_y)
+                    else:
+                        self.cortar_imagenes(izquierda = 398*constante_y)   
 
     def left_but_up(self, evento):
-        return
+        for i in var.Subir:
+            self.canvas.tag_raise(i)
 
     def limpiar(self):
         self.canvas.delete("conector_mayor")
+        self.canvas.delete("conector_mayor_derecho")
+        self.canvas.delete("conector_mayor_izquierdo")
     
-    def cortar_imagenes(self,x=-1,y=-1):
-        self.borradores = []
+    def cortar_imagenes(self,izquierda=-1,derecha=-1):
         superponedor = Image.open(self.direccionBase+"base_limpia.png")
 
-        if(x!=-1 and y!=-1):
-            crop = (0,0,superponedor.width,x)
-            crop2 = (0,0,superponedor.width,y)
+        if(izquierda!=-1):
+            crop = (0,0,superponedor.width,izquierda)
+            self.conf_imagen(superponedor,249,73,crop=crop)
+            self.borradores.append(self.tkimage)
             
+        if(derecha!=-1):
+            crop2 = (0,0,superponedor.width,derecha)
+            mitad = Image.open(self.direccionBase+"base_limpia.png")
+            self.conf_imagen(mitad, 249+superponedor.width,73,crop=crop2,flip=True)
+            self.borradores.append(self.tkimage)
         
-        self.conf_imagen(superponedor,249,73,crop=crop)
-        self.borradores.append(self.tkimage)
         self.canvas.create_image(self.x, self.y, image=self.borradores[-1], anchor="nw", tag="conector_mayor")
 
-        mitad = Image.open(self.direccionBase+"base_limpia.png")
-        self.conf_imagen(mitad, 249+superponedor.width,73,crop=crop2,flip=True)
-        self.borradores.append(self.tkimage)
-        self.canvas.create_image(self.x, self.y, image=self.borradores[-1], anchor="nw", tag="conector_mayor")
+        
+        
+
+        

@@ -52,9 +52,7 @@ class interfaz_fase_2(interfaz):
             self.x = evento.x
             self.y = evento.y
             tupla = self.obtener_diente()
-            print(self.opcion)
             if(self.opcion == 1):
-                print("entro")
                 apoyoa = Image.open("./src/apoyos/apoyo_oclusal_superior.png")
                 self.tkimage = itk.PhotoImage(apoyoa)
 
@@ -163,7 +161,7 @@ class interfaz_fase_2(interfaz):
             if (tupla[0] == 35 and self.existe_diente(35)):
                 if(self.opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa, 715, 402,
+                        self.conf_imagen(apoyoa, 710, 402,
                                          ancho=30, alto=20, rotacion=185)
                         dato = "1"
                     else:
@@ -211,19 +209,24 @@ class interfaz_fase_2(interfaz):
                         self.conf_imagen(
                             apoyoa, 435+a, 555+b, ancho=40, alto=25, rotacion=70, flip=True)
                         dato = "2"
+
             if(self.permitido):
                 ApoyoEnPantalla = str(tupla[0])+dato
                 var.AgregarDato(ApoyoEnPantalla)
                 var.agregarApoyo(self.tkimage)
-                ultimo_elemento = len(self.Apoyos)-1
                 self.canvas.create_image(
-                    self.x, self.y, image=var.Apoyos[ultimo_elemento], anchor="nw", tag="apoyo"+"_"+str(ultimo_elemento))
+                    self.x, self.y, image=var.Apoyos[-1], anchor="nw", tag="apoyo"+"_"+str(len(var.Apoyos)))
                 var.grabar(2, self.x, self.y, self.opcion)
 
     def limpiar(self):
+
         self.canvas.delete("apoyo")
+        
+        for i in range(len(var.Apoyos)):
+            self.canvas.delete("apoyo"+"_"+str(i+1))
+
         var.borrarApoyos()
-        self.opcion = 0
+        
 
     def left_but_up(self, evento):
         pass

@@ -216,7 +216,7 @@ class interfaz_fase_6(interfaz):
                     if(opcion == 1):
                         if (tupla[1][0]):
                             base = Image.open("./src/bases/base_doble1.png")
-                            self.conf_imagen(base,620,275,ancho=150, alto=270,rotacion = -8)
+                            self.conf_imagen(base,620,275,ancho=150, alto=270,rotacion = -8)    
           
             elif (self.no_existe_diente(35)):
                 if(tupla[0] == 35):
