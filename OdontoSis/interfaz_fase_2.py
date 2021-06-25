@@ -36,9 +36,9 @@ class interfaz_fase_2(interfaz):
 
     def crear_botones(self):
         self.im1 = self.crearImagenBoton('apoyo_oclusal_superior.png', "./src/imagenes/oclusales.png", "Apoyos oclusales",
-                                         "Se usan sobre dientes molares y premolares. Tienen forma de triángulo redondeado sin base, de color ROJO.")
+                                         "")
         self.im3 = self.crearImagenBoton('apoyo_incisal.png', './src/imagenes/incisal.png', "Apoyos incisales",
-                                         "Se usan en dientes caninos e incisivos INFERIORES. Tienen forma de un dedito, de color ROJO.")
+                                         "")
         self.crear_Borrador_()
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
