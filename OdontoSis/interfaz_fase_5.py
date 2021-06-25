@@ -81,7 +81,7 @@ class interfaz_fase_5(interfaz):
                     self.direccionBase+"placa_lingual.png")
             
             if(self.opcion != 3):
-                if(evento.x>470):
+                if(evento.x>470*constante_x):
                     self.canvas.delete("conector_mayor_derecho")
                     self.conf_imagen(conector_mayor, 249+conector_mayor.width, 75,flip=True)
                     tag = tag + "_derecho"
@@ -98,10 +98,10 @@ class interfaz_fase_5(interfaz):
                     self.x, self.y, image=self.conectores[-1], anchor="nw", tag=tag)
                 
                 var.grabar(5, self.x, self.y, self.opcion)
-
+            print(evento.y)
             if(self.opcion != 3):
                 if(evento.y<471*constante_y):
-                    if(evento.x>470):
+                    if(evento.x>470*constante_x):
                         self.cortar_imagenes(derecha = punto_de_corte)
                     else:
                         self.cortar_imagenes(izquierda = punto_de_corte)
