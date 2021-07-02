@@ -47,11 +47,11 @@ class interfaz_fase_5(interfaz):
 
     def crear_botones(self):
         self.crearImagenBoton('barra_lingual_simple.png', './src/imagenes/barra_lingual_simple.png', "Barra lingual simple",
-                              "")
+                              "", restrictivo = True)
         self.crearImagenBoton("doble_barra_lingual.png", './src/imagenes/doble_barra_lingual.png', " Doble barra lingual",
-                              "")
+                              "", restrictivo = True)
         self.crearImagenBoton("placa_lingual.png", './src/imagenes/placa.png', "Placa lingual",
-                              "")
+                              "", restrictivo = True)
         self.crear_Borrador_()
 
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
@@ -98,7 +98,7 @@ class interfaz_fase_5(interfaz):
                     self.x, self.y, image=self.conectores[-1], anchor="nw", tag=tag)
                 
                 var.grabar(5, self.x, self.y, self.opcion)
-            print(evento.y)
+            
             if(self.opcion != 3):
                 if(evento.y<471*constante_y):
                     if(evento.x>470*constante_x):
@@ -106,7 +106,7 @@ class interfaz_fase_5(interfaz):
                     else:
                         self.cortar_imagenes(izquierda = punto_de_corte)
                 else:
-                    if(evento.x>470):
+                    if(evento.x>470*constante_x):
                         self.cortar_imagenes(derecha = 398*constante_y)
                     else:
                         self.cortar_imagenes(izquierda = 398*constante_y)   
@@ -122,7 +122,6 @@ class interfaz_fase_5(interfaz):
     
     def cortar_imagenes(self,izquierda=-1,derecha=-1):
         superponedor = Image.open(self.direccionBase+"base_limpia.png")
-
         if(izquierda!=-1):
             crop = (0,0,superponedor.width,izquierda)
             self.conf_imagen(superponedor,249,73,crop=crop)
@@ -133,6 +132,7 @@ class interfaz_fase_5(interfaz):
             mitad = Image.open(self.direccionBase+"base_limpia.png")
             self.conf_imagen(mitad, 249+superponedor.width,73,crop=crop2,flip=True)
             self.borradores.append(self.tkimage)
+            print("grafica vorrador")
         
         self.canvas.create_image(self.x, self.y, image=self.borradores[-1], anchor="nw", tag="conector_mayor")
 
