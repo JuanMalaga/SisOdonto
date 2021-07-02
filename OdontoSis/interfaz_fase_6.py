@@ -531,8 +531,13 @@ class interfaz_fase_6(interfaz):
                 if(tupla[0] == 36):
                     if(opcion == 1):
                         if (tupla[1][0]):
+<<<<<<< HEAD
                             base = Image.open("./src/bases/uno/base_36.png")
                             self.conf_imagen(base,0,1,ancho=962, alto=815)
+=======
+                            base = Image.open("./src/bases/base_doble1.png")
+                            self.conf_imagen(base,620,275,ancho=150, alto=270,rotacion = -8)    
+>>>>>>> main
           
             if (self.no_existe_diente(35) and self.existe_diente(34) and self.existe_diente(36)):
                 if(tupla[0] == 35):

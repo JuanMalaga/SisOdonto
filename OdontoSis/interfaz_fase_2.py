@@ -103,7 +103,7 @@ class interfaz_fase_2(interfaz):
                     else:
                         self.conf_imagen(apoyoa, 270, 550,
                                          ancho=30, alto=20, rotacion=70)
-                        dato = "1"
+                        dato = "2"
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(self.opcion == 2):
                     if (not tupla[1][1]):
@@ -153,7 +153,7 @@ class interfaz_fase_2(interfaz):
             if (tupla[0] == 36 and self.existe_diente(36)):
                 if(self.opcion == 1):
                     if (tupla[1][0]):
-                        self.conf_imagen(apoyoa, 740, 292, rotacion=180)
+                        self.conf_imagen(apoyoa, 748, 292, rotacion=180)
                         dato = "1"
                     else:
                         self.conf_imagen(apoyoa, 720, 372, rotacion=320)

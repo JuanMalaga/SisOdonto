@@ -209,14 +209,14 @@ class interfaz():
             self.canvas.create_line(x,y-dist,x,y+dist,width=5,fill="green")
 
 
-    def crearImagenBoton(self,imagen,imagen_teoria = None,titulo_teoria = None,mensaje = None):
+    def crearImagenBoton(self,imagen,imagen_teoria = None,titulo_teoria = None,mensaje = None, restrictivo = False):
         posicion = self.botonActual
         im1 = Image.open(self.direccionBase+imagen)
         im1 = im1.resize((var.size, var.size), Image.ANTIALIAS)
         self.Imagenes.append(itk.PhotoImage(im1))
         self.Botones.append(ttk.Button())
         self.Botones[self.botonActual-1] = ttk.Button(
-            self.frame, image = self.Imagenes[-1], command= lambda : self.Actualizar(posicion,imagen_teoria,titulo_teoria,mensaje))
+            self.frame, image = self.Imagenes[-1], command= lambda : self.Actualizar(posicion,imagen_teoria,titulo_teoria,mensaje,restrictivo))
         self.Botones[self.botonActual-1].grid(column=self.botonActual, row=1, padx=5)
         self.botonActual+=1
 
@@ -230,7 +230,9 @@ class interfaz():
         self.Botones[self.botonActual-1].grid(column=self.botonActual, row=1, padx=5)
 
 
-    def Actualizar(self,num,imagen_teoria,titulo_teoria,mensaje):
+    def Actualizar(self,num,imagen_teoria,titulo_teoria,mensaje, restrictivo):
+        if(restrictivo):
+            self.limpiar()
         self.opcion = num
         if(imagen_teoria is not None and titulo_teoria is not None and mensaje is not None):
             self.crear_teoria(imagen_teoria,titulo_teoria,mensaje)
