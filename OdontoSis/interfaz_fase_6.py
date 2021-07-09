@@ -100,15 +100,6 @@ class interfaz_fase_6(interfaz):
             
             self.tkimage = itk.PhotoImage(base) 
                
-            #CUATRO
-
-            if (self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44) and self.existe_diente(43)):
-                if(tupla[0] == 47 or tupla[0] == 46 or tupla[0] == 45 or tupla[0] == 44):
-                    if(opcion == 1):
-                        if (tupla[1][0]):
-                            base = Image.open("./src/bases/base_doble3.png")
-                            self.conf_imagen(base,180,168,ancho = 155, alto = 420,rotacion = 8, flip=True)
-
             #TOTAL
 
             if (self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44) and 
@@ -136,6 +127,167 @@ class interfaz_fase_6(interfaz):
                     if(opcion == 1):
                         if (tupla[1][0]):
                             base = Image.open("./src/bases/base_completo.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            #CINCO
+
+            if (self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44) and 
+                self.no_existe_diente(43) and self.existe_diente(42)):
+                if(tupla[0] == 47 or tupla[0] == 46 or tupla[0] == 45 or tupla[0] == 44 or tupla[0] == 43):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_47_43.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44) and self.no_existe_diente(43) and 
+                self.no_existe_diente(42) and self.existe_diente(47) and self.existe_diente(41)):
+                if(tupla[0] == 46 or tupla[0] == 45 or tupla[0] == 44 or tupla[0] == 43 or tupla[0] == 42):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_46_42.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(45) and self.no_existe_diente(44) and self.no_existe_diente(43) and self.no_existe_diente(42) and 
+                self.no_existe_diente(41) and self.existe_diente(46) and self.existe_diente(31)):
+                if(tupla[0] == 45 or tupla[0] == 44 or tupla[0] == 43 or tupla[0] == 42 or tupla[0] == 41):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_45_41.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(44) and self.no_existe_diente(43) and self.no_existe_diente(42) and self.no_existe_diente(41) and 
+                self.no_existe_diente(31) and self.existe_diente(45) and self.existe_diente(32)):
+                if(tupla[0] == 44 or tupla[0] == 43 or tupla[0] == 42 or tupla[0] == 41 or tupla[0] == 31):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_44_31.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(43) and self.no_existe_diente(42) and self.no_existe_diente(41) and self.no_existe_diente(31) and 
+                self.no_existe_diente(32) and self.existe_diente(44) and self.existe_diente(33)):
+                if(tupla[0] == 43 or tupla[0] == 42 or tupla[0] == 41 or tupla[0] == 31 or tupla[0] == 32):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_43_32.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(42) and self.no_existe_diente(41) and self.no_existe_diente(31) and self.no_existe_diente(32) and 
+                self.no_existe_diente(33) and self.existe_diente(43) and self.existe_diente(34)):
+                if(tupla[0] == 42 or tupla[0] == 41 or tupla[0] == 31 or tupla[0] == 32 or tupla[0] == 33):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_42_33.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(41) and self.no_existe_diente(31) and self.no_existe_diente(32) and self.no_existe_diente(33) and 
+                self.no_existe_diente(34) and self.existe_diente(42) and self.existe_diente(35)):
+                if(tupla[0] == 41 or tupla[0] == 31 or tupla[0] == 32 or tupla[0] == 33 or tupla[0] == 34):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_41_34.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(31) and self.no_existe_diente(32) and self.no_existe_diente(33) and self.no_existe_diente(34) and 
+                self.no_existe_diente(35) and self.existe_diente(41) and self.existe_diente(36)):
+                if(tupla[0] == 31 or tupla[0] == 32 or tupla[0] == 33 or tupla[0] == 34 or tupla[0] == 35):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_31_35.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(32) and self.no_existe_diente(33) and self.no_existe_diente(34) and self.no_existe_diente(35) and 
+                self.no_existe_diente(36) and self.existe_diente(31) and self.existe_diente(37)):
+                if(tupla[0] == 32 or tupla[0] == 33 or tupla[0] == 34 or tupla[0] == 35 or tupla[0] == 36):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_32_36.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(33) and self.no_existe_diente(34) and self.no_existe_diente(35) and self.no_existe_diente(36) and 
+                self.no_existe_diente(37) and self.existe_diente(32)):
+                if(tupla[0] == 44 or tupla[0] == 43 or tupla[0] == 42 or tupla[0] == 41 or tupla[0] == 31):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cinco/base_cinco_33_37.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            #CUATRO
+
+            if (self.no_existe_diente(47) and self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44) and self.existe_diente(43)):
+                if(tupla[0] == 47 or tupla[0] == 46 or tupla[0] == 45 or tupla[0] == 44):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_47464544.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(46) and self.no_existe_diente(45) and self.no_existe_diente(44) and self.no_existe_diente(43) and self.existe_diente(47) and self.existe_diente(42)):
+                if(tupla[0] == 46 or tupla[0] == 45 or tupla[0] == 44 or tupla[0] == 43):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_46454443.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(45) and self.no_existe_diente(44) and self.no_existe_diente(43) and self.no_existe_diente(42) and self.existe_diente(46) and self.existe_diente(41)):
+                if(tupla[0] == 45 or tupla[0] == 44 or tupla[0] == 43 or tupla[0] == 42):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_45444342.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(44) and self.no_existe_diente(43) and self.no_existe_diente(42) and self.no_existe_diente(41) and self.existe_diente(45) and self.existe_diente(31)):
+                if(tupla[0] == 44 or tupla[0] == 43 or tupla[0] == 42 or tupla[0] == 41):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_44434241.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(43) and self.no_existe_diente(42) and self.no_existe_diente(41) and self.no_existe_diente(31) and self.existe_diente(44) and self.existe_diente(32)):
+                if(tupla[0] == 43 or tupla[0] == 42 or tupla[0] == 41 or tupla[0] == 31):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_43424131.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(42) and self.no_existe_diente(41) and self.no_existe_diente(31) and self.no_existe_diente(32) and self.existe_diente(43) and self.existe_diente(33)):
+                if(tupla[0] == 42 or tupla[0] == 41 or tupla[0] == 31 or tupla[0] == 32):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_42413132.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(41) and self.no_existe_diente(31) and self.no_existe_diente(32) and self.no_existe_diente(33) and self.existe_diente(42) and self.existe_diente(34)):
+                if(tupla[0] == 41 or tupla[0] == 31 or tupla[0] == 32 or tupla[0] == 33):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_41313233.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(31) and self.no_existe_diente(32) and self.no_existe_diente(33) and self.no_existe_diente(34) and self.existe_diente(41) and self.existe_diente(35)):
+                if(tupla[0] == 31 or tupla[0] == 32 or tupla[0] == 33 or tupla[0] == 34):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_31323334.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(32) and self.no_existe_diente(33) and self.no_existe_diente(34) and self.no_existe_diente(35) and self.existe_diente(31) and self.existe_diente(36)):
+                if(tupla[0] == 32 or tupla[0] == 33 or tupla[0] == 34 or tupla[0] == 35):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_32333435.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+            
+            if (self.no_existe_diente(33) and self.no_existe_diente(34) and self.no_existe_diente(35) and self.no_existe_diente(36) and self.existe_diente(32) and self.existe_diente(37)):
+                if(tupla[0] == 33 or tupla[0] == 34 or tupla[0] == 35 or tupla[0] == 36):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_33343536.png")
+                            self.conf_imagen(base,0,1,ancho=962, alto=815)
+
+            if (self.no_existe_diente(34) and self.no_existe_diente(35) and self.no_existe_diente(36) and self.no_existe_diente(37) and self.existe_diente(33)):
+                if(tupla[0] == 34 or tupla[0] == 35 or tupla[0] == 36 or tupla[0] == 37):
+                    if(opcion == 1):
+                        if (tupla[1][0]):
+                            base = Image.open("./src/bases/cuatro/base_cuatro_34353637.png")
                             self.conf_imagen(base,0,1,ancho=962, alto=815)
 
             #TRIPLE
