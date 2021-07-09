@@ -61,7 +61,6 @@ class interfaz_fase_3(interfaz):
             elif(self.opcion == 3):
                 Retenedor = Image.open("./src/retenedores/retenedor_barra_T.png")
                 
-
             self.tkimage = itk.PhotoImage(Retenedor)
             
             if(tupla[1][0]):
@@ -74,7 +73,7 @@ class interfaz_fase_3(interfaz):
                         suma = const
                     else:
                         vert = False
-                    self.conf_imagen(Retenedor,85,50+suma,ancho = 180, alto = 140,extra = RetenedorD, separado = 15, vertical = vert)
+                    self.conf_imagen(Retenedor,85,50+suma,ancho = 180, alto = 140,extra = RetenedorD, separado = 5, vertical = vert)
             elif (tupla[0] == 47 and self.existe_diente(47)):
                 if(self.opcion == 1):
                     if(tupla[1][0]):

@@ -132,7 +132,6 @@ class interfaz_fase_5(interfaz):
             mitad = Image.open(self.direccionBase+"base_limpia.png")
             self.conf_imagen(mitad, 249+superponedor.width,73,crop=crop2,flip=True)
             self.borradores.append(self.tkimage)
-            print("grafica vorrador")
         
         self.canvas.create_image(self.x, self.y, image=self.borradores[-1], anchor="nw", tag="conector_mayor")
 
