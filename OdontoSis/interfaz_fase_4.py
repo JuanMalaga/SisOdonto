@@ -142,21 +142,22 @@ class interfaz_fase_4(interfaz):
                 if(self.opcion ==  1):
                     Retenedor = Image.open(self.direccionBase+"44.png")
                     if (tupla[1][0] and var.revisarDatos("341")):
-                        self.conf_imagen(Retenedor, 236, 465,ancho = 110)
+                        self.conf_imagen(Retenedor, 603, 442,ancho = 110, flip = True)
                     if(not tupla[1][0] and var.revisarDatos("342")):
-                        self.conf_imagen(Retenedor, 278, 490,vertical= True,rotacion= 60, expand= True,ancho = 110) 
+                        self.conf_imagen(Retenedor, 575, 478,vertical= True,rotacion= -60, expand= True,ancho = 100, flip = True) 
                 if(self.opcion == 2):
                     Retenedor = Image.open(self.direccionBase + "aislado.png")
                     if(tupla[1][0]):
-                        self.conf_imagen(Retenedor,220,458)
+                        self.conf_imagen(Retenedor,615,435, flip = True)
                     else:
-                        self.conf_imagen(Retenedor,250,510,rotacion = 10, expand = True)
+                        self.conf_imagen(Retenedor,575,497,rotacion = -10, expand = True, flip = True)
                 if(self.opcion == 3):
                     Retenedor = Image.open(self.direccionBase + "redondo.png")
                     if (tupla[1][0] and var.revisarDatos("341")):
-                        self.conf_imagen(Retenedor, 236, 460)
+                        self.conf_imagen(Retenedor, 604, 440, flip = True)
                     elif(not tupla[1][0] and var.revisarDatos("342")):
-                        self.conf_imagen(Retenedor, 236, 470, vertical= True,rotacion = 60, expand = True,ancho = 90)
+                        Retenedor = Image.open(self.direccionBase + "34_inv_redondo.png")
+                        self.conf_imagen(Retenedor, 582, 475)
 
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(self.opcion == 1):
@@ -189,28 +190,28 @@ class interfaz_fase_4(interfaz):
                 if(self.opcion == 1):
                     Retenedor = Image.open(
                         self.direccionBase + "largo_incisal.png")
-                    if (tupla[1][0] and var.revisarDatos("331")):
-                        self.conf_imagen(Retenedor, 279, 510, rotacion=00)
-                    elif(not tupla[1][0] and var.revisarDatos("332")):
-                        self.conf_imagen(Retenedor, 325, 540, rotacion=10)
+                    if (not tupla[1][1] and var.revisarDatos("331")):
+                        self.conf_imagen(Retenedor, 535, 530, rotacion=-17 , flip = True)
+                    elif( tupla[1][1] and var.revisarDatos("332")):
+                        self.conf_imagen(Retenedor, 570, 488, flip = True)
 
             elif (tupla[0] == 32 and self.existe_diente(32)):
                 if(self.opcion == 1):
                     Retenedor = Image.open(
                         self.direccionBase + "largo_incisal.png")
-                    if (tupla[1][0] and var.revisarDatos("321")):
-                        self.conf_imagen(Retenedor, 279, 510, rotacion=00)
-                    elif(not tupla[1][0] and var.revisarDatos("322")):
-                        self.conf_imagen(Retenedor, 325, 540, rotacion=10)
+                    if (not tupla[1][1] and var.revisarDatos("321")):
+                        self.conf_imagen(Retenedor, 472, 530, rotacion=-40, flip = True, expand = True)
+                    elif( tupla[1][1] and var.revisarDatos("322")):
+                        self.conf_imagen(Retenedor, 512, 520, rotacion=-20, flip = True, expand = True)
 
             elif (tupla[0] == 31 and self.existe_diente(31)):
                 if(self.opcion == 1):
                     Retenedor = Image.open(
                         self.direccionBase + "largo_incisal.png")
-                    if (tupla[1][0] and var.revisarDatos("311")):
-                        self.conf_imagen(Retenedor, 279, 510, rotacion=00)
-                    elif(not tupla[1][0] and var.revisarDatos("312")):
-                        self.conf_imagen(Retenedor, 325, 540, rotacion=10)
+                    if (not tupla[1][1] and var.revisarDatos("311")):
+                        self.conf_imagen(Retenedor, 405, 535, rotacion=-47,expand=True, flip = True)
+                    elif( tupla[1][1] and var.revisarDatos("312")):
+                        self.conf_imagen(Retenedor, 457, 530, rotacion=-40,expand=True, flip = True)
 
             if(self.permitido):
                 var.agregarConec_Menor(self.tkimage)
