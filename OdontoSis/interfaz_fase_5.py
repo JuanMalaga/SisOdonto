@@ -24,6 +24,9 @@ class interfaz_fase_5(interfaz):
     frame: Frame
     borradores = []
     def __init__(self):
+        self.tag = "conector_mayor"
+        self.old_x = None
+        self.old_y = None
         self.opcion = 0
         global var
         var = VarGlo()
@@ -56,6 +59,7 @@ class interfaz_fase_5(interfaz):
 
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
+        self.canvas.bind('<B1-Motion>', self.paint)
 
     def left_but_down(self, evento):
         self.permitido = False
@@ -114,6 +118,8 @@ class interfaz_fase_5(interfaz):
     def left_but_up(self, evento):
         for i in var.Subir:
             self.canvas.tag_raise(i)
+        self.old_x= None
+        self.old_y= None
 
     def limpiar(self):
         self.canvas.delete("conector_mayor")

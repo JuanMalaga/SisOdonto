@@ -22,13 +22,16 @@ class interfaz_fase_2(interfaz):
     direccionBase = "./src/apoyos/"
 
     def __init__(self):
+        self.tag = "apoyo"
         self.opcion = 0
         global var
         var = VarGlo()
         self.canvas = var.canvas
         self.frame = var.frame
         self.Apoyos = var.Apoyos
-
+        self.old_x = None
+        self.old_y = None
+        
     def iniciar_interfaz(self):
         self.Apoyos = var.Apoyos
         self.cambiar_interfaz()
@@ -42,13 +45,13 @@ class interfaz_fase_2(interfaz):
         self.crear_Borrador_()
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
+        self.canvas.bind('<B1-Motion>', self.paint)
 
     def left_but_down(self, evento):
         a = 80
         b = 92
-        #self.cuadriculas()
         self.permitido = False
-        if(self.opcion != 0):
+        if(self.opcion != 0 and self.opcion != 4):
             self.x = evento.x
             self.y = evento.y
             tupla = self.obtener_diente()
@@ -217,16 +220,16 @@ class interfaz_fase_2(interfaz):
                 self.canvas.create_image(
                     self.x, self.y, image=var.Apoyos[-1], anchor="nw", tag="apoyo"+"_"+str(len(var.Apoyos)))
                 var.grabar(2, self.x, self.y, self.opcion)
+            
+        
 
     def limpiar(self):
-
         self.canvas.delete("apoyo")
-        
         for i in range(len(var.Apoyos)):
             self.canvas.delete("apoyo"+"_"+str(i+1))
-
         var.borrarApoyos()
         
 
     def left_but_up(self, evento):
-        pass
+        self.old_x= None
+        self.old_y= None

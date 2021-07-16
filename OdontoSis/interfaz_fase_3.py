@@ -24,6 +24,9 @@ class interfaz_fase_3(interfaz):
     direccionBase = "./src/retenedores/"
 
     def __init__ (self):
+        self.tag = "retenedor"
+        self.old_x = None
+        self.old_y = None
         self.opcion = 0
         global var
         var = VarGlo()
@@ -42,6 +45,7 @@ class interfaz_fase_3(interfaz):
         self.crear_Borrador_()    
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
+        self.canvas.bind('<B1-Motion>', self.paint)
 
     def left_but_down(self, evento):
         self.permitido = False
@@ -59,7 +63,7 @@ class interfaz_fase_3(interfaz):
                 Retenedor = Image.open("./src/retenedores/Retenedor_Vertica_sup_iz.png")
                
             elif(self.opcion == 3):
-                Retenedor = Image.open("./src/retenedores/retenedor_barra_T.png")
+                Retenedor = Image.open("./src/retenedores/barra_t.png")
                 
             self.tkimage = itk.PhotoImage(Retenedor)
             
@@ -104,7 +108,7 @@ class interfaz_fase_3(interfaz):
                     self.conf_imagen(Retenedor,110,392,rotacion =350)
                    
                 if(self.opcion == 3):
-                    self.conf_imagen(Retenedor,110,392,rotacion =350)
+                    self.conf_imagen(Retenedor,80,312,rotacion =350)
 
             elif (tupla[0] == 44 and self.existe_diente(44)):
                 if(self.opcion == 1):
@@ -118,14 +122,14 @@ class interfaz_fase_3(interfaz):
                     self.conf_imagen(Retenedor,155,475)
                    
                 if(self.opcion == 3):
-                    self.conf_imagen(Retenedor,155,475)
+                    self.conf_imagen(Retenedor,125,395)
 
             elif (tupla[0] == 43 and self.existe_diente(43)):
                 if(self.opcion == 2):
                     self.conf_imagen(Retenedor,215,560, rotacion = 25)
                 
                 if(self.opcion == 3):
-                    self.conf_imagen(Retenedor,215,560, rotacion = 25)
+                    self.conf_imagen(Retenedor,170,470, rotacion = 15)
 
             if (tupla[0] == 38 and self.existe_diente(38)):
                 if(self.opcion == 1):
@@ -165,7 +169,7 @@ class interfaz_fase_3(interfaz):
                     self.conf_imagen(Retenedor, 735,368, flip = True,rotacion =10)
                 
                 if(self.opcion == 3):
-                    self.conf_imagen(Retenedor, 735,368, flip = True,rotacion =10)
+                    self.conf_imagen(Retenedor, 710,288, flip = True,rotacion =10)
             if (tupla[0] == 34 and self.existe_diente(34)):
                 if(self.opcion == 1):
                     if(tupla[1][0]):
@@ -178,14 +182,14 @@ class interfaz_fase_3(interfaz):
                     self.conf_imagen(Retenedor, 689,455, flip = True)
                 
                 if(self.opcion == 3):
-                    self.conf_imagen(Retenedor, 689,455, flip = True)
+                    self.conf_imagen(Retenedor, 674,375, flip = True)
 
             if (tupla[0] == 33 and self.existe_diente(33)):
                 if(self.opcion == 2):
                     self.conf_imagen(Retenedor, 645,535, rotacion = 335, flip = True)
                 
                 if(self.opcion == 3):
-                    self.conf_imagen(Retenedor, 645,535, rotacion = 335, flip = True)
+                    self.conf_imagen(Retenedor, 630,455, rotacion = -12, flip = True)
 
             var.agregarRetenedor(self.tkimage)
             ultimo_elemento = len(self.Retenedores)-1
@@ -194,7 +198,8 @@ class interfaz_fase_3(interfaz):
                 var.grabar(3,self.x,self.y,self.opcion)
                 
     def left_but_up(self, evento):
-        return
+        self.old_x= None
+        self.old_y= None
 
     def limpiar(self):
         self.canvas.delete("retenedor")

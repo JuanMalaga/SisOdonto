@@ -17,7 +17,10 @@ class interfaz_fase_4(interfaz):
     direccionBase = "./src/conectores_menores/"
 
     def __init__(self):
+        self.tag = "conector"
         self.opcion = 0
+        self.old_x = None
+        self.old_y = None
         global var
         var = VarGlo()
         self.canvas = var.canvas
@@ -37,6 +40,7 @@ class interfaz_fase_4(interfaz):
         self.crear_Borrador_()
         self.canvas.bind("<ButtonPress-1>", self.left_but_down)
         self.canvas.bind("<ButtonRelease-1>", self.left_but_up)
+        self.canvas.bind('<B1-Motion>', self.paint)
 
     def left_but_down(self, evento):
         self. permitido = False
@@ -168,6 +172,11 @@ class interfaz_fase_4(interfaz):
                     elif(tupla[1][1] and var.revisarDatos("432")):
                         self.conf_imagen(Retenedor, 325, 540, rotacion=10)
 
+                if(self.opcion == 4):
+                    if(var.revisarDatos("431") and var.revisarDatos("432")):
+                        Retenedor = Image.open(self.direccionBase + "superior_anterior_imagen.png")
+                        self.conf_imagen(Retenedor,285,500)
+
             elif (tupla[0] == 42 and self.existe_diente(42)):
                 if(self.opcion == 1):
                     Retenedor = Image.open(
@@ -221,7 +230,8 @@ class interfaz_fase_4(interfaz):
                 var.grabar(3, self.x, self.y, self.opcion)
                 var.Subir.append(im)
     def left_but_up(self, evento):
-        return
+        self.old_x= None
+        self.old_y= None
 
     def limpiar(self):
         self.canvas.delete("conector")
